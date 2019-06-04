@@ -4,9 +4,9 @@
      */
     if (function_exists('register_sidebar')) {
         register_sidebar(array(
-            'name' => __('Sidebar Widgets','pandora'),
+            'name' => __('Sidebar Widgets','miguelmorera'),
             'id'   => 'sidebar-widgets',
-            'description'   => __( 'These are widgets for the sidebar.','pandora'),
+            'description'   => __( 'These are widgets for the sidebar.','miguelmorera'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
             'before_title'  => '<h2>',
@@ -26,8 +26,8 @@
     function register_my_menus() {
         register_nav_menus(
             array(
-              'header-menu' => __('Header Menu', 'pandora'),
-              'extra-menu' => __('Extra Menu', 'pandora')
+              'header-menu' => __('Header Menu', 'miguelmorera'),
+              'extra-menu' => __('Extra Menu', 'miguelmorera')
             )
         );
     }
@@ -40,7 +40,7 @@
      * @return string
      */
     function my_more_link($more_link, $more_link_text) {
-        return str_replace($more_link_text, __('Read more &raquo;', 'pandora'), $more_link);
+        return str_replace($more_link_text, __('Read more &raquo;', 'miguelmorera'), $more_link);
     }
     add_filter('the_content_more_link', 'my_more_link', 10, 2);
 

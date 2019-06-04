@@ -1,6 +1,6 @@
 <?php
     /* Template Name: Home */
-    __( 'Home', 'pandora' ); // Template Name translation
+    __( 'Home', 'miguelmorera' ); // Template Name translation
     get_header(); 
 ?>
 

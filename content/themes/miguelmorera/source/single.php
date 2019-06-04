@@ -9,7 +9,7 @@
                         <h1><?php the_title(); ?></h1>
                         <div class="meta">
                             <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('F j, Y') ?></time>
-                            <p><?php _e('Publicado en', 'pandora'); ?> <?php edit_post_link(__('Editar', 'pandora'), '', ' &vert; '); ?> <?php comments_popup_link(__('Comenta la entrada &raquo;', 'pandora'), __('1 Respuesta &raquo;', 'pandora'), __('% Respuestas &raquo;','pandora')); ?></p>
+                            <p><?php _e('Publicado en', 'miguelmorera'); ?> <?php edit_post_link(__('Editar', 'miguelmorera'), '', ' &vert; '); ?> <?php comments_popup_link(__('Comenta la entrada &raquo;', 'miguelmorera'), __('1 Respuesta &raquo;', 'miguelmorera'), __('% Respuestas &raquo;','miguelmorera')); ?></p>
                         </div><!-- meta -->
                     </header>
                     <section class="post-content">
@@ -25,7 +25,7 @@
         <?php else : ?>                
             <article class="post">
                 <section class="post-content-inner">
-                    <p><?php _e('Lo siento no hay posts que coincidan con su búsqueda.','pandora'); ?></p>
+                    <p><?php _e('Lo siento no hay posts que coincidan con su búsqueda.','miguelmorera'); ?></p>
                 </section>
             </article><!-- .post -->            
         <?php endif; ?>

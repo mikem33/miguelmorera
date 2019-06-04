@@ -15,7 +15,7 @@
                 </div><!-- .post-content -->
                 <footer>
                     <div class="meta">
-                        <p><?php _e('Publicado en', 'pandora'); ?> <?php the_category(', '); ?> &vert; <?php edit_post_link(__('Editar', 'pandora'), '', ' &vert; '); ?> <?php comments_popup_link(__('Comenta la entrada &raquo;', 'pandora'), __('1 Respuesta &raquo;', 'pandora'), __('% Respuestas &raquo;','pandora')); ?></p>
+                        <p><?php _e('Publicado en', 'miguelmorera'); ?> <?php the_category(', '); ?> &vert; <?php edit_post_link(__('Editar', 'miguelmorera'), '', ' &vert; '); ?> <?php comments_popup_link(__('Comenta la entrada &raquo;', 'miguelmorera'), __('1 Respuesta &raquo;', 'miguelmorera'), __('% Respuestas &raquo;','miguelmorera')); ?></p>
                     </div><!-- meta -->
                 </footer>
             </article><!-- .post -->
@@ -23,8 +23,8 @@
         <?php endwhile; ?>
 
         <nav class="navigation">
-            <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'pandora')) ?></div>
-            <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'pandora')) ?></div>
+            <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'miguelmorera')) ?></div>
+            <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'miguelmorera')) ?></div>
         </nav>
 
     </div><!-- /.wrapper -->
