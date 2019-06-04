@@ -4,7 +4,8 @@
         global $wp_query;
         global $post;
       
-        $arr = array();  
+        $arr = array();
+        $arr[] = 'no-touch';
         
         if(is_front_page()) {
             $arr[] = 'page__home';
