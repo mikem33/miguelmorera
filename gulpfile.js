@@ -99,7 +99,6 @@ config = {
 };
 
 gulp.task('svgsprites', function() {
-    console.log(config);
     gulp.src('source/assets/images/_svg-sprites/*.svg')
     .pipe(svgSprites(config))
     .pipe(gulp.dest(build + 'assets/images'));
