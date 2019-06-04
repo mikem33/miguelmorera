@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" <?php echo get_language_attributes(); ?>>
+<html <?php echo get_language_attributes(); ?>>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>">
         <?php if ( is_front_page() ) : ?>
@@ -23,4 +23,12 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <header class="header"></header> <!--  /.header -->
+        <header class="header">
+            <a href="<?php echo home_url(); ?>" class="logo">
+                <svg><use xlink:href="#logo" /></svg>
+            </a>
+            <button class="toggle-nav">
+                <span><?php _e('Menu','miguelmorera'); ?></span>
+                <span class="toggle-nav__hamburger"></span>
+            </button>
+        </header> <!--  /.header -->
