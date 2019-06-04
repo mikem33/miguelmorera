@@ -78,6 +78,12 @@ gulp.task('copy-images', function() {
         .pipe(gulp.dest(php.build + 'assets/images'));
 });
 
+gulp.task('copy-screenshot', function() {
+    return gulp.src(dir.source + '*.png')
+        .pipe(newer(php.build))
+        .pipe(gulp.dest(php.build));
+});
+
 gulp.task('watch', function() {
     gulp.watch(dir.source + 'assets/css/styl/**/*.styl', ['styles']);
     gulp.watch(dir.source + 'assets/javascript/source/*.js', ['js-templates']);
