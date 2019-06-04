@@ -1,10 +1,6 @@
 const
     // source and build folders
-    dir = {
-        source  : 'source/',
-        build   : 'content/themes/miguelmorera/'
-    }
-    themeSlug       = 'source/',
+    build           = 'content/themes/miguelmorera/',
     fs              = require('fs'),
     gulp            = require('gulp'),
     nib             = require('nib'),
@@ -14,6 +10,7 @@ const
     notify          = require('gulp-notify'),
     concat          = require('gulp-concat'),
     uglify          = require('gulp-uglify'),
+    svgSprites      = require('gulp-svg-sprite'),
     sourcemaps      = require('gulp-sourcemaps'),
     realFavicon     = require('gulp-real-favicon'),
     checktextdomain = require('gulp-checktextdomain');
@@ -23,8 +20,8 @@ var browsersync = false;
 
 // PHP settings
 const php = {
-    source      : dir.source + '**/*.php',
-    build       : dir.build
+    source      : 'source/**/*.php',
+    build       : build
 };
 
 // copy PHP files
@@ -35,60 +32,85 @@ gulp.task('php', function() {
 });
 
 gulp.task('styles', function(){
-    gulp.src(dir.source + 'assets/css/styl/style.styl')
+    gulp.src('source/assets/css/styl/style.styl')
         .pipe(sourcemaps.init())
         .pipe(stylus({
             compress: true, 
             use: nib(),
             'include css': true,
-            paths: [dir.source + 'assets/css/styl']
+            paths: ['source/assets/css/styl']
         }))
         .on('error', swallowError)
         .pipe(sourcemaps.write('.'))
         .pipe(notify('Compiled!'))
-        .pipe(gulp.dest(dir.build))
+        .pipe(gulp.dest(build))
 });
 
 // Generate Javascript
 gulp.task('js-compiled', function(){
     return gulp.src([
-            dir.source + 'assets/javascript/compile/*.js'
+            'source/assets/javascript/compile/*.js'
         ])
         .pipe(concat('javascript.min.js'))
-        .pipe(gulp.dest(dir.build + 'assets/javascript'))
+        .pipe(gulp.dest(build + 'assets/javascript'))
         .pipe(babel({
             presets: ['es2015']
         }))
         .pipe(uglify())
         .on('error', swallowError)
-        .pipe(gulp.dest(dir.build + 'assets/javascript'));
+        .pipe(gulp.dest(build + 'assets/javascript'));
 });
 
 gulp.task('js-templates', function(){
-    return gulp.src(dir.source + 'assets/javascript/source/*.js')
+    return gulp.src('source/assets/javascript/source/*.js')
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .on('error', swallowError)
-        .pipe(gulp.dest(dir.build + 'assets/javascript'));
+        .pipe(gulp.dest(build + 'assets/javascript'));
 });
 
 gulp.task('copy-images', function() {
-    return gulp.src(dir.source + 'assets/images/**/*.*')
+    return gulp.src([
+            'source/assets/images/**/*',
+            '!source/assets/images/_*/',
+            '!source/assets/images/_*/**/*'
+        ])
         .pipe(newer(php.build + 'assets/images'))
         .pipe(gulp.dest(php.build + 'assets/images'));
 });
 
 gulp.task('copy-screenshot', function() {
-    return gulp.src(dir.source + '*.png')
+    return gulp.src('source/*.png')
         .pipe(newer(php.build))
         .pipe(gulp.dest(php.build));
 });
 
+config = {
+    svg: {
+        xmlDeclaration: false,
+        doctypeDeclaration: false
+    },
+    mode: {
+        symbol: {
+            dest: '.',
+            sprite: 'sprites.svg'
+        }
+    }
+};
+
+gulp.task('svgsprites', function() {
+    console.log(config);
+    gulp.src('source/assets/images/_svg-sprites/*.svg')
+    .pipe(svgSprites(config))
+    .pipe(gulp.dest(build + 'assets/images'));
+});
+
 gulp.task('watch', function() {
-    gulp.watch(dir.source + 'assets/css/styl/**/*.styl', ['styles']);
-    gulp.watch(dir.source + 'assets/javascript/source/*.js', ['js-templates']);
-    gulp.watch(dir.source + 'assets/javascript/compile/*.js', ['js-compiled']);
-    gulp.watch(dir.source + '**/*.php', ['php']);
+    gulp.watch('source/assets/css/styl/**/*.styl', ['styles']);
+    gulp.watch('source/assets/javascript/source/*.js', ['js-templates']);
+    gulp.watch('source/assets/javascript/compile/*.js', ['js-compiled']);
+    gulp.watch('source/assets/images/*.*', ['copy-images']);
+    gulp.watch('source/**/*.php', ['php']);
 });
 
 
@@ -96,9 +118,9 @@ gulp.task('watch', function() {
 gulp.task('checktextdomain', function() {
     var textdomain = 'miguelmorera';
     return gulp.src([
-        dir.source + '*.php',
-        dir.source + '**/*.php',
-        dir.source + '**/**/*.php'
+        'source/*.php',
+        'source/**/*.php',
+        'source/**/**/*.php'
     ])
     .pipe(checktextdomain({
         text_domain: textdomain, // Specify allowed domain
@@ -125,11 +147,11 @@ gulp.task('checktextdomain', function() {
 
 gulp.task('generate-favicon', function(done) {
     // File where the favicon markups are stored (unnecessary but I don't know how to avoid its generation).
-    var FAVICON_DATA_FILE = dir.source + 'assets/images/favicons/faviconData.json';
+    var FAVICON_DATA_FILE = 'source/assets/images/favicons/faviconData.json';
     realFavicon.generateFavicon({
-        masterPicture: dir.source + 'assets/images/favicons/master-picture.png',
-        dest: dir.build + 'assets/images/favicons',
-        iconsPath: dir.build + '/assets/images/favicons/',
+        masterPicture: 'source/assets/images/favicons/master-picture.png',
+        dest: build + 'assets/images/favicons',
+        iconsPath: build + '/assets/images/favicons/',
         design: {
             ios: {
                 pictureAspect: 'noChange',
