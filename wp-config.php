@@ -2,16 +2,8 @@
 /**
  * Load database info and local development parameters
  */
-if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
-    define( 'WP_LOCAL_DEV', true );
-    include( dirname( __FILE__ ) . '/local-config.php' );
-} else {
-    define( 'WP_LOCAL_DEV', false );
-    define( 'DB_NAME', '%%DB_NAME%%' );
-    define( 'DB_USER', '%%DB_USER%%' );
-    define( 'DB_PASSWORD', '%%DB_PASSWORD%%' );
-    define( 'DB_HOST', '%%DB_HOST%%' ); // Probably 'localhost'
-}
+
+include( dirname( __FILE__ ) . '/config.php' );
 
 /**
  * Custom Content Directory
@@ -65,12 +57,6 @@ define( 'WP_DEBUG_DISPLAY', false );
  */
 if ( file_exists( dirname( __FILE__ ) . '/memcached.php' ) )
     $memcached_servers = include( dirname( __FILE__ ) . '/memcached.php' );
-
-/**
- * This can be used to programatically set the stage when deploying (e.g. production, staging)
- */
-define( 'WP_STAGE', '%%WP_STAGE%%' );
-define( 'STAGING_DOMAIN', '%%WP_STAGING_DOMAIN%%' ); // Does magic in WP Stack to handle staging domain rewriting
 
 /**
  * Bootstrap WordPress
