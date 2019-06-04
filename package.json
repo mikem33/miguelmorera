@@ -1,5 +1,5 @@
 {
-  "name": "pandora-wordpress-theme",
+  "name": "miguelmorera",
   "version": "1.0.0",
   "description": "Base Custom Wordpress Theme for developing sites.",
   "main": "gulpfile.js",
@@ -14,6 +14,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/miguelmorera/pandora-wordpress-theme#readme",
   "dependencies": {
+    "@babel/core": "^7.4.5",
     "gulp-babel": "^8.0.0",
     "gulp-modernizr": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
