@@ -1,0 +1,35 @@
+{
+  "name": "pandora-wordpress-theme",
+  "version": "1.0.0",
+  "description": "Base Custom Wordpress Theme for developing sites.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://miguelmorera@bitbucket.org/miguelmorera/pandora-wordpress-theme.git"
+  },
+  "author": "Miguel Morera",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/miguelmorera/pandora-wordpress-theme#readme",
+  "dependencies": {
+    "gulp-babel": "^8.0.0",
+    "gulp-modernizr": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "jquery": "^3.0.0",
+    "modernizr": "^3.6.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-checktextdomain": "^2.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-real-favicon": "^0.2.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.5.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-uglify": "^3.0.0",
+    "nib": "^1.1.2"
+  }
+}
