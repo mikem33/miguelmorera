@@ -6,4 +6,5 @@
 /sql-dump-*.sql
 /db-sync
 /content/upgrade/
+/themes
 .DS_Store

@@ -1,9 +1,14 @@
-// The theme slug variable.
-var themeSlug       = 'content/themes/miguelmorera/source/';
-
-var fs              = require('fs'),
+const
+    // source and build folders
+    dir = {
+        source  : 'source/',
+        build   : 'content/themes/miguelmorera/'
+    }
+    themeSlug       = 'source/',
+    fs              = require('fs'),
     gulp            = require('gulp'),
     nib             = require('nib'),
+    newer           = require('gulp-newer'),
     babel           = require('gulp-babel'),
     stylus          = require('gulp-stylus'),
     notify          = require('gulp-notify'),
@@ -13,57 +18,81 @@ var fs              = require('fs'),
     realFavicon     = require('gulp-real-favicon'),
     checktextdomain = require('gulp-checktextdomain');
 
+// Browser-sync
+var browsersync = false;
+
+// PHP settings
+const php = {
+    source      : dir.source + '**/*.php',
+    build       : dir.build
+};
+
+// copy PHP files
+gulp.task('php', function() {
+    return gulp.src(php.source)
+        .pipe(newer(php.build))
+        .pipe(gulp.dest(php.build));
+});
+
 gulp.task('styles', function(){
-    gulp.src(themeSlug + 'assets/css/styl/style.styl')
+    gulp.src(dir.source + 'assets/css/styl/style.styl')
         .pipe(sourcemaps.init())
         .pipe(stylus({
             compress: true, 
             use: nib(),
             'include css': true,
-            paths: [themeSlug + 'assets/css/styl']
+            paths: [dir.source + 'assets/css/styl']
         }))
         .on('error', swallowError)
         .pipe(sourcemaps.write('.'))
         .pipe(notify('Compiled!'))
-        .pipe(gulp.dest(themeSlug))
+        .pipe(gulp.dest(dir.build))
 });
 
 // Generate Javascript
 gulp.task('js-compiled', function(){
     return gulp.src([
-            themeSlug + 'assets/javascript/compile/*.js'
+            dir.source + 'assets/javascript/compile/*.js'
         ])
-        .pipe(concat('javascript.js'))
-        .pipe(gulp.dest(themeSlug + 'assets/javascript'))
+        .pipe(concat('javascript.min.js'))
+        .pipe(gulp.dest(dir.build + 'assets/javascript'))
         .pipe(babel({
             presets: ['es2015']
         }))
         .pipe(uglify())
         .on('error', swallowError)
-        .pipe(gulp.dest(themeSlug + 'assets/javascript'));
+        .pipe(gulp.dest(dir.build + 'assets/javascript'));
 });
 
 gulp.task('js-templates', function(){
-    return gulp.src(themeSlug + 'assets/javascript/source/*.js')
+    return gulp.src(dir.source + 'assets/javascript/source/*.js')
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .on('error', swallowError)
-        .pipe(gulp.dest(themeSlug + 'assets/javascript/build'));
+        .pipe(gulp.dest(dir.build + 'assets/javascript'));
+});
+
+gulp.task('copy-images', function() {
+    return gulp.src(dir.source + 'assets/images/**/*.*')
+        .pipe(newer(php.build + 'assets/images'))
+        .pipe(gulp.dest(php.build + 'assets/images'));
 });
 
 gulp.task('watch', function() {
-    gulp.watch(themeSlug + 'assets/css/styl/**/*.styl', gulp.series('styles'));
-    gulp.watch(themeSlug + 'assets/javascript/source/*.js', gulp.series('js-templates'));
-    gulp.watch(themeSlug + 'assets/javascript/compile/*.js', gulp.series('js-compiled'));
+    gulp.watch(dir.source + 'assets/css/styl/**/*.styl', ['styles']);
+    gulp.watch(dir.source + 'assets/javascript/source/*.js', ['js-templates']);
+    gulp.watch(dir.source + 'assets/javascript/compile/*.js', ['js-compiled']);
+    gulp.watch(dir.source + '**/*.php', ['php']);
 });
+
 
 // Check textdomains in the theme.
 gulp.task('checktextdomain', function() {
     var textdomain = 'miguelmorera';
     return gulp.src([
-        themeSlug + '*.php',
-        themeSlug + '**/*.php',
-        themeSlug + '**/**/*.php'
+        dir.source + '*.php',
+        dir.source + '**/*.php',
+        dir.source + '**/**/*.php'
     ])
     .pipe(checktextdomain({
         text_domain: textdomain, // Specify allowed domain
@@ -90,11 +119,11 @@ gulp.task('checktextdomain', function() {
 
 gulp.task('generate-favicon', function(done) {
     // File where the favicon markups are stored (unnecessary but I don't know how to avoid its generation).
-    var FAVICON_DATA_FILE = themeSlug + 'assets/images/favicons/faviconData.json';
+    var FAVICON_DATA_FILE = dir.source + 'assets/images/favicons/faviconData.json';
     realFavicon.generateFavicon({
-        masterPicture: themeSlug + 'assets/images/favicons/master-picture.png',
-        dest: themeSlug + 'assets/images/favicons',
-        iconsPath: themeSlug + '/assets/images/favicons/',
+        masterPicture: dir.source + 'assets/images/favicons/master-picture.png',
+        dest: dir.build + 'assets/images/favicons',
+        iconsPath: dir.build + '/assets/images/favicons/',
         design: {
             ios: {
                 pictureAspect: 'noChange',
@@ -152,6 +181,8 @@ gulp.task('generate-favicon', function(done) {
         done();
     });
 });
+
+gulp.task('build', ['php', 'css', 'js', 'copy-images']);
 
 // Show errors on console.
 function swallowError (error) {
