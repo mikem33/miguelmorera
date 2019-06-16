@@ -125,8 +125,9 @@ a
 .flex
     display flex
     flex-wrap wrap
-    &.no-wrap > .post
-        width 100%
+    &--no-wrap
+        @extend .flex
+        flex-flow column
 
 .flex-centering
     centerFlexbox(true,true)
