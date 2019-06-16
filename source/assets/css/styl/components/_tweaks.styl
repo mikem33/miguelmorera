@@ -1,27 +1,8 @@
-/* ---------------------------- *\
-    
-    $WP $Admin $Bar $Tweaks
+:root
+    --login-bar-height 0
+    --menu-bar-height 55
 
-\*----------------------------- */
-    
-@media (min-width: unit(783/16,'em'))
-    /* $min-width: $783px */
-    
-    // $General
-    .logged-in.showing-admin-bar
-        margin-top 32px        
-
-@media (min-width: unit(601/16,'em')) and (max-width: unit(782/16,'em'))
-    /* $min-width: $601px / $max-width: $782px */
-    
-    // $General
-    .logged-in.showing-admin-bar
-        margin-top 46px
-
-@media (max-width: unit(600/16,'em'))
-    /* $max-width: $600px */
-    
-    // $General
-    .logged-in.showing-admin-bar
-        margin-top 0
-        padding-top 46px
+.logged-in
+    +above(783)
+        /* $min-width: $783px */
+        --login-bar-height 32
