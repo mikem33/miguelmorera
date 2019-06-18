@@ -4,31 +4,41 @@ const
     fs              = require('fs'),
     gulp            = require('gulp'),
     nib             = require('nib'),
+    gutil           = require('gulp-util'),
     newer           = require('gulp-newer'),
     babel           = require('gulp-babel'),
     stylus          = require('gulp-stylus'),
     notify          = require('gulp-notify'),
     concat          = require('gulp-concat'),
     uglify          = require('gulp-uglify'),
+    rename          = require('gulp-rename'),
     svgSprites      = require('gulp-svg-sprite'),
     sourcemaps      = require('gulp-sourcemaps'),
     realFavicon     = require('gulp-real-favicon'),
-    checktextdomain = require('gulp-checktextdomain');
+    checktextdomain = require('gulp-checktextdomain'),
+    browserSync     = require('browser-sync').create();
 
-// Browser-sync
-var browsersync = false;
-
-// PHP settings
-const php = {
+// Files settings
+const files = {
     source      : 'source/**/*.php',
     build       : build
 };
 
+const acfFields = 'source/includes/acf-json/*.json';
+
 // copy PHP files
 gulp.task('php', function() {
-    return gulp.src(php.source)
-        .pipe(newer(php.build))
-        .pipe(gulp.dest(php.build));
+    return gulp.src(files.source)
+        .pipe(newer(files.build))
+        .pipe(gulp.dest(files.build))
+        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
+});
+
+gulp.task('acf-json', function() {
+    return gulp.src(acfFields)
+        .pipe(newer(build + 'includes/acf-json'))
+        .pipe(gulp.dest(build + 'includes/acf-json'))
+        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
 gulp.task('styles', function(){
@@ -44,6 +54,7 @@ gulp.task('styles', function(){
         .pipe(sourcemaps.write('.'))
         .pipe(notify('Compiled!'))
         .pipe(gulp.dest(build))
+        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
 // Generate Javascript
@@ -58,7 +69,8 @@ gulp.task('js-compiled', function(){
         }))
         .pipe(uglify())
         .on('error', swallowError)
-        .pipe(gulp.dest(build + 'assets/javascript'));
+        .pipe(gulp.dest(build + 'assets/javascript'))
+        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
 gulp.task('js-templates', function(){
@@ -66,7 +78,8 @@ gulp.task('js-templates', function(){
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .on('error', swallowError)
-        .pipe(gulp.dest(build + 'assets/javascript'));
+        .pipe(gulp.dest(build + 'assets/javascript'))
+        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
 gulp.task('copy-images', function() {
@@ -75,14 +88,15 @@ gulp.task('copy-images', function() {
             '!source/assets/images/_*/',
             '!source/assets/images/_*/**/*'
         ])
-        .pipe(newer(php.build + 'assets/images'))
-        .pipe(gulp.dest(php.build + 'assets/images'));
+        .pipe(newer(files.build + 'assets/images'))
+        .pipe(gulp.dest(files.build + 'assets/images'))
+        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
 gulp.task('copy-screenshot', function() {
     return gulp.src('source/*.png')
-        .pipe(newer(php.build))
-        .pipe(gulp.dest(php.build));
+        .pipe(newer(files.build))
+        .pipe(gulp.dest(files.build));
 });
 
 config = {
@@ -101,7 +115,8 @@ config = {
 gulp.task('svgsprites', function() {
     gulp.src('source/assets/images/_svg-sprites/*.svg')
     .pipe(svgSprites(config))
-    .pipe(gulp.dest(build + 'assets/images'));
+    .pipe(gulp.dest(build + 'assets/images'))
+    .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
 gulp.task('watch', function() {
@@ -110,6 +125,7 @@ gulp.task('watch', function() {
     gulp.watch('source/assets/javascript/compile/*.js', ['js-compiled']);
     gulp.watch('source/assets/images/*.*', ['copy-images']);
     gulp.watch('source/**/*.php', ['php']);
+    gulp.watch(acfFields, ['acf-json']);
 });
 
 
