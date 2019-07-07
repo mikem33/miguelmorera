@@ -3,7 +3,7 @@
  * Load database info and local development parameters
  */
 
-include( dirname( __FILE__ ) . '/config.php' );
+include( dirname( __FILE__ ) . '/private/config.php' );
 
 /**
  * Custom Content Directory
