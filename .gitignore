@@ -2,6 +2,7 @@
 /content/upgrade/
 /content/themes
 /node_modules
+/private
 /shared
 /wp
 /config.php
