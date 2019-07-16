@@ -127,7 +127,11 @@
     }
     add_filter('embed_oembed_html', 'responsive_embed', 10, 3);
 
-    function load_google_fonts($fonts) { ?>
+    /**
+     * Loads Google Fonts asynchronously
+     * @return string  Script tag with the necessary javascript.
+     */
+    function load_google_fonts() { ?>
         <?php $fonts = "'Rubik:400,400i,500,500i&display=swap'"; ?>
         <?php if ($fonts) : ?>
             <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
@@ -142,4 +146,19 @@
     <?php }
     
     add_action('wp_footer', 'load_google_fonts');
+
+    function reading_time() {
+        $content = get_post_field( 'post_content', $post->ID );
+        $word_count = str_word_count( strip_tags( $content ) );
+        $readingtime = ceil($word_count / 200);
+
+        if ($readingtime == 1) {
+          $timer = " minute";
+        } else {
+          $timer = " minutes";
+        }
+        $totalreadingtime = $readingtime . $timer;
+
+        return $totalreadingtime;
+    }
 ?>

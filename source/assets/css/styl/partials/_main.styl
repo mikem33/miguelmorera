@@ -6,3 +6,61 @@
 
 body
     font-family $rubik
+
+.page__header
+    color white
+    text-align center
+    align-items center
+    padding-bottom 55px
+    justify-content center
+    padding-top calc( ( var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px )
+    .title
+        margin-bottom 10px
+        fontSizeLine(33,35)
+
+.item__link
+    fontSize(14)
+    display flex
+    padding 1.5em 0
+    color $darkGrey
+    .ico
+        fill $darkGrey
+    .ico, span
+        display inline-block
+    span
+        text-decoration underline
+
+.button
+    font-weight 500
+    padding 10px 18px
+    border-radius 22px
+    display inline-block
+    span, .ico
+        display inline-block
+        vertical-align middle
+    span
+        margin-right 5px
+    for $color in $buttonsArray
+        &--{$color[0]}
+            color $color[1]
+            background-color $color[2]
+            .ico
+                fill $color[1]
+
+.alpha-warning
+    fontSize(9)
+    padding 3px 6px
+    border-radius 30px
+    display inline-block
+    background-color white
+    text-transform uppercase
+
+.no-touch
+    .button
+        transition all $basetransition
+        &:hover
+            transition all $pseudotransition
+        for $color in $buttonsArray
+            &--{$color[0]}:hover
+                color $color[3]
+                background-color $color[4]

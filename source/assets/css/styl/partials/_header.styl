@@ -1,0 +1,64 @@
+/* ---------------------------- *\
+
+    $Header
+
+\*----------------------------- */
+
+.header
+    width 100%
+    z-index 10
+    color white
+    position fixed
+    padding 11px 16px
+    top calc( var( --login-bar-height ) * 1px ) 
+    height calc( var( --menu-bar-height ) * 1px )
+    svg
+        fill white
+
+.logo
+    &, svg
+        width 30px
+        height 30px
+
+.toggle-nav
+    padding 0
+    color white
+    border none
+    margin-right 0
+    margin-left auto
+    font-family $rubik
+    background-color transparent
+    span
+        fontSize(14)
+        font-weight 500
+        display inline-block
+        vertical-align middle
+        text-transform uppercase
+    &__hamburger
+        width 28px
+        height 28px
+        margin-left 5px
+        border-radius 50%
+        position relative
+        background-color white
+        span, span::before, span::after
+            height 2px
+            display block
+            position absolute
+            background-color var(--main-page-color)
+        span::before, span::after
+            content ''
+        span, span::before
+            width 16px
+        span
+            top 50%
+            left 50%
+            margin-top -1px
+            margin-left -8px
+        span::before
+            margin-top -5px
+        span::after
+            left 2px
+            width 12px
+            margin-top 5px
+            

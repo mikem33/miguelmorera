@@ -1,0 +1,88 @@
+/* ---------------------------- *\
+
+    $Home
+
+\*----------------------------- */
+
+.page__template-home
+    .page__header
+        height 100vh
+        background-color var(--main-page-color)
+        .content
+            max-width 233px
+            .button
+                margin-top 10px
+        canvas
+            top 0
+            left 0
+            z-index 0
+            max-width 100%
+            position absolute
+        .content, .content-anchor
+            z-index 1
+    .alpha-warning
+        color var(--main-page-color)
+    .content-anchor
+        fill white
+        bottom 30px
+        height 20px
+        display block
+        centerObject(true, false)
+
+.home__blog
+    color white
+    padding-top 53px
+    background-color $mmRed
+    .section__header .title
+        fontSizeLine(32, 36)
+    a
+        color white
+
+.post--home
+    border-bottom 2px solid rgba(white, .25)
+    .beta
+        margin-bottom 5px
+        fontSizeLine(25, 28)
+    figure
+        position relative
+        margin-bottom 15px
+        a
+            display block
+        &::before
+            top 0
+            left 0
+            z-index 1
+            content ''
+            width 100%
+            height 100%
+            position absolute
+            pointer-events none
+            mix-blend-mode lighten
+            background-color rgba($mmRed, .7)
+    .meta
+        fontSize(14)
+        color #fab9b9
+        margin-bottom 1em
+        text-transform lowercase
+        time
+            margin-right 5px
+            padding-right 10px
+            position relative
+            &::after
+                right 0
+                content ''
+                width 1px
+                height 80%
+                background-color @color
+                centerObject(false, true)
+    .content
+        fontSize(14)
+        p, li
+            &:last-child
+                margin-bottom 0
+    .item__link
+        color $mmDarkRed
+        align-items center
+        .ico
+            fill $mmDarkRed
+            margin-right 4px
