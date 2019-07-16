@@ -27,7 +27,7 @@
         register_nav_menus(
             array(
               'header-menu' => __('Header Menu', 'miguelmorera'),
-              'extra-menu' => __('Extra Menu', 'miguelmorera')
+              'footer-menu' => __('Footer Menu', 'miguelmorera')
             )
         );
     }
