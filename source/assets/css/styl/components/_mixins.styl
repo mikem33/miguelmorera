@@ -5,12 +5,12 @@
 \* ---------------------------- */
 
 // $Font-size
-font-size($fontValue = $fontSize, $baseFontValue = $fontSize)
+fontSize($fontValue = $fontSize, $baseFontValue = $fontSize)
     font-size   $fontValue px
     font-size   ($fontValue / $baseFontValue) rem
 
-font-size-line($fontValue = $fontSize, $lineHeight = $fontValue)
-    font-size($fontValue)
+fontSizeLine($fontValue = $fontSize, $lineHeight = $fontValue)
+    fontSize($fontValue)
     line-height $lineHeight px
     
 // $Center Object function.
