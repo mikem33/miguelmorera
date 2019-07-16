@@ -8,11 +8,11 @@
         
         <header class="page__header page__header--hero flex space">
             <div class="content">
-                <span class="alpha-warning"><?php _e('Alpha','miguelmorera'); ?></span>
-                <h1 class="title alpha"><?php _e('Hi, my name is Miguel Morera.','miguelmorera'); ?></h1> <!--  /.title alpha -->
+                <span class="alpha-warning"><?php _e( 'Alpha', 'miguelmorera' ); ?></span>
+                <h1 class="title alpha"><?php _e( 'Hi, my name is Miguel Morera.', 'miguelmorera' ); ?></h1> <!--  /.title alpha -->
                 <p><?php _e('I’m a Frontend Web Developer focused on create beautiful and usable websites.','miguelmorera'); ?></p>
                 <a href="javascript:;" class="button button--white-purple button--filled button--icon">
-                    <span><?php _e('See my works','miguelmorera'); ?></span>
+                    <span><?php _e( 'See my works', 'miguelmorera' ); ?></span>
                     <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
                 </a>
             </div> <!--  /.content -->
@@ -24,7 +24,7 @@
 
         <section class="home__blog section space" id="content">
             <header class="section__header">
-                <h3 class="title"><?php _e('Eventually I like to write down some thoughts...','miguelmorera'); ?></h3>
+                <h3 class="title"><?php _e( 'Eventually I like to write down some thoughts...', 'miguelmorera' ); ?></h3>
             </header> <!--  /.section__header -->
             <div class="content">
                 <?php
@@ -54,7 +54,7 @@
                     </div> <!--  /.content -->
                     <a href="<?php the_permalink(); ?>" class="item__link">
                         <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                        <span><?php _e('Continue reading','miguelmorera'); ?></span>
+                        <span><?php _e( 'Continue reading', 'miguelmorera' ); ?></span>
                     </a>
                 </article>
                 <?php endwhile; ?>
