@@ -7,10 +7,6 @@
         $arr = array();
         $arr[] = 'no-touch';
         
-        if(is_front_page()) {
-            $arr[] = 'page__home';
-        }
-
         if(is_page()) {  
             $page_slug = $post->post_name;
             $page_id = get_the_ID();
@@ -24,7 +20,7 @@
         }
         
         if(is_404()) {
-            $arr[] = 'page__404';   
+            $arr[] = 'page__404';
         }
 
         if ( is_admin_bar_showing() ) {
@@ -35,7 +31,7 @@
             $arr[] = 'logged-in';
         }
         
-        return $arr;  
+        return $arr;
     }
     
     add_filter('body_class','my_class_names');
