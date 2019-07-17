@@ -1,12 +1,9 @@
-/acf
 /content/upgrade/
 /content/themes
 /node_modules
 /private
 /shared
 /wp
-/config.php
-/local-config.php
 /*.sql
 .htaccess
 .DS_Store
