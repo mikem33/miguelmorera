@@ -12,12 +12,12 @@ Author URI: https://www.miguelmorera.com/
  * Register post types
  *
  */
-if ( !post_type_exists('work') ) {
-    function register_work_type() {
+if ( !post_type_exists('mm_work') ) {
+    function register_mm_work_type() {
         $label_singular = __( 'Work', 'miguelmorera' );
         $label_plural   = __( 'Works', 'miguelmorera' );
         register_post_type(
-            'work',
+            'mm_work',
             array(
                 'label'           => $label_plural,
                 'description'     => '',
@@ -45,6 +45,7 @@ if ( !post_type_exists('work') ) {
                     'name'               => $label_plural,
                     'singular_name'      => $label_singular,
                     'menu_name'          => $label_plural,
+                    'all_items'          => __( 'All ', 'miguelmorera' ) . $label_plural,
                     'add_new'            => __( 'Add New', 'miguelmorera' ),
                     'add_new_item'       => __( 'Add New ', 'miguelmorera' ) . $label_singular,
                     'edit'               => __( 'Edit', 'miguelmorera' ),
@@ -60,15 +61,15 @@ if ( !post_type_exists('work') ) {
             )
         );
     }
-    add_action('init', 'register_work_type');
+    add_action('init', 'register_mm_work_type');
 }
 
-if ( !post_type_exists('comic') ) {
-    function register_comic_type() {
+if ( !post_type_exists('mm_comic') ) {
+    function register_mm_comic_type() {
         $label_singular = __( 'Comic', 'miguelmorera' );
         $label_plural   = __( 'Comics', 'miguelmorera' );
         register_post_type(
-            'comic',
+            'mm_comic',
             array(
                 'label'           => $label_plural,
                 'description'     => '',
@@ -96,6 +97,7 @@ if ( !post_type_exists('comic') ) {
                     'name'               => $label_plural,
                     'singular_name'      => $label_singular,
                     'menu_name'          => $label_plural,
+                    'all_items'          => __( 'All ', 'miguelmorera' ) . $label_plural,
                     'add_new'            => __( 'Add New', 'miguelmorera' ),
                     'add_new_item'       => __( 'Add New ', 'miguelmorera' ) . $label_singular,
                     'edit'               => __( 'Edit', 'miguelmorera' ),
@@ -110,6 +112,20 @@ if ( !post_type_exists('comic') ) {
                 )
             )
         );
+
+        register_taxonomy(
+            'mm_comic_category',
+            'mm_comic',
+            array(
+                // Label should be plural and L10n ready.
+                'label'             => __( 'Comic Categories', 'miguelmorera' ),
+                'show_admin_column' => true,
+                'rewrite'           => array(
+                    // Slug should be singular and L10n ready..
+                    'slug' => _x( 'mm-comic-category', 'Comic Taxonomy slug', 'mm_comic' ),
+                ),
+            )
+        );
     }
-    add_action('init', 'register_comic_type');
+    add_action('init', 'register_mm_comic_type');
 }
