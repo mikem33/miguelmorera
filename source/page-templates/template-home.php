@@ -59,6 +59,10 @@
                 </article>
                 <?php endwhile; ?>
             </div> <!--  /.content -->
+            <a href="<?php echo get_permalink(); ?>" class="button button--white-red button--filled button--icon">
+                <span><?php _e( 'See more posts', 'miguelmorera' ); ?></span>
+                <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
+            </a>
         </section> <!--  /.home__blog -->
 
     </main> <!--  /.main -->
