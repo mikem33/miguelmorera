@@ -30,6 +30,7 @@ if ( !post_type_exists('mm_work') ) {
                 'hierarchical'    => false,
                 'query_var'       => true,
                 'has_archive'     => true,
+                'show_in_rest'    => true,
                 'rewrite' => array(
                     'slug'       => 'works',
                     'with_front' => false,
@@ -82,6 +83,7 @@ if ( !post_type_exists('mm_comic') ) {
                 'hierarchical'    => false,
                 'query_var'       => true,
                 'has_archive'     => true,
+                'show_in_rest'    => true,
                 'rewrite' => array(
                     'slug'       => 'comics',
                     'with_front' => false,
