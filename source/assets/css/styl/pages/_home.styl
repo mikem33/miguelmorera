@@ -28,30 +28,21 @@
         display block
         centerObject(true, false)
 
-.home__blog
-    color white
+.home__section
     padding-top 55px
     text-align center
     padding-bottom 2em
-    background-color $mmRed
     .section__header .title
         text-align left
         fontSizeLine(32, 36)
-    .beta a
-        color white
+
+.home__blog
+    color white
+    background-color $mmRed
 
 .post--home
-    text-align left
-    margin-bottom 2em
-    border-bottom 2px solid rgba(white, .25)
-    .beta
-        margin-bottom 5px
-        fontSizeLine(25, 28)
+    border-bottom-color rgba(white, .25)
     figure
-        position relative
-        margin-bottom 15px
-        a
-            display block
         &::before
             top 0
             left 0
@@ -64,29 +55,22 @@
             mix-blend-mode lighten
             background-color rgba($mmRed, .7)
     .meta
-        fontSize(14)
         color #fab9b9
-        margin-bottom 1em
-        text-transform lowercase
-        time
-            margin-right 5px
-            padding-right 10px
-            position relative
-            &::after
-                right 0
-                content ''
-                width 1px
-                height 80%
-                background-color @color
-                centerObject(false, true)
-    .content
-        fontSize(14)
-        p, li
-            &:last-child
-                margin-bottom 0
+        time::after
+            background-color @color
+    .beta a
+        color white
     .item__link
         color $mmDarkRed
-        align-items center
         .ico
             fill $mmDarkRed
-            margin-right 4px
+
+.home__comics
+    background-color white
+    .section__header .title
+        max-width 230px
+        color $mmPurple
+
+.comic--home
+    .beta a
+        color $darkGrey

@@ -4,6 +4,9 @@
 
 \* ---------------------------- */
 
+html
+    background-color var( --main-page-color )
+
 body
     font-family $rubik
 
@@ -11,26 +14,69 @@ body
     color white
     text-align center
     align-items center
-    padding-bottom 55px
+    padding-bottom 30px
     justify-content center
-    padding-top calc( ( var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px )
+    padding-top calc( ( (var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px) + 15px )
     .title
         margin-bottom 10px
         fontSizeLine(33,35)
+    p
+        margin-bottom 0
     &--hero
         height 100vh
+        padding-bottom 55px
+        padding-top calc( ( var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px )
 
-.item__link
-    fontSize(14)
-    display flex
-    padding 1.5em 0
-    color $darkGrey
-    .ico
-        fill $darkGrey
-    .ico, span
+.item
+    text-align left
+    margin-bottom 2em
+    border-bottom 2px solid #d8d8d8
+    figure
+        position relative
+        margin-bottom 15px
+        a
+            display block
+    .beta
+        margin-bottom 5px
+        fontSizeLine(25, 28)
+    .meta
+        fontSize(14)
+        color $lightGrey
+        margin-bottom 1em
+    time, .reading-time, .categories
         display inline-block
-    span
-        text-decoration underline
+    time
+        margin-right 2px
+        position relative
+        padding-right 7px
+        text-transform lowercase
+        &::after
+            right 0
+            content ''
+            width 1px
+            height 80%
+            centerObject(false, true)
+            background-color $lightGrey
+    .content
+        fontSize(14)
+        p, li
+            &:last-child
+                margin-bottom 0
+    &__link
+        fontSize(14)
+        padding 1.5em 0
+        color $darkGrey
+        display inline-block
+        .ico
+            fill $darkGrey
+        .ico, span
+            display inline-block
+            vertical-align middle
+        span
+            text-decoration underline
+
+.categories a
+    color $lightGrey
 
 .button
     font-weight 500
@@ -71,3 +117,4 @@ body
                 background-color $color[4]
                 .ico
                     fill $color[3]
+    

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php echo get_language_attributes(); ?> style="--main-page-color: <?php echo get_post_meta( get_the_ID(), 'main_page_color', true ); ?>;">
+<html <?php echo get_language_attributes(); ?> style="--main-page-color: <?php echo get_post_meta( get_the_ID(), 'main_page_color', true ); ?>;" data-main-color="<?php echo get_post_meta( get_the_ID(), 'main_page_color', true ); ?>">
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>">
         <?php if ( is_front_page() ) : ?>
