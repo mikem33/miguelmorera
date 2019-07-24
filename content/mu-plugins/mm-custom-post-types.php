@@ -29,7 +29,7 @@ if ( !post_type_exists('mm_work') ) {
                 'capability_type' => 'post',
                 'hierarchical'    => false,
                 'query_var'       => true,
-                'has_archive'     => true,
+                'has_archive'     => false,
                 'show_in_rest'    => true,
                 'rewrite' => array(
                     'slug'       => 'works',
@@ -82,7 +82,7 @@ if ( !post_type_exists('mm_comic') ) {
                 'capability_type' => 'post',
                 'hierarchical'    => false,
                 'query_var'       => true,
-                'has_archive'     => true,
+                'has_archive'     => false,
                 'show_in_rest'    => true,
                 'rewrite' => array(
                     'slug'       => 'comics',
@@ -122,9 +122,10 @@ if ( !post_type_exists('mm_comic') ) {
                 // Label should be plural and L10n ready.
                 'label'             => __( 'Comic Categories', 'miguelmorera' ),
                 'show_admin_column' => true,
+                'show_in_rest'      => true,
                 'rewrite'           => array(
-                    // Slug should be singular and L10n ready..
-                    'slug' => _x( 'mm-comic-category', 'Comic Taxonomy slug', 'mm_comic' ),
+                    'slug' => 'comics-category',
+                    'with_front' => false
                 ),
             )
         );
