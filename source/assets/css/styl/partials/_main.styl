@@ -6,13 +6,19 @@
 
 html
     background-color var( --main-page-color )
+    &.scrollbar--blocked
+        overflow hidden
 
 body
+    overflow hidden
+    position relative
     font-family $rubik
+    width calc(100vw - var(--scrollbar))
 
 .page__header
     color white
     text-align center
+    position relative
     align-items center
     padding-bottom 30px
     justify-content center

@@ -27,10 +27,22 @@
             <a href="<?php echo home_url(); ?>" class="logo">
                 <svg><use xlink:href="#logo" /></svg>
             </a>
-            <button class="toggle-nav">
-                <span><?php _e('Menu','miguelmorera'); ?></span>
+            <button class="toggle-nav" data-alt-text="<?php _e('Close','miguelmorera'); ?>">
+                <span class="text"><?php _e('Menu','miguelmorera'); ?></span>
                 <span class="toggle-nav__hamburger">
                     <span></span>
                 </span>
             </button>
         </header> <!--  /.header -->
+        <div class="nav section space" role="menu">
+            <?php $menuParameters = array(
+                'menu'            => 'header-menu',
+                'container'       => 'nav',
+                'container_class' => 'nav__items',
+                'echo'            => false,
+                'items_wrap'      => '%3$s',
+                'depth'           => 0,
+            ); ?>
+            <?php echo strip_tags(wp_nav_menu( $menuParameters ), '<nav>,<a>' ); ?>
+            <p class="nav__colophon">&copy; 2010 - <?php echo date('Y'); ?> Miguel Morera</p>
+        </div> <!--  /.nav -->

@@ -1,0 +1,101 @@
+/* ---------------------------- *\
+
+    $Nav $Menu
+
+\*----------------------------- */
+
+.toggle-nav
+    padding 0
+    color white
+    border none
+    outline none
+    margin-right 0
+    margin-left auto
+    font-family $rubik
+    background-color transparent
+    span
+        fontSize(14)
+        font-weight 500
+        display inline-block
+        vertical-align middle
+        text-transform uppercase
+    &__hamburger
+        width 28px
+        height 28px
+        margin-left 5px
+        border-radius 50%
+        position relative
+        background-color white
+        span, span::before, span::after
+            height 2px
+            display block
+            position absolute
+        span::before, span::after
+            content ''
+            background-color inherit
+        span, span::before
+            width 16px
+            transition transform 100ms linear
+        span
+            top 50%
+            left 50%
+            margin-top -1px
+            margin-left -8px
+            background-color var( --main-page-color )
+        span::before
+            margin-top -5px
+        span::after
+            left 2px
+            width 12px
+            margin-top 5px
+            transition opacity 100ms linear
+    &.active
+        .toggle-nav__hamburger
+            span, span::before
+                transition transform 100ms ease-in-out
+            span
+                transform rotate(45deg)
+            span::before
+                margin 0
+                transform rotate(90deg)
+            span::after
+                opacity 0
+                transition opacity 100ms ease-in-ou
+
+.nav
+    top 0
+    left 0
+    right 0
+    bottom 0
+    opacity 0
+    z-index 10
+    display flex
+    position fixed
+    color $mmPurple
+    overflow-y auto
+    flex-flow column
+    will-change opacity
+    pointer-events none
+    overflow-scrolling touch
+    background-color $mmTurquoise
+    transition opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), transform 0.5s cubic-bezier(0.19, 1, 0.22, 1)
+    &--opened&
+        opacity 1
+        width 100vw
+        height 100vh
+        transform none
+        pointer-events auto
+        transition opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), transform 0.5s cubic-bezier(0.19, 1, 0.22, 1)
+    &__items
+        display flex
+        flex-flow column
+        padding-top 85px
+        a
+            fontSize(25)
+            color $mmPurple
+            font-weight 500
+            display inline-block
+    &__colophon
+        fontSize(12)
+        margin-top auto
+        margin-bottom 0
