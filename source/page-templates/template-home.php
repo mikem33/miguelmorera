@@ -11,7 +11,7 @@
                 <span class="alpha-warning"><?php _e( 'Alpha', 'miguelmorera' ); ?></span>
                 <h1 class="title alpha"><?php _e( 'Hi, my name is Miguel Morera.', 'miguelmorera' ); ?></h1> <!--  /.title alpha -->
                 <p><?php _e('I’m a Frontend Web Developer focused on create beautiful and usable websites.','miguelmorera'); ?></p>
-                <a href="javascript:;" class="button button--white-purple button--filled button--icon">
+                <a href="<?php echo get_permalink(26); ?>" class="button button--white-purple button--filled button--icon">
                     <span><?php _e( 'See my works', 'miguelmorera' ); ?></span>
                     <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
                 </a>
@@ -59,7 +59,7 @@
                 </article><!-- /.post .post--home .item -->
                 <?php endwhile; wp_reset_postdata(); ?>
             </div> <!--  /.content -->
-            <a href="<?php echo get_permalink(); ?>" class="button button--white-red button--filled button--icon">
+            <a href="<?php echo get_permalink(38); ?>" class="button button--white-red button--filled button--icon">
                 <span><?php _e( 'See more posts', 'miguelmorera' ); ?></span>
                 <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
             </a>
@@ -109,7 +109,7 @@
                 </article> <!--  /.comic comic--home item -->
                 <?php endwhile; ?>
             </div> <!--  /.content -->
-            <a href="<?php echo get_permalink(); ?>" class="button button--purple button--filled button--icon">
+            <a href="<?php echo get_permalink(40); ?>" class="button button--purple button--filled button--icon">
                 <span><?php _e( 'See more comics', 'miguelmorera' ); ?></span>
                 <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
             </a>
