@@ -65,7 +65,7 @@
             </a>
         </section> <!--  /.home__blog .home__section -->
         
-        <section class="home__comics home__section section space" data-scroll data-type="light" data-bg-color="#ffffff">
+        <section class="home__comics home__section section space" data-scroll data-type="light" data-bg-color="#ffe42b">
             <header class="section__header">
                 <h3 class="title"><?php _e('...or draw some comics','miguelmorera'); ?></h3> <!--  /.title -->
             </header> <!--  /.section__header -->
@@ -81,7 +81,7 @@
                     while ( $home_comics_query->have_posts() ) : 
                         $home_comics_query->the_post();
                 ?>
-                <article class="comic comic--home item">
+                <article class="comic comic--item item">
                     <figure>
                         <a href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail('full'); ?>
@@ -106,10 +106,10 @@
                     <div class="content">
                         <?php the_excerpt(); ?>
                     </div> <!--  /.content -->
-                </article> <!--  /.comic comic--home item -->
+                </article> <!--  /.comic comic--item item -->
                 <?php endwhile; ?>
             </div> <!--  /.content -->
-            <a href="<?php echo get_permalink(40); ?>" class="button button--purple button--filled button--icon">
+            <a href="<?php echo get_permalink(40); ?>" class="button button--dark-grey button--filled button--icon">
                 <span><?php _e( 'See more comics', 'miguelmorera' ); ?></span>
                 <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
             </a>

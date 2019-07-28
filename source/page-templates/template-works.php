@@ -27,7 +27,7 @@
                     while ( $work_posts_query->have_posts() ) : 
                         $work_posts_query->the_post();
                 ?>
-                    <article class="work item">
+                    <article class="work work--item item">
                         <header>
                             <a href="<?php the_permalink(); ?>">
                                 <h2 class="title beta"><?php the_title(); ?></h2> <!--  /.title .beta-->
@@ -43,7 +43,7 @@
                             <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
                             <span><?php _e( 'See work', 'miguelmorera' ); ?></span>
                         </a>
-                    </article> <!--  /.work -->
+                    </article> <!--  /.work .work--item -->
                 <?php endwhile; ?>
             </div> <!--  /.content -->
             <a href="<?php echo get_permalink(); ?>" class="button button--purple button--filled button--icon">

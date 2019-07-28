@@ -14,14 +14,11 @@ jQuery(document).ready(function($) {
             var currentSectionType = $(this).attr('data-type');
             if (actPosition < stickyOffset.top && actPosition + $(this).height() > 0) {
                 if (currentSectionType == 'dark') {
-                    if ($('.header').hasClass('header--light')) {
-                        $('.header').removeClass('header--light');
-                    }
-                    $('.toggle-nav__hamburger span').css('background-color', currentSectionBgColor);
+                    $('.header').removeClass('header--light');
                 } else {
-                    $('.toggle-nav__hamburger span').removeAttr('style');
                     $('.header').addClass('header--light');
                 }
+                $('.toggle-nav__hamburger span').css('background-color', currentSectionBgColor);
                 return false;
             }
         });

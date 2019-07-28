@@ -30,7 +30,7 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <header class="header flex">
+        <header class="header flex" data-header-type="<?php the_field('main_header_type', $page_id); ?>">
             <a href="<?php echo home_url(); ?>" class="logo">
                 <svg><use xlink:href="#logo" /></svg>
             </a>

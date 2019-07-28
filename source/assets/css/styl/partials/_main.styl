@@ -16,7 +16,6 @@ body
     width calc(100vw - var(--scrollbar))
 
 .page__header
-    color white
     text-align center
     position relative
     align-items center
@@ -32,6 +31,10 @@ body
         height 100vh
         padding-bottom 55px
         padding-top calc( ( var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px )
+    &[data-type="light"]
+        color $darkGrey
+    &[data-type="dark"]
+        color white
 
 .item
     text-align left
@@ -124,4 +127,3 @@ body
                 background-color $color[4]
                 .ico
                     fill $color[3]
-    

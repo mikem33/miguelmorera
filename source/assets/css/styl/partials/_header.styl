@@ -15,6 +15,9 @@
     svg
         fill white
     &--light
+        .toggle-nav__hamburger span
+            background-color white
+    &--light, &[data-header-type="light"]
         color $darkGrey
         svg
             fill $darkGrey
@@ -22,8 +25,9 @@
             color $darkGrey
             &__hamburger
                 background-color $darkGrey
-                span
-                    background-color white
+    &[data-header-type="light"]
+        .toggle-nav__hamburger span
+            background-color var( --main-page-color )
 
 .menu--opened
     .header
