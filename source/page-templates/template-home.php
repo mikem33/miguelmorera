@@ -38,13 +38,13 @@
                     while ( $home_posts_query->have_posts() ) : 
                         $home_posts_query->the_post();
                 ?>
-                <article class="post post--home item">
+                <article class="post post--item item">
                     <figure>
                         <a href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail('full'); ?>
                         </a>
                     </figure>
-                    <h2 class="title beta"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2> <!--  /.title .beta-->
+                    <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','miguelmorera'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2> <!--  /.title .beta-->
                     <div class="meta">
                         <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
                         <span class="reading-time"><?php echo reading_time(); ?></span>

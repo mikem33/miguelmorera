@@ -8,7 +8,7 @@
         
         <header class="page__header flex space" data-bg-color="<?php echo get_post_meta( get_the_ID(), 'main_page_color', true ); ?>" data-type="dark" data-scroll>
             <div class="content">
-                <h1 class="title alpha"><?php _e( 'Works', 'miguelmorera' ); ?></h1> <!--  /.title alpha -->
+                <h1 class="title alpha"><?php the_title(); ?></h1> <!--  /.title alpha -->
                 <p><?php _e( 'In this section you will find a list of projects developed during all my career as a freelance and others as an employed worker.', 'miguelmorera' ); ?></p>
             </div> <!--  /.content -->
         </header>

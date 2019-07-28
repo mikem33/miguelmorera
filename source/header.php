@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html <?php echo get_language_attributes(); ?> style="--main-page-color: <?php echo get_post_meta( get_the_ID(), 'main_page_color', true ); ?>;" data-main-color="<?php echo get_post_meta( get_the_ID(), 'main_page_color', true ); ?>">
+<?php
+    if (is_home()) {
+        $page_id = get_option('page_for_posts', true); 
+    } else {
+        $page_id = get_the_ID();
+    }
+?>
+<html <?php echo get_language_attributes(); ?> style="--main-page-color: <?php the_field('main_page_color', $page_id); ?>;" data-main-color="<?php the_field('main_page_color', $page_id); ?>">
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>">
         <?php if ( is_front_page() ) : ?>
