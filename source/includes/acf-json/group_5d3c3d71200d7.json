@@ -1,12 +1,12 @@
 {
-    "key": "group_5d064268ac780",
-    "title": "Page Options",
+    "key": "group_5d3c3d71200d7",
+    "title": "Work Fields",
     "fields": [
         {
-            "key": "field_5d06429d01b45",
-            "label": "Main Page Color",
-            "name": "main_page_color",
-            "type": "color_picker",
+            "key": "field_5d3c3d7d37429",
+            "label": "Work Subtitle",
+            "name": "work_subtitle",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,7 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "#7526ff"
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -23,14 +27,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
+                "value": "mm_work"
             }
         ]
     ],
@@ -42,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1564228270
+    "modified": 1564229017
 }
