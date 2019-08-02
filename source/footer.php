@@ -1,3 +1,4 @@
+        </main> <!--  /.main -->
         <footer class="footer space">
             <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Home','miguelmorera' ); ?>">
                 <svg><use xlink:href="#logo" /></svg>

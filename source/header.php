@@ -5,8 +5,10 @@
     } else {
         $page_id = get_the_ID();
     }
+    $page_bg_color = get_field('main_page_color', $page_id);
+    $page_header_type = get_field('main_header_type', $page_id);
 ?>
-<html <?php echo get_language_attributes(); ?> style="--main-page-color: <?php the_field('main_page_color', $page_id); ?>;" data-main-color="<?php the_field('main_page_color', $page_id); ?>">
+<html <?php echo get_language_attributes(); ?> style="--main-page-color: <?php echo $page_bg_color; ?>;" data-main-color="<?php echo $page_bg_color; ?>">
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>">
         <?php if ( is_front_page() ) : ?>
@@ -30,7 +32,7 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <header class="header flex" data-header-type="<?php the_field('main_header_type', $page_id); ?>">
+        <header class="header flex" data-header-type="<?php echo $page_header_type; ?>">
             <a href="<?php echo home_url(); ?>" class="logo">
                 <svg><use xlink:href="#logo" /></svg>
             </a>
@@ -41,15 +43,16 @@
                 </span>
             </button>
         </header> <!--  /.header -->
-        <div class="nav section space" role="menu">
-            <?php $menuParameters = array(
-                'menu'            => 'header-menu',
-                'container'       => 'nav',
-                'container_class' => 'nav__items',
-                'echo'            => false,
-                'items_wrap'      => '%3$s',
-                'depth'           => 0,
-            ); ?>
-            <?php echo strip_tags(wp_nav_menu( $menuParameters ), '<nav>,<a>' ); ?>
-            <p class="nav__colophon">&copy; 2010 - <?php echo date('Y'); ?> Miguel Morera</p>
-        </div> <!--  /.nav -->
+        <main class="main" role="main">
+            <div class="nav section space" role="menu">
+                <?php $menuParameters = array(
+                    'menu'            => 'header-menu',
+                    'container'       => 'nav',
+                    'container_class' => 'nav__items',
+                    'echo'            => false,
+                    'items_wrap'      => '%3$s',
+                    'depth'           => 0,
+                ); ?>
+                <?php echo strip_tags(wp_nav_menu( $menuParameters ), '<nav>,<a>' ); ?>
+                <p class="nav__colophon">&copy; 2010 - <?php echo date('Y'); ?> Miguel Morera</p>
+            </div> <!--  /.nav -->
