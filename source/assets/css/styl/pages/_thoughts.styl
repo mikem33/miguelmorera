@@ -8,9 +8,7 @@
     background-color #f45a5a
 
 .post
-    .wrapper
-        max-width 680px
-    &.single, &--single
+    &.single--post, &--single
         background-color white
     &.single
         .meta time::after
@@ -19,6 +17,8 @@
         .alignfull
             margin-top 2rem
             margin-bottom 2rem
+    &__comment-form, &__comments-list
+        background-color white
     &__comment-form
         text-align center
         padding-bottom 50px
@@ -28,3 +28,7 @@
         .title
             margin-bottom 0
             line-height 30px
+
+.single--post
+    .wrapper
+        max-width 680px
