@@ -15,10 +15,18 @@
     }
 
     /**
-     * Function for activate thumbnails and size.
+     * Function for enable thumbnails generation and custom sizes.
      */
     add_theme_support( 'post-thumbnails' );
-    add_image_size( 'gallery-thumbnail', 150, 150, true );
+    // add_image_size( 'gallery-thumbnail', 150, 150, true );
+
+    /**
+     * Function to enable wide images support on Gutenberg.
+     */
+    function wide_images_setup() {
+        add_theme_support( 'align-wide' );
+    }
+    add_action( 'after_setup_theme', 'wide_images_setup' );
 
     /**
      * Create default menu spaces.

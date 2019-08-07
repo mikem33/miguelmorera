@@ -168,31 +168,27 @@ a
     clearfix()
 
 /* Predefined styles for post and page images (floats and margins) */
-img
-    &.alignright 
-        float right
-        margin 0 0 1em 1em
-    &.alignleft 
-        float left 
-        margin 0 1em 1em 0
-    &.aligncenter 
-        display block
-        margin-left auto
-        margin-right auto
-        padding 10px
-    a &
-        &.alignright
+img, figure
+    &, & a
+        &.alignright 
             float right
             margin 0 0 1em 1em
-    a &
-        &.alignleft
-            float left
+        &.alignleft 
+            float left 
             margin 0 1em 1em 0
-    a &
-        &.aligncenter
+        &.aligncenter 
             display block
             margin-left auto
             margin-right auto
+            padding 10px
+        &.alignfull
+            left 50%
+            right 50%
+            width 100vw
+            max-width none
+            position relative
+            margin-left -50vw
+            margin-right -50vw
 
 /* ---------------------------- *\
     
