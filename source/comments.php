@@ -89,10 +89,12 @@
             endforeach; 
         ?>
 
-    </section>
+    </section><!-- /.post__comments-list -->
 
 <?php else : // no comments yet ?>
     <?php if ('open' != $post->comment_status) : ?>
-        <p><?php _e('The comments are closed.','miguelmorera'); ?></p>
+        <section class="post__comments-list section space">
+            <p><?php _e('The comments are closed.','miguelmorera'); ?></p>
+        </section> <!--  /.post__comments-list -->
     <?php endif; ?>
 <?php endif; ?>

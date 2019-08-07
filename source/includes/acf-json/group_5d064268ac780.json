@@ -100,7 +100,7 @@
                     "label": "Header BG Image Position",
                     "name": "page_header_bg_image_pos",
                     "type": "select",
-                    "instructions": "center : Center\r\ntop : Top\r\nleft : Left\r\nright : Right\r\nbottom : Bottom",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -108,7 +108,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": [],
+                    "choices": {
+                        "center": "Center",
+                        "top": "Top",
+                        "left": "Left",
+                        "right": "Right",
+                        "bottom": "Bottom"
+                    },
                     "default_value": [],
                     "allow_null": 0,
                     "multiple": 0,
@@ -144,5 +150,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565106973
+    "modified": 1565171603
 }

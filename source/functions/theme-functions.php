@@ -117,7 +117,7 @@
     /**
      * Add custom classes to the previous and next pagination links.
      */
-    function next_posts_link_attributes() { return 'class="button button--next"'; }    
+    function next_posts_link_attributes() { return 'class="button button--next"'; }
     function previous_posts_link_attributes() { return 'class="button button--previous"'; }
     add_filter('next_posts_link_attributes', 'next_posts_link_attributes');
     add_filter('previous_posts_link_attributes', 'previous_posts_link_attributes');
@@ -155,18 +155,28 @@
     
     add_action('wp_footer', 'load_google_fonts');
 
+    /**
+     * Add reading time for posts.
+     */
     function reading_time() {
         $content = get_post_field( 'post_content', $post->ID );
         $word_count = str_word_count( strip_tags( $content ) );
         $readingtime = ceil($word_count / 200);
 
-        if ($readingtime == 1) {
-          $timer = " minute";
-        } else {
-          $timer = " minutes";
-        }
-        $totalreadingtime = $readingtime . $timer;
+        $totalreadingtime = $readingtime . ' min. read';
 
         return $totalreadingtime;
+    }
+
+    /**
+     * Get Page ID by Slug.
+     */
+    function get_page_id_by_slug($page_slug) {
+        $page = get_page_by_path($page_slug);
+        if ($page) {
+            return $page->ID;
+        } else {
+            return null;
+        }
     }
 ?>

@@ -1,5 +1,4 @@
 <?php
-
     if (is_home()) {
         $page_id = get_option('page_for_posts', true);
     } else {
@@ -8,8 +7,23 @@
     if ($page_header_style == 'hero') {
         $additional_header_classes = 'page__header--hero '.$additional_header_classes;
     }
-    $page_bg_color = get_field('main_page_color', $page_id);
-    $page_header_type = get_field('main_header_type', $page_id);
+
+    if (get_post_type() == 'mm_work') {
+        $page_parent_id = get_page_id_by_slug('works');
+        $page_bg_color = get_field('main_page_color', $page_parent_id);
+        $page_header_type = get_field('main_header_type', $page_parent_id);
+    } elseif (get_post_type() == 'mm_comic') {
+        $page_parent_id = get_page_id_by_slug('comics');
+        $page_bg_color = get_field('main_page_color', $page_parent_id);
+        $page_header_type = get_field('main_header_type', $page_parent_id);
+    } elseif (get_post_type() == 'mm_dev_post') {
+        $page_parent_id = get_page_id_by_slug('development-blog');
+        $page_bg_color = get_field('main_page_color', $page_parent_id);
+        $page_header_type = get_field('main_header_type', $page_parent_id);
+    } else {
+        $page_bg_color = get_field('main_page_color', $page_id);
+        $page_header_type = get_field('main_header_type', $page_id);
+    }
     $page_header_stuff =  get_field('page_header_stuff', $page_id);
 ?>
 <header class="page__header <?php echo $additional_header_classes; ?>" data-bg-color="<?php echo $page_bg_color; ?>" data-type="<?php echo $page_header_type; ?>" data-scroll>
@@ -49,7 +63,11 @@
         <?php else : ?>
             <h1 class="title alpha"><?php echo get_the_title($page_id); ?></h1> <!--  /.title alpha -->
         <?php endif; ?>
-        <?php echo $page_header_stuff['page_header_text']; ?>
+        <?php if ($page_header_stuff) : ?>
+            <?php echo $page_header_stuff['page_header_text']; ?>
+        <?php elseif (get_post_type() == 'mm_work') : ?>
+            <p><?php echo get_field('work_subtitle', $page_id); ?></p>
+        <?php endif; ?>
         <?php if (is_front_page()) : ?>
             <a href="<?php echo get_permalink(26); ?>" class="button button--white-purple button--filled button--icon">
                 <span><?php _e('See my works', 'miguelmorera'); ?></span>
@@ -72,7 +90,7 @@
             </div> <!--  /.meta -->
             <?php if (has_post_thumbnail()) : ?>
                 <figure class="bg-image alignfull">
-                    <?php echo get_the_post_thumbnail($page_id, 'full'); ?>
+                    <?php echo get_the_post_thumbnail($page_id, 'full', array('style'=>'object-position: '.$page_header_stuff['page_header_bg_image_pos'].';')); ?>
                 </figure> <!--  /.alignfull -->
             <?php endif; ?>
         <?php endif; ?>
