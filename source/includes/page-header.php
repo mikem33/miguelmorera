@@ -5,6 +5,9 @@
     } else {
         $page_id = $post->ID;
     }
+    if ($page_header_style == 'hero') {
+        $additional_header_classes = 'page__header--hero '.$additional_header_classes;
+    }
     $page_bg_color = get_field('main_page_color', $page_id);
     $page_header_type = get_field('main_header_type', $page_id);
     $page_header_stuff =  get_field('page_header_stuff', $page_id);
@@ -26,7 +29,7 @@
                 <?php elseif (is_day()) : ?>
                     <h1 class="title alpha"><?php _e('Archive with date','miguelmorera'); ?> <?php the_time('F jS, Y'); ?></h1>
                 <?php elseif (is_month()) : ?>
-                    <h1 class="title alpha"><?php _e('Archivo of','miguelmorera'); ?> <?php the_time('F, Y'); ?></h1>
+                    <h1 class="title alpha"><?php _e('Archive of','miguelmorera'); ?> <?php the_time('F, Y'); ?></h1>
                 <?php elseif (is_year()) : ?>
                     <h1 class="title alpha"><?php _e('Archive from year','miguelmorera'); ?> <?php the_time('Y'); ?></h1>
                 <?php elseif (is_author()) : ?>
@@ -55,6 +58,24 @@
         <?php endif; ?>
     </div> <!--  /.content -->
     <?php if ($page_header_style == 'hero') : ?>
+        <?php if (is_single()) : ?>
+            <div class="meta flex">
+                <?php $author_id = get_post_field( 'post_author', $post_id ); ?>
+                <div class="avatar">
+                    <?php echo get_avatar($author_id, 63); ?>
+                </div> <!--  /.avatar -->
+                <div class="content">
+                    <p class="author"><?php _e('By','miguelmorera'); ?> <?php echo get_the_author_meta('display_name', $author_id); ?></p>
+                    <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
+                    <span class="reading-time"><?php echo reading_time(); ?></span>
+                </div> <!--  /.content -->
+            </div> <!--  /.meta -->
+            <?php if (has_post_thumbnail()) : ?>
+                <figure class="bg-image alignfull">
+                    <?php echo get_the_post_thumbnail($page_id, 'full'); ?>
+                </figure> <!--  /.alignfull -->
+            <?php endif; ?>
+        <?php endif; ?>
         <a href="#content" class="content-anchor">
             <svg width="20" height="20" class="ico"><use xlink:href="#ico-circle-chevron" /></svg>
         </a>

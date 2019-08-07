@@ -3,7 +3,7 @@
     __( 'Home', 'miguelmorera' ); // Template Name translation
     get_header();
     $page_header_style = 'hero';
-    $additional_header_classes = 'page__header--hero flex space';
+    $additional_header_classes = 'flex space';
     include(locate_template('includes/page-header.php'));
 ?>
 

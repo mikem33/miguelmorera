@@ -22,19 +22,64 @@ body
     padding-bottom 30px
     justify-content center
     padding-top calc( ( (var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px) + 15px )
+    .content
+        margin auto
+    .content, .meta
+        z-index 1
+        position relative
     .title
         margin-bottom 10px
         fontSizeLine(33,35)
     p
         margin-bottom 0
-    &--hero
-        height 100vh
-        padding-bottom 55px
-        padding-top calc( ( var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px )
     &[data-type="light"]
         color $darkGrey
     &[data-type="dark"]
         color white
+    &--hero
+        height 100vh
+        flex-flow column
+        padding-bottom 55px
+        padding-top calc((var(--menu-bar-height) + var(--login-bar-height)) * 1px)
+        .meta
+            margin-top auto
+            align-items center
+            .content
+                fontSize(14)
+                color #d4d4d4
+                text-align left
+                margin-left 1em
+            .author
+                color white
+                fontSize(16)
+
+.content-anchor
+    z-index 1
+    fill white
+    bottom 30px
+    height 20px
+    display block
+    centerObject(true, false)
+
+.bg-image.alignfull
+    top 0
+    z-index 0
+    height 100%
+    position absolute
+    img
+        z-index 0
+        height 100%
+        object-fit cover
+        position relative
+    &::before
+        top 0
+        left 0
+        right 0
+        bottom 0
+        z-index 1
+        content ''
+        position absolute
+        background-color rgba($darkGrey, .3)
 
 .item
     text-align left
@@ -52,19 +97,7 @@ body
         fontSize(14)
         color $lightGrey
         margin-bottom 1em
-    time, .reading-time, .categories
-        display inline-block
-    time
-        margin-right 2px
-        position relative
-        padding-right 7px
-        text-transform lowercase
-        &::after
-            right 0
-            content ''
-            width 1px
-            height 80%
-            centerObject(false, true)
+        time::after
             background-color $lightGrey
     .content
         fontSize(14)
@@ -85,6 +118,24 @@ body
         span
             text-decoration underline
 
+.meta
+    time, .reading-time, .categories
+        display inline-block
+    time
+        margin-right 2px
+        position relative
+        padding-right 7px
+        text-transform lowercase
+        &::after
+            right 0
+            content ''
+            width 1px
+            height 80%
+            centerObject(false, true)
+
+.avatar
+    border-radius 100%
+
 .categories a
     color $lightGrey
 
@@ -92,7 +143,10 @@ body
     font-weight 500
     padding 10px 18px
     border-radius 22px
+    font-family $rubik
     display inline-block
+    &--filled
+        border none
     span, .ico
         display inline-block
         vertical-align middle
