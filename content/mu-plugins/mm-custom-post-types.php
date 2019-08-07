@@ -38,7 +38,6 @@ if ( !post_type_exists('mm_work') ) {
                 'supports' => array(
                     'title',
                     'editor',
-                    'comments',
                     'revisions',
                     'thumbnail',
                     'custom-fields',
