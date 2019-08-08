@@ -8,8 +8,11 @@ jQuery(document).ready(function($) {
     var contentDivs = $('[data-scroll]');
     $(document).scroll(function() {
         contentDivs.each(function() {
+            var htmlElem = document.querySelector('html');
+            var currentHeaderPadding = getComputedStyle(htmlElem).getPropertyValue('--header-padding');
+            currentHeaderPadding = parseInt(currentHeaderPadding.slice(0,2));
             var thisOffset = $(this).offset();
-            var actPosition = thisOffset.top - $(window).scrollTop();
+            var actPosition = thisOffset.top - (currentHeaderPadding / 2) - $(window).scrollTop();
             var currentSectionBgColor = $(this).attr('data-bg-color');
             var currentSectionType = $(this).attr('data-type');
             if (actPosition < stickyOffset.top && actPosition + $(this).height() > 0) {
@@ -88,12 +91,22 @@ document.addEventListener( 'DOMContentLoaded', function() {
 const getScrollBarWidth = () => window.innerWidth - document.documentElement.getBoundingClientRect().width;
 
 // Assign the obtained data width to a CSS Variables.
-const cssScrollBarWidth = () => document.documentElement.style.setProperty( '--scrollbar', `${getScrollBarWidth()}px` );
-let cssScrollBarClass = () => document.documentElement.classList.add( 'scrollbar--calculated' );
+const cssScrollBarWidth = () => document.documentElement.style.setProperty('--scrollbar', `${getScrollBarWidth()}px`);
+let cssScrollBarClass = () => document.documentElement.classList.add('scrollbar--calculated');
+
+// Assign global variable the current header padding-top style.
+function cssHeaderPadding(header) {
+    var header = document.querySelector('.header');
+    var headerPadding = window.getComputedStyle(header, null).getPropertyValue('padding-left');
+    document.documentElement.style.setProperty('--header-padding', headerPadding);
+    console.log(headerPadding);
+}
 
 // Assign this variable when the page loads.
-addEventListener( 'load', cssScrollBarWidth );
-addEventListener( 'load', cssScrollBarClass );
+addEventListener('load', cssScrollBarWidth);
+addEventListener('load', cssScrollBarClass);
+addEventListener('load', cssHeaderPadding);
 
 // Reassign the variable when the window resizes.
 addEventListener('resize', cssScrollBarWidth);
+addEventListener('resize', cssHeaderPadding);

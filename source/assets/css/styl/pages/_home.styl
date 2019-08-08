@@ -7,10 +7,6 @@
 .page__template-home
     .page__header
         background-color var(--main-page-color)
-        .content
-            max-width 233px
-            .button
-                margin-top 10px
         canvas
             top 0
             left 0
@@ -21,17 +17,15 @@
         color var(--main-page-color)
 
 .home__section
-    padding-top 55px
     text-align center
     .section__header .title
         text-align left
-        fontSizeLine(32, 36)
 
 .home__blog
     color white
     background-color $mmRed
 
-.post--item
+.post.item
     color white
     border-bottom-color rgba(white, .25)
     figure
@@ -64,5 +58,60 @@
         color $darkGrey
     .comic--item
         border-color $darkGrey
-        .beta a, .meta, .meta a
+        .beta a
             color $darkGrey
+        .meta, .meta a, .item__link, .item__link .ico
+            color $mmBrown
+        .meta
+            margin-bottom 0
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+    
+    .page__template-home
+        .page__header
+            .content
+                max-width 550px
+                .button
+                    margin-top 30px
+
++between(768, 1199)
+    /* $min-width: $768px // $max-width: $1199px */
+    
+    .page__template-home
+        .page__header
+            .content
+                max-width 390px
+                .button
+                    margin-top 25px
+
++above(768)
+    /* $min-width: $768px */
+    
+    .home__blog 
+        .section__header .title
+            max-width 590px
+
+    .home__comics
+        .section__header .title
+            max-width 330px
+
++below(767)
+    /* $max-width: $767px */
+    
+    .page__template-home
+        .page__header
+            .content
+                max-width 233px
+                .button
+                    margin-top 10px
+    .home__section
+        padding-top 55px
+        .section__header .title
+            fontSizeLine(32, 36)

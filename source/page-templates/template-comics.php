@@ -6,8 +6,8 @@
     include(locate_template('includes/page-header.php'));
 ?>
 
-<section class="comics__list comics__section section space" data-bg-color="#ffe42b" data-type="dark" data-scroll>
-    <div class="content">
+<section class="comics__list comics__section items section space" data-bg-color="#ffe42b" data-type="dark" data-scroll>
+    <div class="items__container wrapper">
         <?php
             $comic_posts_args = array(
                 'post_type' => 'mm_comic',
@@ -19,7 +19,7 @@
             while ($comic_posts_query->have_posts()) : 
                 $comic_posts_query->the_post();
         ?>
-            <article class="comic comic--item item">
+            <article class="comic item">
                 <figure>
                     <a href="<?php the_permalink(); ?>">
                         <?php the_post_thumbnail('full'); ?>

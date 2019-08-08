@@ -1,10 +1,9 @@
 var canvas = document.querySelector( 'canvas' );
 
 function canvasResize() {
-    canvasWidth = window.innerWidth;
+    canvasWidth = window.offsetWidth;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    console.log( 'resize' );
     return canvasWidth;
 }
 
@@ -56,7 +55,6 @@ function Circle( x, y, dx, dy, radius) {
 
 var circleArray = [];
 var circles = ( window.innerWidth - window.innerHeight ) / 12;
-console.log(circles);
 if ( circles < 0 ) {
     circles = 20;
 } else if ( circles > 40 ) {

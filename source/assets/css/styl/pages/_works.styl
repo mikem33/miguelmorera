@@ -4,12 +4,7 @@
 
 \*----------------------------- */
 
-.page__template-works
-    .page__header .content
-        max-width 255px
-
 .works__list
-    padding-top 30px
     text-align center
     background-color white
     .work
@@ -21,7 +16,6 @@
             .title
                 color $darkGrey
                 margin-bottom 0
-                line-height 28px
             p
                 color $lightGrey
         figure
@@ -34,3 +28,28 @@
     background-color white
     &__intro, &__outro
         background-color #fff2f2
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+
+    .works__list
+        .work header p
+            fontSize(20)
+
++below(767)
+    /* $max-width: $767px */
+
+    .page__template-works
+        .page__header .content
+            max-width 255px
+
+    .works__list
+        padding-top 30px
+        .work header .title
+            line-height 28px

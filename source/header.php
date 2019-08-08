@@ -47,7 +47,7 @@
     </head>
     <body <?php body_class(); ?>>
         <header class="header flex" data-header-type="<?php echo $page_header_type; ?>">
-            <a href="<?php echo home_url(); ?>" class="logo">
+            <a href="<?php echo home_url(); ?>" class="logo" title="Miguel Morera">
                 <svg><use xlink:href="#logo" /></svg>
             </a>
             <button class="toggle-nav" data-alt-text="<?php _e('Close','miguelmorera'); ?>">
@@ -58,7 +58,7 @@
             </button>
         </header> <!--  /.header -->
         <main class="main" role="main">
-            <div class="nav section space" role="menu">
+            <div class="nav section space">
                 <?php $menuParameters = array(
                     'menu'            => 'header-menu',
                     'container'       => 'nav',

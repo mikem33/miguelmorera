@@ -6,8 +6,8 @@
     include(locate_template('includes/page-header.php'));
 ?>
 
-<section class="dev-posts__list dev-posts__section section space" data-bg-color="#ffffff" data-type="dark" data-scroll>
-    <div class="content">
+<section class="dev-posts__list items section space" data-bg-color="#ffffff" data-type="dark" data-scroll>
+    <div class="items__container wrapper">
         <?php
             $dev_posts_args = array(
                 'post_type' => 'mm_dev_post',
@@ -19,10 +19,10 @@
             while ($dev_posts_query->have_posts()) : 
                 $dev_posts_query->the_post();
         ?>
-        <article id="post-<?php the_ID(); ?>" class="dev-post dev-post--item item">
+        <article id="post-<?php the_ID(); ?>" class="dev-post item">
             <figure>
                 <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail('full'); ?>
+                    <?php mm_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
             <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','miguelmorera'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
@@ -40,7 +40,7 @@
             </a>
         </article><!-- .dev-post dev-post--item item -->
     <?php endwhile; ?>
-    </div> <!--  /.content -->
+    </div> <!--  /.items__container -->
 
     <nav class="navigation">
         <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'miguelmorera')) ?></div>

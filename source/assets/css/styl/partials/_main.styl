@@ -5,6 +5,7 @@
 \* ---------------------------- */
 
 html
+    overflow-x hidden
     background-color var( --main-page-color )
     &.scrollbar--blocked
         overflow hidden
@@ -19,17 +20,13 @@ body
     text-align center
     position relative
     align-items center
-    padding-bottom 30px
     justify-content center
-    padding-top calc( ( (var( --menu-bar-height ) + var( --login-bar-height ) ) * 1px) + 15px )
+    padding-top calc(((var(--header-height) + var(--login-bar-height)) * 1px) + 15px)
     .content
         margin auto
     .content, .meta
         z-index 1
         position relative
-    .title
-        margin-bottom 10px
-        fontSizeLine(33,35)
     p
         margin-bottom 0
     &[data-type="light"]
@@ -40,7 +37,7 @@ body
         height 100vh
         flex-flow column
         padding-bottom 55px
-        padding-top calc((var(--menu-bar-height) + var(--login-bar-height)) * 1px)
+        padding-top calc((var(--header-height) + var(--login-bar-height)) * 1px)
         .meta
             margin-top auto
             align-items center
@@ -57,7 +54,6 @@ body
     z-index 1
     fill white
     bottom 30px
-    height 20px
     display block
     centerObject(true, false)
 
@@ -82,8 +78,9 @@ body
         background-color rgba($darkGrey, .3)
 
 .item
+    display flex
     text-align left
-    margin-bottom 2em
+    flex-flow column
     border-bottom 2px solid #d8d8d8
     figure
         position relative
@@ -92,21 +89,18 @@ body
             display block
     .beta
         margin-bottom 5px
-        fontSizeLine(25, 28)
     .meta
-        fontSize(14)
         color $lightGrey
         margin-bottom 1em
         time::after
             background-color $lightGrey
     .content
-        fontSize(14)
         p, li
             &:last-child
                 margin-bottom 0
     &__link
-        fontSize(14)
         padding 1.5em 0
+        margin-top auto
         display inline-block
         &, &:visited
             color $lightGrey
@@ -136,13 +130,14 @@ body
 .avatar
     border-radius 100%
 
-.categories a
-    color $lightGrey
+.categories 
+    a
+        color $lightGrey
+    p
+        margin-bottom 0
 
 .button
     font-weight 500
-    padding 10px 18px
-    border-radius 22px
     font-family $rubik
     display inline-block
     &--filled
@@ -150,8 +145,6 @@ body
     span, .ico
         display inline-block
         vertical-align middle
-    span
-        margin-right 5px
     for $color in $buttonsArray
         &--{$color[0]}
             color $color[1]
@@ -208,3 +201,125 @@ body
                 background-color $color[4]
                 .ico
                     fill $color[3]
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+    
+    .page__header
+        .content
+            max-width 650px
+        .title
+            margin-bottom 20px
+            fontSizeLine(75, 75)
+        p
+            fontSize(25)
+    
+    .button
+        fontSize(22)
+        padding 10px 30px
+        border-radius 26px
+        span
+            margin-right 10px
+        .ico
+            width 22px
+            height 22px
+    
+    .items
+        &__container
+            grid-gap 2.85rem
+
+    .item
+        margin-bottom 4em
+        .beta
+            fontSizeLine(38, 46)
+        .meta
+            fontSize(16)
+        .content
+            p, li
+                fontSize(20)
+        &__link
+            fontSize(20)
+            .ico
+                width 10px
+                height 17px
+
++below(1199)
+    /* $max-width: $1199px */
+    
+    .item
+        margin-bottom 2em
+        .beta
+            fontSizeLine(25, 28)
+        .meta, &__link
+            fontSize(14)
+
++between(768, 1199)
+    /* $min-width: $768px // $max-width: $1199px */
+
+    .page__header
+        .content
+            max-width 500px
+        .title
+            margin-bottom 20px
+            fontSizeLine(55, 55)
+        p
+            fontSize(22)
+    
+    .button
+        fontSize(22)
+        padding 10px 30px
+        border-radius 26px
+        span
+            margin-right 10px
+        .ico
+            width 20px
+            height 20px
+    
+    .items
+        &__container
+            grid-gap 2rem
+
++above(768)
+    /* $min-width: $768px */
+    
+    .page__header
+        padding-bottom 60px
+        
+    .content-anchor
+        height 30px
+        svg
+            width 30px
+            height 30px
+    
+    .items
+        .section__header .title
+            fontSizeLine(52, 56)
+        &__container
+            display grid
+            grid-template-columns 1fr 1fr
+
++below(767)
+    /* $max-width: $767px */
+    
+    .page__header
+        padding-bottom 30px
+        .content
+            max-width 350px
+        .title
+            margin-bottom 10px
+            fontSizeLine(33,35)
+
+    .button
+        padding 10px 18px
+        border-radius 22px
+        span
+            margin-right 5px
+    
+    .content-anchor
+        height 20px

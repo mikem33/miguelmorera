@@ -14,40 +14,27 @@
     font-family $rubik
     background-color transparent
     span
-        fontSize(14)
         font-weight 500
         display inline-block
         vertical-align middle
         text-transform uppercase
     &__hamburger
-        width 28px
-        height 28px
-        margin-left 5px
         border-radius 50%
         position relative
         background-color white
         span, span::before, span::after
-            height 2px
             display block
             position absolute
         span::before, span::after
             content ''
             background-color inherit
         span, span::before
-            width 16px
             transition transform 100ms linear
         span
             top 50%
             left 50%
-            margin-top -1px
-            margin-left -8px
             background-color var( --main-page-color )
-        span::before
-            margin-top -5px
         span::after
-            left 2px
-            width 12px
-            margin-top 5px
             transition opacity 100ms linear
     &.active
         .toggle-nav__hamburger
@@ -87,15 +74,116 @@
         pointer-events auto
         transition opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), transform 0.5s cubic-bezier(0.19, 1, 0.22, 1)
     &__items
-        display flex
-        flex-flow column
-        padding-top 85px
+        margin auto 0
+        white-space pre-line
         a
-            fontSize(25)
             color $mmPurple
             font-weight 500
             display inline-block
     &__colophon
-        fontSize(12)
         margin-top auto
         margin-bottom 0
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+    
+    .toggle-nav
+        span
+            fontSize(20)
+        &__hamburger
+            width 48px
+            height 48px
+            margin-left 18px
+            span, span::before, span::after
+                height 4px
+            span, span::before
+                width 28px
+            span
+                margin-top -2px
+                margin-left -14px
+            span::before
+                margin-top -9px
+            span::after
+                left 3px
+                width 22px
+                margin-top 9px
+    
+    .nav
+        padding-top 150px
+        &__items a
+            fontSize(60)
+
++between(768, 1199)
+    /* $min-width: $768px // $max-width: $1199px */
+    
+    .toggle-nav
+        span
+            fontSize(16)
+        &__hamburger
+            width 42px
+            height 42px
+            margin-left 10px
+            span, span::before, span::after
+                height 3px
+            span, span::before
+                width 22px
+            span
+                margin-top -1.5px
+                margin-left -11px
+            span::before
+                margin-top -7px
+            span::after
+                left 2px
+                width 18px
+                margin-top 7px
+
+    .nav
+        padding-top 90px
+        &__items
+            a
+                fontSize(45)
+
++above(768)
+    /* $min-width: $768px */
+    
+    .nav
+        &__colophon
+            fontSize(20)
+
++below(767)
+    /* $max-width: $767px */
+    
+    .toggle-nav
+        span
+            fontSize(14)
+        &__hamburger
+            width 28px
+            height 28px
+            margin-left 5px
+            span, span::before, span::after
+                height 2px
+            span, span::before
+                width 16px
+            span
+                margin-top -1px
+                margin-left -8px
+            span::before
+                margin-top -5px
+            span::after
+                left 2px
+                width 12px
+                margin-top 5px
+    
+    .nav
+        padding-top 55px
+        &__items
+            a
+                fontSize(25)
+        &__colophon
+            fontSize(14)

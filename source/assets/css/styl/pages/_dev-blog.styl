@@ -7,8 +7,21 @@
 .dev-posts__list
     background-color white
 
-.dev-post--item
+.dev-post
     border-bottom-color $darkGrey
     .beta
         &, & a
             color $darkGrey
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+    
+    .page__template-dev-blog
+        .page__header .content
+            max-width 660px

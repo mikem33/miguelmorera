@@ -1,6 +1,14 @@
 :root
     --login-bar-height 0
-    --menu-bar-height 55
+    +above(1200)
+        /* $min-width: $1200px */
+        --header-height 150
+    +between(768, 1199)
+        /* $min-width: $767px // $max-width: $1199px */
+        --header-height 90
+    +below(767)
+        /* $max-width: $767px */
+        --header-height 55
 
 .logged-in
     +above(783)

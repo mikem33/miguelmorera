@@ -5,24 +5,16 @@
 \*----------------------------- */
 
 .footer
-    padding-top 30px
-    text-align center
-    padding-bottom 20px
     background-color #181726
     .logo--footer
-        display block
-        margin-bottom 10px
+        display inline-block
         svg
-            width 80px
-            height 84px
             fill $mmRed
-    &__nav
-        margin-bottom 20px
-        a
             display block
+    &__nav
+        a
             color $mmRed
     &__social-networks
-        margin-bottom 25px
         a
             margin-right 15px
             display inline-block
@@ -31,6 +23,7 @@
                 margin-right 0
         svg
             fill $mmRed
+            display block
         .twitter svg
             width 34px
             height 29px
@@ -49,4 +42,68 @@
 
 .colophon p
     color $mmRed
+    fontSize(14)
     margin-bottom 0
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+    
+    .footer__nav a
+        fontSize(20)
+
++above(768)
+    /* $min-width: $768px */
+    
+    .footer
+        .wrapper
+            display grid
+            padding-top 50px
+            grid-row-gap 40px
+            align-items center
+            padding-bottom 50px
+            grid-template-columns 30% 1fr
+        .logo--footer
+            order 1
+            svg
+                width 50px
+                height 50px
+        &__nav
+            order 2
+            text-align right
+            a
+                margin-left 12px
+                &:first-child
+                    margin-left 0
+        &__social-networks
+            order 4
+            text-align center
+        &__nav, &__social-networks
+            text-align right
+
+    .colophon
+        order 3
+
++below(767)
+    /* $max-width: $767px */
+    
+    .footer
+        padding-top 30px
+        text-align center
+        padding-bottom 20px
+        .logo--footer
+            margin-bottom 10px
+            svg
+                width 80px
+                height 84px
+        &__nav
+            margin-bottom 20px
+            a
+                display block
+        &__social-networks
+            margin-bottom 25px

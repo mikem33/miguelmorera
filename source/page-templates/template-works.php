@@ -6,8 +6,8 @@
     include(locate_template('includes/page-header.php'));
 ?>
 
-<section class="works__list works__section section space" data-bg-color="#ffffff" data-type="light" data-scroll>
-    <div class="content">
+<section class="works__list items section space" data-bg-color="#ffffff" data-type="light" data-scroll>
+    <div class="items__container wrapper">
         <?php
             $work_posts_args = array(
                 'post_type' => 'mm_work',
@@ -37,7 +37,7 @@
                 </a>
             </article> <!--  /.work .work--item -->
         <?php endwhile; ?>
-    </div> <!--  /.content -->
+    </div> <!--  /.items__container -->
     <a href="<?php echo get_permalink(); ?>" class="button button--purple button--filled button--icon">
         <span><?php _e( 'Load more works', 'miguelmorera' ); ?></span>
         <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>

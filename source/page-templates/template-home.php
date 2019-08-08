@@ -7,11 +7,11 @@
     include(locate_template('includes/page-header.php'));
 ?>
 
-<section class="home__blog home__section section space" id="content" data-bg-color="#f45a5a" data-type="dark" data-scroll>
-    <header class="section__header">
+<section class="home__blog home__section items section space" id="content" data-bg-color="#f45a5a" data-type="dark" data-scroll>
+    <header class="section__header wrapper">
         <h3 class="title"><?php _e('Eventually I like to write down some thoughts...', 'miguelmorera'); ?></h3>
     </header> <!--  /.section__header -->
-    <div class="content">
+    <div class="items__container wrapper">
         <?php
             $home_posts_args = array(
                 'post_type' => 'post',
@@ -23,10 +23,10 @@
             while ($home_posts_query->have_posts()) : 
                 $home_posts_query->the_post();
         ?>
-        <article class="post post--item item">
+        <article class="post item">
             <figure>
                 <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail('full'); ?>
+                    <?php mm_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
             <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','miguelmorera'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2> <!--  /.title .beta-->
@@ -39,22 +39,22 @@
             </div> <!--  /.content -->
             <a href="<?php the_permalink(); ?>" class="item__link">
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                <span><?php _e( 'Continue reading', 'miguelmorera' ); ?></span>
+                <span><?php _e('Continue reading', 'miguelmorera'); ?></span>
             </a>
         </article><!-- /.post .post--home .item -->
         <?php endwhile; wp_reset_postdata(); ?>
-    </div> <!--  /.content -->
+    </div> <!--  /.items__container -->
     <a href="<?php echo get_permalink(38); ?>" class="button button--white-red button--filled button--icon">
         <span><?php _e('See more posts', 'miguelmorera'); ?></span>
         <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
     </a>
 </section> <!--  /.home__blog .home__section -->
 
-<section class="home__comics home__section section space" data-scroll data-type="light" data-bg-color="#ffe42b">
-    <header class="section__header">
+<section class="home__comics home__section items section space" data-scroll data-type="light" data-bg-color="#ffe42b">
+    <header class="section__header wrapper">
         <h3 class="title"><?php _e('...or draw some comics','miguelmorera'); ?></h3> <!--  /.title -->
     </header> <!--  /.section__header -->
-    <div class="content">
+    <div class="items__container wrapper">
         <?php
             $home_comics_args = array(
                 'post_type' => 'mm_comic',
@@ -69,7 +69,7 @@
         <article class="comic comic--item item">
             <figure>
                 <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail('full'); ?>
+                    <?php mm_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
             <h2 class="title beta"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2> <!--  /.title .beta-->
@@ -80,7 +80,7 @@
                     $count = 0;
                     $get_terms = wp_get_post_terms(get_the_ID(), 'mm_comic_category'); 
                     $total_terms = count($get_terms);
-                    foreach ( $get_terms as $term ) :
+                    foreach ($get_terms as $term) :
                 ?>
                     <p>
                         <a href="<?php echo get_term_link($term->term_id ); ?>">
@@ -91,9 +91,10 @@
                 <?php $count++; endforeach; ?>
                 </div> <!--  /.categories -->
             </div> <!--  /.meta -->
-            <div class="content">
-                <?php the_excerpt(); ?>
-            </div> <!--  /.content -->
+            <a href="<?php the_permalink(); ?>" class="item__link">
+                <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
+                <span><?php _e('Read comic', 'miguelmorera'); ?></span>
+            </a>
         </article> <!--  /.comic comic--item item -->
         <?php endwhile; ?>
     </div> <!--  /.content -->

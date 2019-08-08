@@ -17,8 +17,40 @@
     /**
      * Function for enable thumbnails generation and custom sizes.
      */
-    add_theme_support( 'post-thumbnails' );
-    // add_image_size( 'gallery-thumbnail', 150, 150, true );
+    add_theme_support('post-thumbnails');
+    add_image_size('item-thumbnail', 960, 600, true);
+    add_image_size('item-thumbnail-medium', 640, 400, true);
+    add_image_size('item-thumbnail-little', 480, 300, true);
+
+    /**
+     * Function to get responsive images on post thumbnails with custom created sizes.
+     * @param  integer  $post_id    Post ID to get thumbnail.
+     * @param  string   $size       Name of the thumbnail to get.
+     * @param  string   $class      Add class to the image.
+     * @param  string   $echo       It is for echo or returned the image value.
+     * @return string
+     */
+    function mm_post_thumbnail($post_id, $size = 'item-thumbnail', $class = '', $echo = true) {
+        $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size )[0];
+        $thumbnail_medium = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size . '-medium' )[0];
+        $thumbnail_little = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size . '-little' )[0];
+
+        $image  = '<img src="' . $thumbnail . '"';
+        $image .= ( $thumbnail_medium && $thumbnail_little ?  ' srcset="' : '' ); // open srcset
+        $image .= ( $thumbnail_little ? $thumbnail_little . ' 480w' : '' );
+        $image .= ( $thumbnail_medium && $thumbnail_little ? ', ' : '' );
+        $image .= ( $thumbnail_medium ? $thumbnail_medium . ' 640w' : '' );
+        $image .= ( $thumbnail_medium && $thumbnail_little ? ', ' : '' );
+        $image .= ( $thumbnail ? $thumbnail . ' 960w' : '' );
+        $image .= ( $thumbnail_medium && $thumbnail_little ?  '"' : '' ); // close srcset
+        $image .= ( $class ? ' class="' . esc_attr($class) . '"' : '' );
+        $image .= ' sizes="auto" alt="' . get_the_title($post_id) . '">';
+        if ($echo == true) {
+            echo $image;
+        } else {
+            return $image;
+        }
+    }
 
     /**
      * Function to enable wide images support on Gutenberg.
