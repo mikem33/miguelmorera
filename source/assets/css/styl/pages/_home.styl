@@ -24,46 +24,15 @@
 .home__blog
     color white
     background-color $mmRed
-
-.post.item
-    color white
-    border-bottom-color rgba(white, .25)
-    figure
-        &::before
-            top 0
-            left 0
-            z-index 1
-            content ''
-            width 100%
-            height 100%
-            position absolute
-            pointer-events none
-            mix-blend-mode lighten
-            background-color rgba($mmRed, .7)
-    .meta
-        color #fab9b9
-        time::after
-            background-color @color
-    .beta a
-        color white
-    .item__link
-        color $mmDarkRed
-        .ico
-            fill $mmDarkRed
+    .section__header .title
+        &::after
+            background-color white
 
 .home__comics
     background-color $mmYellow
     .section__header .title
         max-width 230px
         color $darkGrey
-    .comic--item
-        border-color $darkGrey
-        .beta a
-            color $darkGrey
-        .meta, .meta a, .item__link, .item__link .ico
-            color $mmBrown
-        .meta
-            margin-bottom 0
 
 /* ---------------------------- *\
 

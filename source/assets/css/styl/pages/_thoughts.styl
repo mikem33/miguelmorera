@@ -29,6 +29,24 @@
             margin-bottom 0
             line-height 30px
 
+.post.item
+    color white
+    border-bottom-color rgba(white, .25)
+    figure
+        &::before
+            mix-blend-mode lighten
+            background-color rgba($mmRed, .7)
+    .meta
+        color #fab9b9
+        time::after
+            background-color @color
+    .beta a
+        color white
+    .item__link
+        color $mmDarkRed
+        .ico
+            fill $mmDarkRed
+
 .single--post
     .wrapper
         max-width 680px
