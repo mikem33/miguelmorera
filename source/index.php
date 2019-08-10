@@ -5,7 +5,7 @@
 ?>
 
 <section class="posts__list items section space" data-bg-color="#f45a5a" data-type="dark" data-scroll>
-    <div class="items__container">
+    <div class="items__container wrapper">
     <?php while (have_posts()) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" class="post item">
             <figure>
