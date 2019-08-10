@@ -6,7 +6,7 @@
 
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
-        <article id="content" class="post post--single section space" data-bg-color="#ffffff" data-type="light" data-scroll>
+        <article id="content" class="post dev-post--single post section space" data-bg-color="#ffffff" data-type="light" data-scroll>
             <?php the_post_thumbnail('full'); ?>
             <div class="wrapper">
                 <?php the_content(); ?>

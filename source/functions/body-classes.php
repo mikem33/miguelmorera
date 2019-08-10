@@ -16,9 +16,9 @@
       
         if (is_single()) {  
             $post_id = $wp_query->get_queried_object_id();
-            $arr[] = 'post single post-id-' . $post_id;
+            $arr[] = 'single post-id-' . $post_id;
             if (get_post_type() == 'post') {
-                $arr[] = 'single--post';
+                $arr[] = 'single--thought';
             } elseif (get_post_type() == 'mm_work') {
                 $arr[] = 'single--work';
             } elseif (get_post_type() == 'mm_comic') {

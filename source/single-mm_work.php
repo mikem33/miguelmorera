@@ -6,7 +6,7 @@
 
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
-        <article id="content" class="work work--single">
+        <article id="content" class="work work--single post">
             <?php if (get_field('work_intro')) : ?>
                 <section class="work__intro section space" data-bg-color="#fff2f2" data-type="light" data-scroll>
                     <div class="wrapper">

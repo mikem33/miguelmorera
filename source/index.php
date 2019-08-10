@@ -4,10 +4,10 @@
     include(locate_template('includes/page-header.php'));
 ?>
 
-<section class="posts__list items section space" data-bg-color="#f45a5a" data-type="dark" data-scroll>
+<section class="thoughts__list items section space" data-bg-color="#f45a5a" data-type="dark" data-scroll>
     <div class="items__container wrapper">
     <?php while (have_posts()) : the_post(); ?>
-        <article id="post-<?php the_ID(); ?>" class="post item">
+        <article id="post-<?php the_ID(); ?>" class="thought item">
             <figure>
                 <a href="<?php the_permalink(); ?>">
                     <?php mm_post_thumbnail(get_the_ID()); ?>
@@ -25,7 +25,7 @@
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
                 <span><?php _e( 'Continue reading', 'miguelmorera' ); ?></span>
             </a>
-        </article><!-- .post .item -->
+        </article><!-- .thought .item -->
     <?php endwhile; ?>
     </div> <!--  /.items__container -->
 
@@ -34,6 +34,6 @@
         <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'miguelmorera')) ?></div>
     </nav>
 
-</section> <!--  /.works__list -->
+</section> <!--  /.thoughts__list -->
 
 <?php get_footer(); ?>
