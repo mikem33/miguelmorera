@@ -42,8 +42,10 @@
         <link rel="alternate" type="application/atom+xml" title="<?php bloginfo( 'name' ); ?> Atom Feed" href="<?php bloginfo( 'atom_url' ); ?>">
         <link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?> RSS 2.0 Feed" href="<?php bloginfo( 'rss2_url' ); ?>">
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
         <?php wp_head(); ?>
+        <?php if (get_field('custom_css')) : ?>
+            <style type="text/css"><?php echo get_field('custom_css', $page_id); ?></style>
+        <?php endif; ?>
     </head>
     <body <?php body_class(); ?>>
         <header class="header flex" data-header-type="<?php echo $page_header_type; ?>">
