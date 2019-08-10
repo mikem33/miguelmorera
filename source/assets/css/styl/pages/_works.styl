@@ -6,28 +6,59 @@
 
 .works__list
     text-align center
-    background-color white
-    .work
-        text-align left
-        header
-            text-align center
-            a
-                display block
-            .title
-                color $darkGrey
-                margin-bottom 0
-            p
-                color $lightGrey
-        figure
-            margin-bottom 0
-            border 1px solid #dedede
-            a
-                display block
+    background-color $mmBlue
 
 .work
-    background-color white
+    text-align left
+    &__meta
+        padding-left 10px
+        padding-right 10px
+        margin-bottom 50px
+        display inline-block
+        border-bottom 2px solid #d8d8d8
+        > div
+            margin-right 50px
+            display inline-block
+            vertical-align middle
+            &:last-child
+                margin-right 0
+            span
+                fontSize(14)
+                text-transform uppercase
+            .delta
+                fontSize(20)
+                margin-bottom 12px
+                a
+                    color $darkGrey
     &__intro, &__outro
         background-color #fff2f2
+    &--single
+        background-color white
+        .wrapper
+            max-width 960px
+
+.work.item
+    border-color #99bdfa
+    header
+        text-align center
+        a
+            display block
+        .title
+            color white
+            margin-bottom 0
+        p
+            color #99bdfa
+    figure
+        margin-bottom 0
+        a
+            display block
+        &::before
+            mix-blend-mode screen
+            background-color $mmBlue
+    .item__link
+        color #99bdfa
+        .ico
+            fill #99bdfa
 
 /* ---------------------------- *\
 
@@ -41,6 +72,25 @@
     .works__list
         .work header p
             fontSize(20)
+    
+    .work--single
+        .beta, h2
+            fontSize(45)
+        .gamma, h3
+            fontSize(40)
+        p, li
+            fontSize(20)
+
++between(768, 1199)
+    /* $min-width: $768px // $max-width: $1199px */
+    
+    .work--single
+        .beta, h2
+            fontSize(35)
+        .gamma, h3
+            fontSize(30)
+        p, li
+            fontSize(18)
 
 +below(767)
     /* $max-width: $767px */
