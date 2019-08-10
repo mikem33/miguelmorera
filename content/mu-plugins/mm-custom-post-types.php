@@ -154,7 +154,7 @@ if ( !post_type_exists('mm_dev_post') ) {
                 'has_archive'     => false,
                 'show_in_rest'    => true,
                 'rewrite' => array(
-                    'slug'       => 'development',
+                    'slug'       => 'development-blog',
                     'with_front' => false,
                 ),
                 'supports' => array(
