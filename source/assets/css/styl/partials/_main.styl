@@ -21,7 +21,6 @@ body
     position relative
     align-items center
     justify-content center
-    padding-top calc(((var(--header-height) + var(--login-bar-height)) * 1px) + 15px)
     .content
         margin auto
     .content, .meta
@@ -33,6 +32,15 @@ body
         color $darkGrey
     &[data-type="dark"]
         color white
+    .meta
+        .content
+            fontSize(14)
+            margin-left 1em
+            text-align left
+        .author
+            fontSize(16)
+    .avatar
+        filter grayscale(1)
     &--hero
         height 100vh
         flex-flow column
@@ -42,13 +50,9 @@ body
             margin-top auto
             align-items center
             .content
-                fontSize(14)
                 color #d4d4d4
-                text-align left
-                margin-left 1em
             .author
                 color white
-                fontSize(16)
             time::after
                 background-color #d4d4d4
 
@@ -156,6 +160,8 @@ body
             centerObject(false, true)
 
 .avatar
+    overflow hidden
+    position relative
     border-radius 100%
 
 .categories 
@@ -168,6 +174,8 @@ body
     background-color white
     .wrapper
         max-width 960px
+    a
+        text-decoration underline
     blockquote
         width 90%
         margin 0 auto 2em
@@ -187,6 +195,8 @@ body
             position absolute
             background-size 73px 68px
             background-image url('assets/images/ico-quotes.svg')
+    &__main-image
+        text-align center
 
 .post
     &__comment-form, &__comments-list
@@ -341,7 +351,7 @@ body
     
     .page__header
         .content
-            max-width 650px
+            max-width 830px
         .title
             margin-bottom 20px
             fontSizeLine(75, 75)
@@ -391,13 +401,12 @@ body
             fontSizeLine(28, 32)
         p, li
             fontSizeLine(20, 35)
-        a
-            color $mmRed
-            text-decoration underline
         blockquote
             padding 1.5em 2em 1.5em 50px
             p, li
                 fontSizeLine(22, 35)
+        &__main-image
+            margin-bottom 4rem
     
     .mm__form
         input[type=text], input[type=email], 
@@ -467,6 +476,8 @@ body
             padding 1em 1em 1em 40px
             p, li
                 fontSizeLine(20, 30)
+    &__main-image
+        margin-bottom 2.8rem
     
     .comment
         &__header .beta
@@ -477,6 +488,7 @@ body
     
     .page__header
         padding-bottom 60px
+        padding-top calc(((var(--header-height) + var(--login-bar-height)) * 1px) + 65px)
         
     .content-anchor
         height 30px
@@ -520,6 +532,7 @@ body
     
     .page__header
         padding-bottom 30px
+        padding-top calc(((var(--header-height) + var(--login-bar-height)) * 1px) + 15px)
         .content
             max-width 350px
         .title
@@ -553,6 +566,8 @@ body
             &::before
                 top -45px
                 left -10px
+        &__main-image
+            margin-bottom 1.5rem
 
     .post__comments-list
         .children

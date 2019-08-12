@@ -6,7 +6,7 @@
     include(locate_template('includes/page-header.php'));
 ?>
 
-<section class="dev-posts__list items section space" data-bg-color="#ffffff" data-type="dark" data-scroll>
+<section class="dev-posts__list items section space" data-bg-color="#e1e1e1" data-type="dark" data-scroll>
     <div class="items__container wrapper">
         <?php
             $dev_posts_args = array(

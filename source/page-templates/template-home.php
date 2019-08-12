@@ -91,6 +91,12 @@
                 <?php $count++; endforeach; ?>
                 </div> <!--  /.categories -->
             </div> <!--  /.meta -->
+            <div class="content">
+                <?php 
+                    $page_header_stuff =  get_field('page_header_stuff', get_the_ID());
+                    echo $page_header_stuff['page_header_text'];
+                ?>
+            </div> <!--  /.content -->
             <a href="<?php the_permalink(); ?>" class="item__link">
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
                 <span><?php _e('Read comic', 'miguelmorera'); ?></span>

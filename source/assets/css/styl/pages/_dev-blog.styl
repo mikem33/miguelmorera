@@ -5,10 +5,29 @@
 \*----------------------------- */
 
 .dev-posts__list
-    background-color white
+    background-color #e1e1e1
+
+.single--dev-post
+    .page__header
+        flex-direction column
+        > .content
+            margin-bottom 4em
+        .meta time::after
+            background-color $darkGrey
 
 .dev-post
+    &--single
+        .wrapper
+            max-width 680px
+        a
+            color $lightGrey
+
+.dev-post.item
     border-bottom-color $darkGrey
+    figure
+        &::before
+            mix-blend-mode multiply
+            background-color rgba(#d2d2d2, .7)
     .beta
         &, & a
             color $darkGrey

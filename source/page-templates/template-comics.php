@@ -22,7 +22,7 @@
             <article class="comic item">
                 <figure>
                     <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('full'); ?>
+                        <?php mm_post_thumbnail(get_the_ID()); ?>
                     </a>
                 </figure>
                 <h2 class="title beta"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2> <!--  /.title .beta-->
@@ -45,8 +45,15 @@
                     </div> <!--  /.categories -->
                 </div> <!--  /.meta -->
                 <div class="content">
-                    <?php the_excerpt(); ?>
+                    <?php 
+                        $page_header_stuff =  get_field('page_header_stuff', get_the_ID());
+                        echo $page_header_stuff['page_header_text'];
+                    ?>
                 </div> <!--  /.content -->
+                <a href="<?php the_permalink(); ?>" class="item__link">
+                    <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
+                    <span><?php _e('Read comic', 'miguelmorera'); ?></span>
+                </a>
             </article> <!--  /.comic comic--item item -->
         <?php endwhile; ?>
     </div> <!--  /.content -->
