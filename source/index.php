@@ -20,10 +20,10 @@
             </div> <!--  /.meta -->
             <div class="content">
                 <?php the_excerpt(); ?>
-            </div><!-- .post-content -->
+            </div><!-- .content -->
             <a href="<?php the_permalink(); ?>" class="item__link">
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                <span><?php _e( 'Continue reading', 'miguelmorera' ); ?></span>
+                <span><?php _e('Continue reading', 'miguelmorera'); ?></span>
             </a>
         </article><!-- .thought .item -->
     <?php endwhile; ?>
