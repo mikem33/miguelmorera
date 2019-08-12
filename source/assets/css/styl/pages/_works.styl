@@ -32,10 +32,6 @@
                     color $darkGrey
     &__intro, &__outro
         background-color #fff2f2
-    &--single
-        background-color white
-        .wrapper
-            max-width 960px
 
 .work.item
     border-color #99bdfa
@@ -72,25 +68,6 @@
     .works__list
         .work header p
             fontSize(20)
-    
-    .work--single
-        .beta, h2
-            fontSize(45)
-        .gamma, h3
-            fontSize(40)
-        p, li
-            fontSize(20)
-
-+between(768, 1199)
-    /* $min-width: $768px // $max-width: $1199px */
-    
-    .work--single
-        .beta, h2
-            fontSize(35)
-        .gamma, h3
-            fontSize(30)
-        p, li
-            fontSize(18)
 
 +below(767)
     /* $max-width: $767px */

@@ -49,6 +49,8 @@ body
             .author
                 color white
                 fontSize(16)
+            time::after
+                background-color #d4d4d4
 
 .content-anchor
     z-index 1
@@ -77,9 +79,12 @@ body
         position absolute
         background-color rgba($darkGrey, .3)
 
-.items
-    .section__header .title
-        padding-bottom 32px
+.section__header
+    position relative
+    margin-bottom 50px
+    padding-bottom 32px
+    .title
+        margin-bottom 0
         &::after
             left 0
             bottom 0
@@ -159,6 +164,98 @@ body
     p
         margin-bottom 0
 
+.post
+    background-color white
+    .wrapper
+        max-width 960px
+    blockquote
+        width 90%
+        margin 0 auto 2em
+        position relative
+        background-color whitesmoke
+        p, li
+            color $lightGrey
+            &:last-child
+                margin-bottom 0
+        &::before
+            top 10px
+            left -50px
+            content ''
+            opacity .1
+            width 73px
+            height 68px
+            position absolute
+            background-size 73px 68px
+            background-image url('assets/images/ico-quotes.svg')
+
+.post
+    &__comment-form, &__comments-list
+        background-color whitesmoke
+    &__comment-form
+        text-align center
+        .section__header
+            text-align left
+            margin-bottom 50px
+            .title
+                max-width 530px
+                margin-bottom 15px
+            .legend
+                color $lightGrey
+        .comment__reply-header
+            display none
+    &__comments-list
+        .commentslist__header
+            padding-left 70px
+            position relative
+            .title
+                font-weight 400
+            .ico
+                left 0
+                centerObject(false, true)
+        .wrapper
+            max-width 680px
+        .comment-respond
+            padding 2em
+            border-radius 10px
+            background-color #fafafa
+            .mm__form
+                text-align right
+
+.comment__reply-header 
+    margin-bottom 1em
+    align-items center
+    .title
+        margin-bottom 0
+    a
+        margin-right 0
+        margin-left auto
+        text-decoration underline
+
+.comment
+    border-radius 10px
+    background-color #ebebeb
+    &__header
+        display grid
+        margin-bottom 20px
+        .beta
+            margin-bottom 0
+        time
+            fontSize(14)
+            color $lightGrey
+    &__content
+        margin-bottom 2em
+        p, li
+            color #656565
+            &:last-child
+                margin-bottom 0
+    &__reply
+        text-align right
+    .moderation
+        color white
+        padding 10px
+        border-radius 4px
+        background-color lighten($mmBlue, 15%)
+
 .button
     font-weight 500
     font-family $rubik
@@ -189,15 +286,19 @@ body
     background-color white
     text-transform uppercase
 
+.has-drop-cap:not(:focus):first-letter
+    font-weight 500
+
 .mm__form
     input[type=text], input[type=email], 
     input[type=tel], input[type=url],
     textarea
         width 100%
         border none
-        padding 5px
+        padding 10px 5px
         font-family $rubik
         outline-style none
+        background-color transparent
         border-bottom 2px solid #d8d8d8
     .fieldset
         padding-top 5px
@@ -206,7 +307,7 @@ body
         label
             top 0
             right 0
-            fontSize(12)
+            fontSize(14)
             display none
             position absolute
             text-transform uppercase
@@ -279,6 +380,38 @@ body
             .ico
                 width 10px
                 height 17px
+    
+    .post
+        &__comments-list
+            .commentslist__header .title
+                fontSize(40)
+        .beta, h2
+            fontSizeLine(35, 40)
+        .gamma, h3
+            fontSizeLine(28, 32)
+        p, li
+            fontSizeLine(20, 35)
+        a
+            color $mmRed
+            text-decoration underline
+        blockquote
+            padding 1.5em 2em 1.5em 50px
+            p, li
+                fontSizeLine(22, 35)
+    
+    .mm__form
+        input[type=text], input[type=email], 
+        input[type=tel], input[type=url],
+        textarea
+            fontSize(20)
+    
+    .comment
+        margin-bottom 2em
+        &__header .beta
+            fontSize(25)
+        &__content
+            p, li
+                fontSize(20)
 
 +below(1199)
     /* $max-width: $1199px */
@@ -293,6 +426,9 @@ body
             fontSizeLine(25, 28)
         .meta, &__link
             fontSize(14)
+    
+    .comment
+        margin-bottom 1em
 
 +between(768, 1199)
     /* $min-width: $768px // $max-width: $1199px */
@@ -319,6 +455,22 @@ body
     .items
         &__container
             grid-gap 2rem
+    
+    .post
+        .beta, h2
+            fontSizeLine(35, 40)
+        .gamma, h3
+            fontSizeLine(25, 30)
+        p, li
+            fontSizeLine(18, 28)
+        blockquote
+            padding 1em 1em 1em 40px
+            p, li
+                fontSizeLine(20, 30)
+    
+    .comment
+        &__header .beta
+            fontSize(20)
 
 +above(768)
     /* $min-width: $768px */
@@ -332,12 +484,36 @@ body
             width 30px
             height 30px
     
+    .section__header .title
+        fontSizeLine(52, 56)
+        
     .items
-        .section__header .title
-            fontSizeLine(52, 56)
         &__container
             display grid
             grid-template-columns 1fr 1fr
+    
+    .post__comment-form
+        padding-top 50px
+        padding-bottom 50px
+
+    .single
+        .mm__form
+            .fieldset-group
+                display grid
+                grid-gap 20px
+                grid-template-columns 1fr 1fr 1fr
+            .fieldset--textarea
+                grid-column 1 / span 3
+
+    .comment
+        padding 2em
+        &__header
+            grid-gap 20px
+            grid-template-columns 64px 1fr
+        &.depth-2, &.depth-3, &.depth-4, &.depth-5
+            .comment__header
+                grid-gap 15px
+                grid-template-columns 44px 1fr
 
 +below(767)
     /* $max-width: $767px */
@@ -348,7 +524,7 @@ body
             max-width 350px
         .title
             margin-bottom 10px
-            fontSizeLine(33,35)
+            fontSizeLine(33, 35)
 
     .button
         padding 10px 18px
@@ -358,3 +534,37 @@ body
     
     .content-anchor
         height 20px
+    
+    .post
+        &__comment-form
+            padding-top 20px
+            padding-bottom 20px
+        .beta, h2
+            fontSizeLine(30, 35)
+        .gamma, h3
+            fontSizeLine(25, 30)
+        p, li
+            line-height 26px
+        blockquote
+            margin-top 2em
+            padding 2em 1em 1em
+            p, li
+                fontSizeLine(18, 26)
+            &::before
+                top -45px
+                left -10px
+
+    .post__comments-list
+        .children
+            padding-left 10px
+
+    .comment
+        padding 1em
+        &__header
+            grid-gap 10px
+            grid-template-columns 44px 1fr
+            .beta
+                fontSize(18)
+        &.depth-2, &.depth-3, &.depth-4, &.depth-5
+            .comment__header
+                grid-template-columns 24px 1fr

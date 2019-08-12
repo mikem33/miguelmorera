@@ -7,94 +7,96 @@
             <p class="nocomments"><?php _e('This posts is protected with password. Enter the password to see the comments.','miguelmorera'); ?></p>
             <?php return;
         }
-    }    
+    }
 ?>
 
-<?php if ('open' == $post->comment_status) : ?>
-
-    <section class="post__comment-form space" id="commentform">
-        <header>
+<section class="post__comment-form space">
+    <div class="wrapper">
+        <header class="section__header">
             <h3 class="title alpha"><?php _e('Maybe you would like to leave a comment','miguelmorera'); ?></h3>
-            <small><?php _e('The fields marked with an asterisk (*) are required.','miguelmorera'); ?></small>
+            <p class="legend"><?php _e('The fields marked with an asterisk (*) are required.','miguelmorera'); ?></p>
         </header>
-        <?php if (get_option('comment_registration') && !$user_ID) : ?>
-            <p><?php _e('You must','miguelmorera'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php _e('register or log in','miguelmorera'); ?></a> <?php _e('to leave a comment.','miguelmorera'); ?></p>
-        <?php else : ?>
-            <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" class="mm__form" method="post">
-                <?php if ($user_ID) : ?>
-                    <p><?php _e('You are now logged in as','miguelmorera'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="<?php _e('Log out on this account','miguelmorera'); ?>"><?php _e('Log out &raquo;','miguelmorera'); ?></a></p>
-                <?php else : ?>
-                    <fieldset class="fieldset fieldset--text">
-                        <label for="author"><?php _e('Name*','miguelmorera'); ?></label>
-                        <input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="55" tabindex="1" placeholder="<?php _e('Name*','miguelmorera'); ?>" <?php if ($req) echo "aria-required='true'"; ?>>
-                    </fieldset> <!--  /.fieldset fieldset--text -->
-                    <fieldset class="fieldset fieldset--email">
-                        <label for="email"><?php _e('E-mail*','miguelmorera'); ?></label>
-                        <input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="55" tabindex="2" placeholder="<?php _e('E-mail*','miguelmorera'); ?>" <?php if ($req) echo "aria-required='true'"; ?>>
-                    </fieldset> <!--  /.fieldset fieldset--email -->
-                    <fieldset class="fieldset fieldset--text">
-                        <label for="url"><?php _e('Website','miguelmorera'); ?></label>
-                        <input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="55" tabindex="3" placeholder="<?php _e('Website','miguelmorera'); ?>">
-                    </fieldset> <!--  /.fieldset fieldset--text -->
-                <?php endif; ?>
-                <fieldset class="fieldset fieldset--textarea">
-                    <label for="comment"><?php _e('Comment*','textdomain'); ?></label>
-                    <textarea name="comment" id="comment" cols="55" rows="10" tabindex="4" placeholder="<?php _e('Comment*','miguelmorera'); ?>"></textarea>
-                </fieldset> <!--  /.fieldset fieldset--textarea -->
-                <button type="submit" class="button button--dark-grey button--filled button--icon">
-                    <span><?php _e('Send comment','miguelmorera'); ?></span>
-                    <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
-                </button>
-                <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>">
-                <?php do_action('comment_form', $post->ID); ?>
-            </form>
-        <?php endif; ?>
-
-    </section><!-- .post__comment-form -->
-<?php endif; ?>
-
-<?php if ($comments) : // there are comments ?>
-
-    <section class="post__comments-list commentslist section space">
-        <h3><?php comments_number('', __('One comment','miguelmorera'), __('% comments','miguelmorera') ); ?></h3>
 
         <?php 
-            foreach ($comments as $comment) :
+            // $Author field.
+            $author = '<div class="fieldset-group"><fieldset class="fieldset fieldset--text">';
+            $author .= '<label for="author">'.__('Name*','miguelmorera').'</label>';
+            $author .= '<input type="text" name="author" id="author" value="'.esc_attr( $commenter['comment_author'] ).'" size="55" tabindex="1" placeholder="'.__('Name*','miguelmorera').'">';
+            $author .= '</fieldset> <!--  /.fieldset fieldset--text -->';
+            // $Email field.
+            $email = '<fieldset class="fieldset fieldset--email">';
+            $email .= '<label for="email">'.__('E-mail*','miguelmorera').'</label>';
+            $email .= '<input type="text" name="email" id="email" value="'.esc_attr($commenter['comment_author_email']).'" size="55" tabindex="2" placeholder="'.__('E-mail*','miguelmorera').'">';
+            $email .= '</fieldset> <!--  /.fieldset fieldset--email -->';
+            // $URL field.
+            $url = '<fieldset class="fieldset fieldset--text">';
+            $url .= '<label for="url">'.__('Website','miguelmorera').'</label>';
+            $url .= '<input type="text" name="url" id="url" value="'.esc_attr($commenter['comment_author_url']).'" size="55" tabindex="3" placeholder="'.__('Website','miguelmorera').'">';
+            $url .= '</fieldset> <!--  /.fieldset fieldset--text -->';
+            // $Comment field.
+            $comment_field = '<fieldset class="fieldset fieldset--textarea">';
+            $comment_field .= '<label for="comment">'.__('Comment*','miguelmorera').'</label>';
+            $comment_field .= '<textarea name="comment" id="comment" cols="55" rows="10" tabindex="4" placeholder="'.__('Comment*','miguelmorera').'"></textarea>';
+            $comment_field .= '</fieldset> <!--  /.fieldset fieldset--textarea -->';
+            $comment_field .= '</div> <!--  /.fieldset-group -->';
+            // $Submit button.
+            $submit_button = '<button type="submit" class="button button--dark-grey button--filled button--icon">';
+            $submit_button .= '<span>'.__('Send comment','miguelmorera').'</span>';
+            $submit_button .= '<svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>';
+            $submit_button .= '</button>';
+
+            comment_form(
+                array(
+                    'fields' => array(
+                        'author'                => $author,
+                        'email'                 => $email,
+                        'url'                   => $url,
+                        'cookies'               => false,
+                    ),
+                    'comment_field'             => $comment_field,
+                    'class_form'                => 'mm__form comment-form',
+                    'title_reply_before'        => '<header class="comment__reply-header flex"><h3 class="title beta">',
+                    'title_reply_after'         => '</header><!-- /.comment__reply-header -->',
+                    'cancel_reply_before'       => '</h3>',
+                    'label_submit'              => false,
+                    'comment_notes_before'      => false,
+                    'comment_notes_after'       => false,
+                    'submit_field'              => '%1$s %2$s',
+                    'submit_button'             => $submit_button
+                )
+            ); 
         ?>
-            
-            <article <?php echo $oddcomment; ?>id="comment-<?php comment_ID(); ?>">
-                <header class="comment__header">
-                    <div class="avatar">
-                        <?php echo get_avatar($comment, 32); ?>
-                    </div>
-                    <div class="comment__meta">
-                        <h4><?php comment_author_link(); ?></h4>
-                        <a href="#comment-<?php comment_ID(); ?>" title="<?php _e('Permanent link to this comment','miguelmorera'); ?>">
-                            <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated">
-                                <?php the_time('F j, Y') ?> at <?php comment_time(); ?>
-                            </time> 
-                        </a>
-                    </div><!-- .meta -->                    
-                    <?php if ($comment->comment_approved == '0') : ?>
-                        <small><?php _e('Your comment is awaiting for moderation.','miguelmorera'); ?></small>
-                    <?php endif; ?>
+    </div><!-- /.wrapper -->
+</section><!-- /.post__comment-form -->
+
+<section class="post__comments-list commentslist section space">
+    <div class="wrapper">
+        <?php if ( have_comments() ) : ?>
+            <header class="commentslist__header">
+                <svg width="50" height="39" class="ico"><use xlink:href="#ico-comment-bubbles" /></svg>
+                <h3 class="title beta"><?php comments_number('', __('One comment','miguelmorera'), __('% comments','miguelmorera') ); ?></h3>
+            </header>
+            <?php wp_list_comments('type=comment&callback=mm_comments'); ?>
+            <nav class="post__comments-navigation">
+                <div class="comments--older"><?php previous_comments_link() ?></div>
+                <div class="comments--newer"><?php next_comments_link() ?></div>
+            </nav>
+        
+        <?php else : // this is displayed if there are no comments so far ?>
+     
+            <?php if ( comments_open() ) : ?>
+                <!-- If comments are open, but there are no comments. -->
+                <header class="commentslist__header">
+                    <svg width="50" height="39" class="ico"><use xlink:href="#ico-comment-bubbles" /></svg>
+                    <h3 class="title beta"><?php _e('There are no comments','miguelmorera'); ?></h3>
                 </header>
-                <div class="comment__content">
-                    <?php comment_text(); ?>
-                </div>
-            </article>
-
-        <?php 
-            $oddcomment = (empty($oddcomment)) ? 'class="oddcomment comment"' : 'class="comment"'; // alternating comments
-            endforeach; 
-        ?>
-
-    </section><!-- /.post__comments-list -->
-
-<?php else : // no comments yet ?>
-    <?php if ('open' != $post->comment_status) : ?>
-        <section class="post__comments-list section space">
-            <p><?php _e('The comments are closed.','miguelmorera'); ?></p>
-        </section> <!--  /.post__comments-list -->
-    <?php endif; ?>
-<?php endif; ?>
+            <?php else : // comments are closed ?>
+                <!-- If comments are closed. -->
+                <header class="commentslist__header">
+                    <svg width="50" height="39" class="ico"><use xlink:href="#ico-comment-bubbles" /></svg>
+                    <h3 class="title beta"><?php _e('Comments are closed','miguelmorera'); ?></h3>
+                </header>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div> <!--  /.wrapper -->
+</section><!-- /.post__comments-list -->

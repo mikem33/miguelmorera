@@ -13,7 +13,7 @@
             </div> <!--  /.wrapper -->
         </article><!-- .post -->
         <?php comments_template(); ?>
-    <?php endwhile; ?>
+    <?php endwhile; wp_reset_postdata(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
