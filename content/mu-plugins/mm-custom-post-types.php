@@ -159,6 +159,7 @@ if ( !post_type_exists('mm_dev_post') ) {
                 ),
                 'supports' => array(
                     'title',
+                    'author',
                     'editor',
                     'comments',
                     'revisions',
