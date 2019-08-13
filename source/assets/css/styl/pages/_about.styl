@@ -29,18 +29,18 @@
 
 \*----------------------------- */
 
-+above(1200)
-    /* $min-width: $1200px */
-    
-    .block-column--text
-        padding-left 120px
-        padding-right 120px
-        h2
-            fontSize(40)
-
 +below(767)
     /* $max-width: $767px */
     
-    .page__template-about
+    .page__about
         .page__header .content
             max-width 220px
+        .about__image
+            order 1
+            + .block-column
+                order 2
+                + .block-column
+                    order 4
+        .about__video
+            order 3
+    
