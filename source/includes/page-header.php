@@ -75,7 +75,7 @@
             </a>
         <?php endif; ?>
     </div> <!--  /.content -->
-    <?php if (get_post_type() == 'post' || get_post_type() == 'mm_dev_post') : ?>
+    <?php if ((get_post_type() == 'post' && is_single()) || get_post_type() == 'mm_dev_post') : ?>
         <div class="meta flex">
             <?php 
                 $post_data = get_post($page_id);
