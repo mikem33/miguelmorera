@@ -275,4 +275,7 @@
         }
     }
 
+    global $detect;
+    $detect = new Mobile_Detect;
+
 ?>
