@@ -28,9 +28,6 @@
 ?>
 <header class="page__header <?php echo $additional_header_classes; ?>" data-bg-color="<?php echo $page_bg_color; ?>" data-type="<?php echo $page_header_type; ?>" data-scroll>
     <div class="content">
-        <?php if (is_front_page()) : ?>
-            <span class="alpha-warning"><?php _e('Alpha', 'miguelmorera'); ?></span>
-        <?php endif; ?>
         <?php if (is_archive()) : ?>
             <?php if (have_posts()) : ?>
                 <?php 

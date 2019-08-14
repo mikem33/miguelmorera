@@ -29,6 +29,9 @@
                 </div> <!--  /.colophon -->
             </div> <!--  /.wrapper -->
         </footer> <!--  /.footer -->
+        <div class="alpha-warning space">
+            <span><?php _e('Alpha', 'miguelmorera'); ?></span>
+        </div> <!--  /.alpha-warning -->
         <?php wp_footer(); ?>
         <div class="nondisplayed">
             <?php echo file_get_contents(get_stylesheet_directory().'/assets/images/sprites.svg'); ?>

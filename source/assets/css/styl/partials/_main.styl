@@ -81,7 +81,8 @@ body
         z-index 1
         content ''
         position absolute
-        background-color rgba($darkGrey, .3)
+        mix-blend-mode multiply
+        background-color rgba($darkGrey, .45)
 
 .section__header
     position relative
@@ -315,14 +316,6 @@ body
             margin-left -25%
             position absolute
 
-.alpha-warning
-    fontSize(9)
-    padding 3px 6px
-    border-radius 30px
-    display inline-block
-    background-color white
-    text-transform uppercase
-
 code
     padding 2px 5px
     background-color $darkGrey
@@ -406,9 +399,10 @@ code
     .items
         &__container
             grid-gap 2.85rem
+            margin-bottom 3em
 
     .item
-        margin-bottom 4em
+        margin-bottom 1em
         .beta
             fontSizeLine(38, 46)
         .meta
@@ -504,6 +498,7 @@ code
     .items
         &__container
             grid-gap 2rem
+            margin-bottom 1em
     
     .post
         .beta, h2
