@@ -5,4 +5,94 @@
 \*----------------------------- */
 
 .contact__section
-    background-color white
+    background-color $mmGreen
+    .wrapper
+        max-width 680px
+    .content
+        p, li
+            color white
+        a
+            text-decoration underline
+            color darken($mmGreen, 50%)
+    .mm__form
+        input[type=text], input[type=email],
+        textarea
+            color white
+            border-color #34ff5a
+            +placeholder()
+                color #fff18f
+        label
+            color white
+
+.mm__form
+    span.wpcf7-not-valid-tip,
+    div.wpcf7-response-output
+        border-radius 4px
+        &::before
+            left 10px
+            content ''
+            width 20px
+            height 20px
+            centerObject(false,true)
+            background-size 20px 20px
+    span.wpcf7-not-valid-tip
+        color white
+        margin-top 1em
+        background-color #c62222
+        padding 10px 10px 10px 40px
+        &::before
+            background-image url('assets/images/ico-white-cross.svg')
+    div.wpcf7-response-output
+        margin 0
+        border none
+        position relative
+        padding 10px 20px 10px 40px
+        &.wpcf7-validation-errors, 
+        &.wpcf7-acceptance-missing
+            color $darkGrey
+            background-color $mmYellow
+            &::before
+                background-image url('assets/images/ico-black-warning.svg')
+        &.wpcf7-mail-sent-ok
+            background-color white
+            color darken($mmGreen, 15%)
+            &::before
+                background-image url('assets/images/ico-green-checkmark.svg')
+    /.wpcf7 & span.ajax-loader
+        width 50px
+        height 50px
+        background-image none
+        &::after
+            content ''
+            margin 5px
+            width 40px
+            height 40px
+            display block
+            border-radius 50%
+            border 5px solid white
+            animation lds-dual-ring 1.2s linear infinite
+            border-color white transparent white transparent
+
+@keyframes lds-dual-ring
+    0%
+        transform rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+    
+    .contact__section
+        .content
+            p, li
+                fontSizeLine(20, 28)
+    
+    .mm__form
+        span.wpcf7-not-valid-tip
+            fontSize(20)
