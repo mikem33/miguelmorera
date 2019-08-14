@@ -9,6 +9,7 @@
     width 100%
     color white
     position fixed
+    pointer-events none
     top calc( var( --login-bar-height ) * 1px )
     svg
         fill white
@@ -27,8 +28,10 @@
         .toggle-nav__hamburger span
             background-color var( --main-page-color )
 
-.logo svg
-    display block
+.logo
+    pointer-events all
+    svg
+        display block
 
 .scrollbar--calculated
     .header
