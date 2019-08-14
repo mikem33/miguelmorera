@@ -1,9 +1,11 @@
         </main> <!--  /.main -->
         <footer class="footer space">
             <div class="wrapper">
-                <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Home','miguelmorera' ); ?>">
-                    <svg><use xlink:href="#logo" /></svg>
-                </a>
+                <div class="footer__logo">
+                    <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Go to Home','miguelmorera' ); ?>" aria-label="<?php _e('Go to home','miguelmorera'); ?>">
+                        <svg><use xlink:href="#logo" /></svg>
+                    </a>
+                </div> <!--  /.footer__logo -->
                 <?php 
                     $args = array(
                         'menu'            => 'footer-menu',
