@@ -4,3 +4,6 @@
 [submodule "private"]
     path = private
     url = https://bitbucket.org/miguelmorera/miguel-morera-site-private-stuff/
+[submodule "plugins"]
+    path = content/plugins
+    url = https://bitbucket.org/miguelmorera/miguel-morera-site-plugins/

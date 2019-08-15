@@ -1,5 +1,6 @@
 /content/upgrade/
 /content/themes
+/content/plugins
 /node_modules
 /private
 /shared
