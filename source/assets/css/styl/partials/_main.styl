@@ -99,6 +99,18 @@ body
             position absolute
             background-color $darkGrey
 
+.items__container
+    .item .title a[data-lang]::after
+        font-size 14px
+        color $darkGrey
+        margin-left 10px
+        padding 3px 5px
+        border-radius 3px
+        vertical-align middle
+        background-color white
+        content attr(data-lang)
+        text-transform uppercase
+
 .item
     display flex
     text-align left
