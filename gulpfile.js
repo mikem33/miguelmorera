@@ -1,6 +1,6 @@
 const
     // source and build folders
-    build           = 'content/themes/miguelmorera/',
+    theme           = 'content/themes/miguelmorera/',
     fs              = require('fs'),
     gulp            = require('gulp'),
     nib             = require('nib'),
@@ -21,16 +21,18 @@ const
 // Files settings
 const files = {
     source      : 'source/**/*.php',
-    build       : build
+    dist        : 'dist/'
 };
+
+var build = theme;
 
 const acfFields = 'source/includes/acf-json/*.json';
 
 // copy PHP files
 gulp.task('php', function() {
     return gulp.src(files.source)
-        .pipe(newer(files.build))
-        .pipe(gulp.dest(files.build))
+        .pipe(newer(build))
+        .pipe(gulp.dest(build))
         .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
@@ -88,15 +90,20 @@ gulp.task('copy-images', function() {
             '!source/assets/images/_*/',
             '!source/assets/images/_*/**/*'
         ])
-        .pipe(newer(files.build + 'assets/images'))
-        .pipe(gulp.dest(files.build + 'assets/images'))
+        .pipe(newer(build + 'assets/images'))
+        .pipe(gulp.dest(build + 'assets/images'))
         .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
+});
+
+gulp.task('copy-muplugins', function() {
+    return gulp.src('content/mu-plugins/*')
+        .pipe(gulp.dest('dist/content/mu-plugins/'));
 });
 
 gulp.task('copy-screenshot', function() {
     return gulp.src('source/*.png')
-        .pipe(newer(files.build))
-        .pipe(gulp.dest(files.build));
+        .pipe(newer(build))
+        .pipe(gulp.dest(build));
 });
 
 config = {
@@ -120,6 +127,7 @@ gulp.task('svgsprites', function() {
 });
 
 gulp.task('watch', function() {
+    console.log(build);
     gulp.watch('source/assets/css/styl/**/*.styl', ['styles']);
     gulp.watch('source/assets/javascript/source/*.js', ['js-templates']);
     gulp.watch('source/assets/javascript/compile/*.js', ['js-compiled']);
@@ -225,7 +233,21 @@ gulp.task('generate-favicon', function(done) {
     });
 });
 
-gulp.task('build', ['php', 'css', 'js', 'copy-images']);
+gulp.task('env-prod', function() {
+    build = files.dist + build;
+});
+
+gulp.task('release', ['env-prod'], function(){
+    console.log(build);
+    gulp.start('styles');
+    gulp.start('js-templates');
+    gulp.start('js-compiled');
+    gulp.start('copy-images');
+    gulp.start('svgsprites');
+    gulp.start('php');
+    gulp.start('acf-json');
+    gulp.start('copy-muplugins');
+});
 
 // Show errors on console.
 function swallowError (error) {
