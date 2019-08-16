@@ -1,7 +1,8 @@
+/content/upgrade/
+/content/plugins/
+/private
 /shared
 /wp
-/local-config.php
-/sql-dump-*.sql
-/db-sync
-/content/upgrade/
+/*.sql
+.htaccess
 .DS_Store

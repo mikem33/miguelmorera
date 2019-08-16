@@ -1,0 +1,11 @@
+<?php
+    include_once(STYLESHEETPATH.'/functions/global.php');
+    include_once(STYLESHEETPATH.'/functions/reset.php');
+    include_once(STYLESHEETPATH.'/functions/favicon.php');
+    include_once(STYLESHEETPATH.'/functions/enqueue.php');
+    include_once(STYLESHEETPATH.'/functions/mobile-detect.php');
+    include_once(STYLESHEETPATH.'/functions/theme-functions.php');
+    include_once(STYLESHEETPATH.'/functions/body-classes.php');
+    include_once(STYLESHEETPATH.'/functions/acf-stuff.php');
+    include_once(STYLESHEETPATH.'/functions/meta-graph.php');
+?>
