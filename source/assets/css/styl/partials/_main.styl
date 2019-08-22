@@ -288,7 +288,7 @@ body
     span, .ico
         display inline-block
         vertical-align middle
-    for $color in $buttonsArray
+    for $color in $colorsElemsArray
         &--{$color[0]}
             color $color[1]
             background-color $color[2]
@@ -369,7 +369,7 @@ code
             transition all $basetransition
         &:hover, &:hover .ico
             transition all $pseudotransition
-        for $color in $buttonsArray
+        for $color in $colorsElemsArray
             &--{$color[0]}:hover
                 color $color[3]
                 background-color $color[4]

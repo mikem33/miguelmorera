@@ -1,0 +1,69 @@
+/* ---------------------------- *\
+
+    $Pagination
+
+\*----------------------------- */
+
+.nav--pagination
+    text-align center
+    .nav__link
+        text-align center
+        border-radius 50%
+        margin-right 10px
+        display inline-block
+        .ico
+            top 1px
+            position relative
+        &--prev
+            .ico
+                left -1px
+                transform scaleX(-1)
+        &--next
+            .ico
+                right -1px
+        &.current
+            cursor default
+    for $color in $colorsElemsArray
+        &.pagination--{$color[0]}
+            .nav__link
+                color $color[1]
+                background-color $color[2]
+                .ico
+                    fill $color[1]
+                &.current
+                    color $color[3]
+                    background-color $color[4]
+
+.no-touch
+    .nav--pagination
+        a.nav__link
+            transition color $basetransition, background-color $basetransition
+            .ico
+                transition fill $basetransition
+            &:hover
+                transition color $pseudotransition, background-color $pseudotransition
+                .ico
+                    transition fill $pseudotransition
+        for $color in $colorsElemsArray
+            &.pagination--{$color[0]}
+                .nav__link:hover
+                    color $color[3]
+                    background-color $color[4]
+                    .ico
+                        fill $color[3]
+
+/* ---------------------------- *\
+
+    $Media $Queries
+
+\*----------------------------- */
+
++above(1200)
+    /* $min-width: $1200px */
+    
+    .nav--pagination
+        .nav__link
+            width 50px
+            height 50px
+            fontSize(20)
+            line-height 50px
