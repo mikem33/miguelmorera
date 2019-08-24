@@ -1,5 +1,5 @@
 <?php
-    function miguelmorera_scripts() {
+    function prometheus_scripts() {
         global $release;
         // Set false if you want to load on the <head>.
         if (!is_admin()) {
@@ -18,5 +18,5 @@
             }
         }
     }
-    add_action( 'wp_enqueue_scripts', 'miguelmorera_scripts' );
+    add_action( 'wp_enqueue_scripts', 'prometheus_scripts' );
 ?>

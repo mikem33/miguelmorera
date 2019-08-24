@@ -4,7 +4,7 @@
         die ('Please do not load this page directly. Thanks!');
     if (!empty($post->post_password)) {
         if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) { ?>
-            <p class="nocomments"><?php _e('This posts is protected with password. Enter the password to see the comments.','miguelmorera'); ?></p>
+            <p class="nocomments"><?php _e('This posts is protected with password. Enter the password to see the comments.','prometheus'); ?></p>
             <?php return;
         }
     }
@@ -13,35 +13,35 @@
 <section class="post__comment-form space">
     <div class="wrapper">
         <header class="section__header">
-            <h3 class="title alpha"><?php _e('Maybe you would like to leave a comment','miguelmorera'); ?></h3>
-            <p class="legend"><?php _e('The fields marked with an asterisk (*) are required.','miguelmorera'); ?></p>
+            <h3 class="title alpha"><?php _e('Maybe you would like to leave a comment','prometheus'); ?></h3>
+            <p class="legend"><?php _e('The fields marked with an asterisk (*) are required.','prometheus'); ?></p>
         </header>
 
         <?php 
             // $Author field.
             $author = '<div class="fieldset-group"><fieldset class="fieldset fieldset--text">';
-            $author .= '<label for="author">'.__('Name*','miguelmorera').'</label>';
-            $author .= '<input type="text" name="author" id="author" value="'.esc_attr( $commenter['comment_author'] ).'" size="55" tabindex="1" placeholder="'.__('Name*','miguelmorera').'">';
+            $author .= '<label for="author">'.__('Name*','prometheus').'</label>';
+            $author .= '<input type="text" name="author" id="author" value="'.esc_attr( $commenter['comment_author'] ).'" size="55" tabindex="1" placeholder="'.__('Name*','prometheus').'">';
             $author .= '</fieldset> <!--  /.fieldset fieldset--text -->';
             // $Email field.
             $email = '<fieldset class="fieldset fieldset--email">';
-            $email .= '<label for="email">'.__('E-mail*','miguelmorera').'</label>';
-            $email .= '<input type="text" name="email" id="email" value="'.esc_attr($commenter['comment_author_email']).'" size="55" tabindex="2" placeholder="'.__('E-mail*','miguelmorera').'">';
+            $email .= '<label for="email">'.__('E-mail*','prometheus').'</label>';
+            $email .= '<input type="text" name="email" id="email" value="'.esc_attr($commenter['comment_author_email']).'" size="55" tabindex="2" placeholder="'.__('E-mail*','prometheus').'">';
             $email .= '</fieldset> <!--  /.fieldset fieldset--email -->';
             // $URL field.
             $url = '<fieldset class="fieldset fieldset--text">';
-            $url .= '<label for="url">'.__('Website','miguelmorera').'</label>';
-            $url .= '<input type="text" name="url" id="url" value="'.esc_attr($commenter['comment_author_url']).'" size="55" tabindex="3" placeholder="'.__('Website','miguelmorera').'">';
+            $url .= '<label for="url">'.__('Website','prometheus').'</label>';
+            $url .= '<input type="text" name="url" id="url" value="'.esc_attr($commenter['comment_author_url']).'" size="55" tabindex="3" placeholder="'.__('Website','prometheus').'">';
             $url .= '</fieldset> <!--  /.fieldset fieldset--text -->';
             // $Comment field.
             $comment_field = '<fieldset class="fieldset fieldset--textarea">';
-            $comment_field .= '<label for="comment">'.__('Comment*','miguelmorera').'</label>';
-            $comment_field .= '<textarea name="comment" id="comment" cols="55" rows="10" tabindex="4" placeholder="'.__('Comment*','miguelmorera').'"></textarea>';
+            $comment_field .= '<label for="comment">'.__('Comment*','prometheus').'</label>';
+            $comment_field .= '<textarea name="comment" id="comment" cols="55" rows="10" tabindex="4" placeholder="'.__('Comment*','prometheus').'"></textarea>';
             $comment_field .= '</fieldset> <!--  /.fieldset fieldset--textarea -->';
             $comment_field .= '</div> <!--  /.fieldset-group -->';
             // $Submit button.
             $submit_button = '<button type="submit" class="button button--dark-grey button--filled button--icon">';
-            $submit_button .= '<span>'.__('Send comment','miguelmorera').'</span>';
+            $submit_button .= '<span>'.__('Send comment','prometheus').'</span>';
             $submit_button .= '<svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>';
             $submit_button .= '</button>';
 
@@ -74,7 +74,7 @@
         <?php if ( have_comments() ) : ?>
             <header class="commentslist__header">
                 <svg width="50" height="39" class="ico"><use xlink:href="#ico-comment-bubbles" /></svg>
-                <h3 class="title beta"><?php comments_number('', __('One comment','miguelmorera'), __('% comments','miguelmorera') ); ?></h3>
+                <h3 class="title beta"><?php comments_number('', __('One comment','prometheus'), __('% comments','prometheus') ); ?></h3>
             </header>
             <?php wp_list_comments('type=comment&callback=mm_comments'); ?>
             <nav class="post__comments-navigation">
@@ -88,13 +88,13 @@
                 <!-- If comments are open, but there are no comments. -->
                 <header class="commentslist__header">
                     <svg width="50" height="39" class="ico"><use xlink:href="#ico-comment-bubbles" /></svg>
-                    <h3 class="title beta"><?php _e('There are no comments','miguelmorera'); ?></h3>
+                    <h3 class="title beta"><?php _e('There are no comments','prometheus'); ?></h3>
                 </header>
             <?php else : // comments are closed ?>
                 <!-- If comments are closed. -->
                 <header class="commentslist__header">
                     <svg width="50" height="39" class="ico"><use xlink:href="#ico-comment-bubbles" /></svg>
-                    <h3 class="title beta"><?php _e('Comments are closed','miguelmorera'); ?></h3>
+                    <h3 class="title beta"><?php _e('Comments are closed','prometheus'); ?></h3>
                 </header>
             <?php endif; ?>
         <?php endif; ?>

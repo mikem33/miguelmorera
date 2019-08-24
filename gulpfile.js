@@ -1,6 +1,6 @@
 const
     // source and build folders
-    theme           = 'content/themes/miguelmorera/',
+    theme           = 'content/themes/prometheus/',
     fs              = require('fs'),
     gulp            = require('gulp'),
     nib             = require('nib'),
@@ -139,7 +139,7 @@ gulp.task('watch', function() {
 
 // Check textdomains in the theme.
 gulp.task('checktextdomain', function() {
-    var textdomain = 'miguelmorera';
+    var textdomain = 'prometheus';
     return gulp.src([
         'source/*.php',
         'source/**/*.php',

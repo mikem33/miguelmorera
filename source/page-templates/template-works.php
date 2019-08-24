@@ -1,6 +1,6 @@
 <?php
     /* Template Name: Works */
-    __( 'Works', 'miguelmorera' ); // Template Name translation
+    __( 'Works', 'prometheus' ); // Template Name translation
     get_header();
     $additional_header_classes = 'flex space';
     include(locate_template('includes/page-header.php'));
@@ -33,13 +33,13 @@
                 </figure>
                 <a href="<?php the_permalink(); ?>" class="item__link">
                     <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                    <span><?php _e( 'See work', 'miguelmorera' ); ?></span>
+                    <span><?php _e( 'See work', 'prometheus' ); ?></span>
                 </a>
             </article> <!--  /.work .work--item -->
         <?php endwhile; ?>
     </div> <!--  /.items__container -->
     <a href="<?php echo get_permalink(); ?>" class="button button--white-blue button--filled button--icon">
-        <span><?php _e( 'Load more works', 'miguelmorera' ); ?></span>
+        <span><?php _e( 'Load more works', 'prometheus' ); ?></span>
         <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
     </a>
 </section> <!--  /.works__list -->

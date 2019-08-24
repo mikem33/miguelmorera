@@ -36,25 +36,25 @@
                     $post = $posts[0]; // hack: set $post so that the_date() works
                     if (is_category()) : 
                 ?>
-                    <h1 class="title alpha"><?php _e('Archive Category of','miguelmorera'); ?> &ldquo;<?php single_cat_title(); ?>&rdquo;</h1>
+                    <h1 class="title alpha"><?php _e('Archive Category of','prometheus'); ?> &ldquo;<?php single_cat_title(); ?>&rdquo;</h1>
                 <?php elseif (is_tag()) : ?>
-                    <h1 class="title alpha"><?php _e('Posts tagged with','miguelmorera'); ?> &ldquo;<?php single_tag_title(); ?>&rdquo;</h1>
+                    <h1 class="title alpha"><?php _e('Posts tagged with','prometheus'); ?> &ldquo;<?php single_tag_title(); ?>&rdquo;</h1>
                 <?php elseif (is_day()) : ?>
-                    <h1 class="title alpha"><?php _e('Archive with date','miguelmorera'); ?> <?php the_time('F jS, Y'); ?></h1>
+                    <h1 class="title alpha"><?php _e('Archive with date','prometheus'); ?> <?php the_time('F jS, Y'); ?></h1>
                 <?php elseif (is_month()) : ?>
-                    <h1 class="title alpha"><?php _e('Archive of','miguelmorera'); ?> <?php the_time('F, Y'); ?></h1>
+                    <h1 class="title alpha"><?php _e('Archive of','prometheus'); ?> <?php the_time('F, Y'); ?></h1>
                 <?php elseif (is_year()) : ?>
-                    <h1 class="title alpha"><?php _e('Archive from year','miguelmorera'); ?> <?php the_time('Y'); ?></h1>
+                    <h1 class="title alpha"><?php _e('Archive from year','prometheus'); ?> <?php the_time('Y'); ?></h1>
                 <?php elseif (is_author()) : ?>
-                    <h1 class="title alpha"><?php _e('Author Archive','miguelmorera'); ?></h1>
+                    <h1 class="title alpha"><?php _e('Author Archive','prometheus'); ?></h1>
                 <?php elseif (isset($_GET['paged']) && !empty($_GET['paged'])) : ?>
-                    <h1 class="title alpha"><?php _e('Blog Archive','miguelmorera'); ?></h1>
+                    <h1 class="title alpha"><?php _e('Blog Archive','prometheus'); ?></h1>
                 <?php endif; ?>
             <?php else : ?>
-                <h1 class="title alpha"><?php _e('There are no results.','miguelmorera'); ?></h1> <!--  /.title alpha -->
+                <h1 class="title alpha"><?php _e('There are no results.','prometheus'); ?></h1> <!--  /.title alpha -->
             <?php endif; ?>
         <?php elseif (is_404()) : ?>
-            <h1 class="title alpha"><?php _e('Page not found','miguelmorera'); ?></h1> <!--  /.title alpha -->
+            <h1 class="title alpha"><?php _e('Page not found','prometheus'); ?></h1> <!--  /.title alpha -->
         <?php
             elseif ($page_header_stuff['page_header_title']) :                
         ?>
@@ -69,7 +69,7 @@
         <?php endif; ?>
         <?php if (is_front_page()) : ?>
             <a href="<?php echo get_permalink(26); ?>" class="button button--white-purple button--filled button--icon hide-item">
-                <span><?php _e('See my works', 'miguelmorera'); ?></span>
+                <span><?php _e('See my works', 'prometheus'); ?></span>
                 <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
             </a>
         <?php endif; ?>
@@ -84,7 +84,7 @@
                 <?php echo get_avatar($author_id, 63); ?>
             </div> <!--  /.avatar -->
             <div class="content">
-                <p class="author"><?php _e('By','miguelmorera'); ?> <?php echo get_the_author_meta('display_name', $author_id); ?></p>
+                <p class="author"><?php _e('By','prometheus'); ?> <?php echo get_the_author_meta('display_name', $author_id); ?></p>
                 <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
                 <span class="reading-time"><?php echo reading_time(); ?></span>
             </div> <!--  /.content -->

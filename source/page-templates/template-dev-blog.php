@@ -1,6 +1,6 @@
 <?php
     /* Template Name: Development Blog */
-    __( 'Development Blog', 'miguelmorera' ); // Template Name translation
+    __( 'Development Blog', 'prometheus' ); // Template Name translation
     get_header();
     $additional_header_classes = 'flex space';
     include(locate_template('includes/page-header.php'));
@@ -29,7 +29,7 @@
                 $post_lang = get_field('post_language', get_the_ID());
                 $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':''); 
             ?>
-            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','miguelmorera'); ?> <?php the_title_attribute(); ?>"<?php echo $lang; ?>><?php the_title(); ?></a></h2>
+            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','prometheus'); ?> <?php the_title_attribute(); ?>"<?php echo $lang; ?>><?php the_title(); ?></a></h2>
             <div class="meta">
                 <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
                 <span class="reading-time"><?php echo reading_time(); ?></span>
@@ -43,15 +43,15 @@
             </div><!-- .post-content -->
             <a href="<?php the_permalink(); ?>" class="item__link">
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                <span><?php _e( 'Continue reading', 'miguelmorera' ); ?></span>
+                <span><?php _e( 'Continue reading', 'prometheus' ); ?></span>
             </a>
         </article><!-- .dev-post dev-post--item item -->
     <?php endwhile; ?>
     </div> <!--  /.items__container -->
 
     <nav class="navigation">
-        <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'miguelmorera')) ?></div>
-        <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'miguelmorera')) ?></div>
+        <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'prometheus')) ?></div>
+        <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'prometheus')) ?></div>
     </nav>
 </section> <!--  /.dev-posts__list -->
 

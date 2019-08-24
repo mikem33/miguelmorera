@@ -13,7 +13,7 @@
                         <?php the_post_thumbnail('full'); ?>
                     </a>
                 </figure>
-                <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','miguelmorera'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','prometheus'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 <div class="meta">
                     <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
                     <span class="reading-time"><?php echo reading_time(); ?></span>
@@ -26,7 +26,7 @@
                 </div>
                 <a href="<?php the_permalink(); ?>" class="item__link">
                     <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                    <span><?php _e( 'Continue reading', 'miguelmorera' ); ?></span>
+                    <span><?php _e( 'Continue reading', 'prometheus' ); ?></span>
                 </a>
             </article><!-- .post .post--item .item -->
         <?php endwhile; ?>
@@ -38,8 +38,8 @@
     <?php else : ?>
 
         <article class="post">
-            <h2 class="title beta"><?php _e('Not found.','miguelmorera'); ?></h1>
-            <p><?php _e('We are sorry, but we haven&apos;t found what are you looking for.','miguelmorera'); ?></p>
+            <h2 class="title beta"><?php _e('Not found.','prometheus'); ?></h1>
+            <p><?php _e('We are sorry, but we haven&apos;t found what are you looking for.','prometheus'); ?></p>
         </article>
 
     <?php endif; ?>

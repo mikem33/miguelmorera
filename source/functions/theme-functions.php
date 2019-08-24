@@ -4,9 +4,9 @@
      */
     if (function_exists('register_sidebar')) {
         register_sidebar(array(
-            'name' => __('Sidebar Widgets','miguelmorera'),
+            'name' => __('Sidebar Widgets','prometheus'),
             'id'   => 'sidebar-widgets',
-            'description'   => __( 'These are widgets for the sidebar.','miguelmorera'),
+            'description'   => __( 'These are widgets for the sidebar.','prometheus'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
             'before_title'  => '<h2>',
@@ -66,8 +66,8 @@
     function register_my_menus() {
         register_nav_menus(
             array(
-              'header-menu' => __('Header Menu', 'miguelmorera'),
-              'footer-menu' => __('Footer Menu', 'miguelmorera')
+              'header-menu' => __('Header Menu', 'prometheus'),
+              'footer-menu' => __('Footer Menu', 'prometheus')
             )
         );
     }
@@ -80,7 +80,7 @@
      * @return string
      */
     function my_more_link($more_link, $more_link_text) {
-        return str_replace($more_link_text, __('Read more &raquo;', 'miguelmorera'), $more_link);
+        return str_replace($more_link_text, __('Read more &raquo;', 'prometheus'), $more_link);
     }
     add_filter('the_content_more_link', 'my_more_link', 10, 2);
 
@@ -262,7 +262,7 @@
         $output .= '</div><!-- /.avatar -->';
         $output .= '<div class="comment__meta">';
         $output .= '<h4 class="title beta">'.get_comment_author_link().'</h4>';
-        $comment_timestamp = sprintf( __( '%1$s at %2$s', 'miguelmorera' ), get_comment_date( '', $comment ), get_comment_time() );
+        $comment_timestamp = sprintf( __( '%1$s at %2$s', 'prometheus' ), get_comment_date( '', $comment ), get_comment_time() );
         $output .= '<a href="'.esc_url( get_comment_link( $comment, $args ) ).'">';
         $output .= '<time datetime="'.get_comment_time('c').'" title="'.$comment_timestamp.'">';
         $output .= $comment_timestamp;
@@ -276,7 +276,7 @@
         $output .= '</div><!-- /.comment__content -->';
         remove_filter('get_comment_text','wpautop');
         if ($comment->comment_approved == '0') {
-            $output .= '<p class="moderation">'.__('Your comment is awaiting moderation.','miguelmorera').'</p>';
+            $output .= '<p class="moderation">'.__('Your comment is awaiting moderation.','prometheus').'</p>';
         }
         $output .= '<div class="comment__reply">';
         $output .= get_comment_reply_link(

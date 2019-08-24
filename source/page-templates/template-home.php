@@ -1,6 +1,6 @@
 <?php
     /* Template Name: Home */
-    __( 'Home', 'miguelmorera' ); // Template Name translation
+    __( 'Home', 'prometheus' ); // Template Name translation
     get_header();
     $page_header_style = 'hero';
     $additional_header_classes = 'flex space';
@@ -9,7 +9,7 @@
 
 <section class="home__thoughts home__section items section space" id="content" data-bg-color="#f45a5a" data-type="dark" data-scroll>
     <header class="section__header wrapper">
-        <h3 class="title"><?php _e('Eventually I like to write down some thoughts...', 'miguelmorera'); ?></h3>
+        <h3 class="title"><?php _e('Eventually I like to write down some thoughts...', 'prometheus'); ?></h3>
     </header> <!--  /.section__header -->
     <div class="items__container wrapper">
         <?php
@@ -33,7 +33,7 @@
                 $post_lang = get_field('post_language', get_the_ID());
                 $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':''); 
             ?>
-            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','miguelmorera'); ?> <?php the_title_attribute(); ?>"<?php echo $lang; ?>><?php the_title(); ?></a></h2> <!--  /.title .beta-->
+            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','prometheus'); ?> <?php the_title_attribute(); ?>"<?php echo $lang; ?>><?php the_title(); ?></a></h2> <!--  /.title .beta-->
             <div class="meta">
                 <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
                 <span class="reading-time"><?php echo reading_time(); ?></span>
@@ -46,20 +46,20 @@
             </div> <!--  /.content -->
             <a href="<?php the_permalink(); ?>" class="item__link">
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                <span><?php _e('Continue reading', 'miguelmorera'); ?></span>
+                <span><?php _e('Continue reading', 'prometheus'); ?></span>
             </a>
         </article><!-- /.thought .item -->
         <?php endwhile; wp_reset_postdata(); ?>
     </div> <!--  /.items__container -->
     <a href="<?php echo get_permalink(38); ?>" class="button button--white-red button--filled button--icon">
-        <span><?php _e('See more posts', 'miguelmorera'); ?></span>
+        <span><?php _e('See more posts', 'prometheus'); ?></span>
         <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
     </a>
 </section> <!--  /.home__thoughts .home__section -->
 
 <section class="home__comics home__section items section space" data-scroll data-type="light" data-bg-color="#ffe42b">
     <header class="section__header wrapper">
-        <h3 class="title"><?php _e('...or draw some comics','miguelmorera'); ?></h3> <!--  /.title -->
+        <h3 class="title"><?php _e('...or draw some comics','prometheus'); ?></h3> <!--  /.title -->
     </header> <!--  /.section__header -->
     <div class="items__container wrapper">
         <?php
@@ -106,13 +106,13 @@
             </div> <!--  /.content -->
             <a href="<?php the_permalink(); ?>" class="item__link">
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                <span><?php _e('Read comic', 'miguelmorera'); ?></span>
+                <span><?php _e('Read comic', 'prometheus'); ?></span>
             </a>
         </article> <!--  /.comic .item -->
         <?php endwhile; ?>
     </div> <!--  /.content -->
     <a href="<?php echo get_permalink(40); ?>" class="button button--dark-grey-brown button--filled button--icon">
-        <span><?php _e('See more comics', 'miguelmorera'); ?></span>
+        <span><?php _e('See more comics', 'prometheus'); ?></span>
         <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
     </a>
 </section> <!--  /.home__comics home__section section space -->

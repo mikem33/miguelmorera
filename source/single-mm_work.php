@@ -13,13 +13,13 @@
                         <div class="work__meta">
                             <?php if (get_field('work_year')) : ?>
                                 <div class="work__year">
-                                    <span><?php _e('Year','miguelmorera'); ?></span>
+                                    <span><?php _e('Year','prometheus'); ?></span>
                                     <h4 class="delta"><?php the_field('work_year'); ?></h4>
                                 </div> <!--  /.year -->
                             <?php endif; ?>
                             <?php if (get_field('work_client')) : ?>
                                 <div class="work__client">
-                                    <span><?php _e('Client','miguelmorera'); ?></span>
+                                    <span><?php _e('Client','prometheus'); ?></span>
                                     <h4 class="delta"><?php the_field('work_client'); ?></h4>
                                 </div> <!--  /.client -->
                             <?php endif; ?>
@@ -29,7 +29,7 @@
                                     $target = ($work_website['target'] == '_blank' ? ' target="_blank"':'');
                                 ?>
                                 <div class="work__website">
-                                    <span><?php _e('Website','miguelmorera'); ?></span>
+                                    <span><?php _e('Website','prometheus'); ?></span>
                                     <h4 class="delta"><a href="<?php echo $work_website['url']; ?>"<?php echo $target; ?>><?php echo $work_website['title']; ?></a></h4>
                                 </div> <!--  /.client -->
                             <?php endif; ?>

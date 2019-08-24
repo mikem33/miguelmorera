@@ -1,6 +1,6 @@
 <?php
     /* Template Name: Flexible Content */
-    __( 'Flexible Content', 'miguelmorera' ); // Template Name translation
+    __( 'Flexible Content', 'prometheus' ); // Template Name translation
     get_header();
     $additional_header_classes = 'flex space';
     include(locate_template('includes/page-header.php'));
@@ -48,7 +48,7 @@
                                 </div> <!--  /.content -->
                             <?php elseif ($block_data['acf_fc_layout'] == 'image') : ?>
                                 <?php $image = $block_data['image']; ?>
-                                <img src="<?php echo $image['sizes']['item-thumbnail']; ?>" srcset="<?php echo $image['sizes']['item-thumbnail-little']; ?> 480w, <?php echo $image['sizes']['item-thumbnail-medium']; ?> 640w, <?php echo $image['sizes']['item-thumbnail']; ?> 960w" sizes="auto" alt="<?php _e('Image','miguelmorera'); ?>" />
+                                <img src="<?php echo $image['sizes']['item-thumbnail']; ?>" srcset="<?php echo $image['sizes']['item-thumbnail-little']; ?> 480w, <?php echo $image['sizes']['item-thumbnail-medium']; ?> 640w, <?php echo $image['sizes']['item-thumbnail']; ?> 960w" sizes="auto" alt="<?php _e('Image','prometheus'); ?>" />
                             <?php elseif ($block_data['acf_fc_layout'] == 'video') : ?>
                                 <div class="content" style="background-image: url('<?php echo $block_data['fallback_image']; ?>');">
                                     <?php if ( !$detect->isMobile() || !$detect->isTablet() ) : ?>

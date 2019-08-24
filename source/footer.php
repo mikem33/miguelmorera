@@ -2,7 +2,7 @@
         <footer class="footer space">
             <div class="wrapper">
                 <div class="footer__logo">
-                    <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Go to Home','miguelmorera' ); ?>" aria-label="<?php _e('Go to home','miguelmorera'); ?>">
+                    <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Go to Home','prometheus' ); ?>" aria-label="<?php _e('Go to home','prometheus'); ?>">
                         <svg><use xlink:href="#logo" /></svg>
                     </a>
                 </div> <!--  /.footer__logo -->
@@ -30,7 +30,7 @@
             </div> <!--  /.wrapper -->
         </footer> <!--  /.footer -->
         <div class="alpha-warning space">
-            <span><?php _e('Alpha', 'miguelmorera'); ?></span>
+            <span><?php _e('Alpha', 'prometheus'); ?></span>
         </div> <!--  /.alpha-warning -->
         <?php wp_footer(); ?>
         <div class="nondisplayed">

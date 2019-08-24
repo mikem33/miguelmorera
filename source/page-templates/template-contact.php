@@ -1,6 +1,6 @@
 <?php
     /* Template Name: Contact */
-    __( 'Contact', 'miguelmorera' ); // Template Name translation
+    __( 'Contact', 'prometheus' ); // Template Name translation
     get_header();
     $additional_header_classes = 'flex space';
     include(locate_template('includes/page-header.php'));
