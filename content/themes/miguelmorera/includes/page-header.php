@@ -56,9 +56,9 @@
         <?php elseif (is_404()) : ?>
             <h1 class="title alpha"><?php _e('Page not found','miguelmorera'); ?></h1> <!--  /.title alpha -->
         <?php
-            elseif ($page_header_stuff['page_header_title']) :
+            elseif ($page_header_stuff['page_header_title']) :                
         ?>
-            <h1 class="title alpha"><?php echo $page_header_stuff['page_header_title']; ?></h1> <!--  /.title alpha -->
+            <h1 class="title alpha<?php echo (is_front_page() ? ' hide-item':''); ?>"><?php echo $page_header_stuff['page_header_title']; ?></h1> <!--  /.title alpha -->
         <?php else : ?>
             <h1 class="title alpha"><?php echo get_the_title($page_id); ?></h1> <!--  /.title alpha -->
         <?php endif; ?>
@@ -68,7 +68,7 @@
             <p><?php echo get_field('work_subtitle', $page_id); ?></p>
         <?php endif; ?>
         <?php if (is_front_page()) : ?>
-            <a href="<?php echo get_permalink(26); ?>" class="button button--white-purple button--filled button--icon">
+            <a href="<?php echo get_permalink(26); ?>" class="button button--white-purple button--filled button--icon hide-item">
                 <span><?php _e('See my works', 'miguelmorera'); ?></span>
                 <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
             </a>
@@ -102,7 +102,7 @@
             <svg width="20" height="20" class="ico"><use xlink:href="#ico-circle-chevron" /></svg>
         </a>
         <?php if (is_front_page()) : ?>
-            <canvas class="header-circles"></canvas> <!--  /.header-circles -->
+            <canvas class="header-circles hide-item"></canvas> <!--  /.header-circles -->
         <?php endif; ?>
     <?php endif; ?>
 </header>

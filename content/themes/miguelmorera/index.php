@@ -36,10 +36,11 @@
     <?php endwhile; ?>
     </div> <!--  /.items__container -->
 
-    <nav class="navigation">
-        <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'miguelmorera')) ?></div>
-        <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'miguelmorera')) ?></div>
-    </nav>
+    <?php 
+        if (function_exists(mm_pagination)) :
+            mm_navigation();
+        endif;
+    ?>
 
 </section> <!--  /.thoughts__list -->
 

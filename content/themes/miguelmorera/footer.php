@@ -20,7 +20,7 @@
                 <?php if ( get_field( 'network', 'option' ) ): ?>
                     <div class="footer__social-networks">
                         <?php while( has_sub_field( 'network', 'option' ) ) : ?>
-                            <a href="<?php the_sub_field( 'network_url' ); ?>" title="<?php the_sub_field( 'network_slug' ); ?>" class="<?php the_sub_field( 'network_slug' ); ?>" target="_blank"><svg><use xlink:href="#ico-<?php the_sub_field( 'network_slug' ); ?>" /></svg></a>
+                            <a href="<?php the_sub_field( 'network_url' ); ?>" title="<?php the_sub_field( 'network_slug' ); ?>" class="<?php the_sub_field( 'network_slug' ); ?>" target="_blank" rel="noopener"><svg><use xlink:href="#ico-<?php the_sub_field( 'network_slug' ); ?>" /></svg></a>
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div> <!--  /.footer__social-networks -->
