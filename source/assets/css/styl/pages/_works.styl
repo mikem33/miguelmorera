@@ -61,6 +61,11 @@
             fill @color
 
 .no-touch
+    .work__meta > div .delta a
+        transition color $basetransition
+        &:hover
+            color $mmBlue
+            transition color $pseudotransition
     .work.item
         figure a
             &::before, &::after
