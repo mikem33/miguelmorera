@@ -49,10 +49,11 @@
     </head>
     <body <?php body_class(); ?>>
         <header class="header flex" data-header-type="<?php echo $page_header_type; ?>">
-            <a href="<?php echo home_url(); ?>" class="logo" title="Miguel Morera" aria-label="Miguel Morera">
+            <?php $hide_item = (is_front_page() ? ' hide-item':''); ?>
+            <a href="<?php echo home_url(); ?>" class="logo<?php echo $hide_item; ?>" title="Miguel Morera" aria-label="Miguel Morera">
                 <svg><use xlink:href="#logo" /></svg>
             </a>
-            <button class="toggle-nav" data-alt-text="<?php _e('Close','miguelmorera'); ?>">
+            <button class="toggle-nav<?php echo $hide_item; ?>" data-alt-text="<?php _e('Close','miguelmorera'); ?>">
                 <span class="text"><?php _e('Menu','miguelmorera'); ?></span>
                 <span class="toggle-nav__hamburger">
                     <span></span>

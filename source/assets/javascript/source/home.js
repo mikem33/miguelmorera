@@ -1,5 +1,13 @@
 jQuery(document).ready(function() {
-    $('canvas').removeClass('hide-item').addClass('animated fadeIn delay-100-ms');
+    $('.logo').removeClass('hide-item').addClass('animated fadeIn');
+    $('.toggle-nav').removeClass('hide-item').addClass('animated fadeIn');
+
+    var i = 5;
+    $('canvas').removeClass('hide-item').addClass('animated fadeIn delay-400-ms');
+    $('.page__header .hide-item:not(canvas)').each(function(){
+        $(this).removeClass('hide-item').addClass('animated fadeInUp delay-' + i + '00-ms');
+        i++;
+    });
 });
 
 var canvas = document.querySelector( 'canvas' );
