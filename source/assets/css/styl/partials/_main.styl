@@ -117,21 +117,26 @@ body
     flex-flow column
     border-bottom 2px solid #d8d8d8
     figure
+        overflow hidden
         position relative
         margin-bottom 15px
         a
             display block
-        &::before
-            top 0
-            left 0
-            z-index 1
-            content ''
-            width 100%
-            height 100%
-            position absolute
-            pointer-events none
-            mix-blend-mode lighten
-            background-color rgba($mmPurple, .7)
+            position relative
+            &::before, &::after
+                top 0
+                left 0
+                z-index 1
+                content ''
+                width 100%
+                height 100%
+                position absolute
+                pointer-events none
+            &::before
+                mix-blend-mode lighten
+                background-color rgba($mmPurple, .7)
+            &::after
+                opacity 0
     .beta
         margin-bottom 5px
     .meta
@@ -364,6 +369,42 @@ code
             margin-bottom 2em
 
 .no-touch
+    .item 
+        figure a
+            &::before
+                transition background-color $basetransition
+            img
+                transition transform 300ms linear
+            &:hover 
+                &::before
+                    transition background-color $pseudotransition
+                img
+                    transform scale(1.05)
+                    transition transform 300ms ease-in-out
+        .title a[data-lang]
+            &::after
+                transition color $basetransition, background-color $basetransition
+            &:hover::after
+                transition color $pseudotransition, background-color $pseudotransition
+        .title a
+            transition color $basetransition
+            &:hover
+                transition color $pseudotransition
+        &__link
+            span
+                transition color 300ms linear
+            .ico
+                transition fill 300ms linear
+            &:hover
+                span
+                    transition color 300ms ease-in-out
+                .ico
+                    transition fill 300ms ease-in-out
+    .post a
+        transition color $basetransition
+        &:hover
+            color $darkGrey
+            transition color $basetransition
     .button
         &, .ico
             transition all $basetransition

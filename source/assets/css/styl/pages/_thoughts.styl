@@ -22,19 +22,35 @@
 .thought.item
     color white
     border-bottom-color rgba(white, .25)
-    figure
+    figure a
         &::before
             mix-blend-mode lighten
             background-color rgba($mmRed, .7)
-    .title a[data-lang]::after
-        color $mmRed
+    .title a
+        color white
+        &[data-lang]::after
+            color $mmRed
     .meta
         color #fab9b9
         time::after
             background-color @color
-    .beta a
-        color white
     .item__link
         color $mmDarkRed
         .ico
-            fill $mmDarkRed
+            fill @color
+
+.no-touch
+    .thought.item
+        figure a
+            &:hover::before
+                background-color rgba($mmRed, 1)
+        .title a
+            &:hover
+                color $mmDarkRed
+            &[data-lang]:hover::after
+                color white
+                background-color $mmDarkRed
+        .item__link:hover
+            color white
+            .ico
+                fill white

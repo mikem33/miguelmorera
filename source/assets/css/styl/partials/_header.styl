@@ -49,6 +49,20 @@
                 span
                     background-color $mmTurquoise
 
+.no-touch
+    .logo
+        transition opacity $basetransition, transform $basetransition
+        svg
+            transition fill $basetransition
+        &:hover
+            transform scale(.9)
+            transition transform $pseudotransition
+    /.menu--opened
+        .logo:hover 
+            opacity 1
+            svg
+                fill $mmRed
+                transition fill $pseudotransition
 
 /* ---------------------------- *\
 
@@ -65,10 +79,6 @@
     .logo svg
         width 80px
         height 80px
-        
-+above(1024)
-    /* $min-width: $1024px */
-
 
 +between(768, 1199)
     /* $min-width: $768px / $max-width: $1199px */
@@ -79,10 +89,6 @@
     .logo svg
         width 50px
         height 50px
-        
-+between(768, 1023)
-    /* $min-width: $768px // $max-width: $1023px */
-
 
 +below(767)
     /* $max-width: $767px */

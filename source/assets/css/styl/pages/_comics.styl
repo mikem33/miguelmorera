@@ -17,16 +17,31 @@
 
 .comic.item
     border-color $darkGrey
-    figure
-        &::before
-            mix-blend-mode multiply
-            background-color rgba($mmYellow, .7)
-    .title a[data-lang]::after
-        color white
-        background-color $darkGrey
-    .beta a
+    border-bottom-color rgba($mmBrown, .5)
+    figure a::before
+        mix-blend-mode multiply
+        background-color rgba($mmYellow, .6)
+    .title a
         color $darkGrey
+        &[data-lang]::after
+            color white
+            background-color $darkGrey
     .meta, .meta a, .item__link
         color $mmBrown
     .item__link .ico
-        fill $mmBrown
+        fill @color
+
+.no-touch
+    .comic.item
+        figure a
+            &:hover::before
+                background-color rgba($mmYellow, 1)
+        .title a
+            &:hover
+                color $mmBrown
+            &[data-lang]:hover::after
+                background-color $mmBrown
+        .item__link:hover
+            color $darkGrey
+            .ico
+                fill $darkGrey

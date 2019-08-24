@@ -25,6 +25,8 @@
         $page_header_type = get_field('main_header_type', $page_id);
     }
     $page_header_stuff =  get_field('page_header_stuff', $page_id);
+    $post_lang = get_field('post_language', $page_id);
+    $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':'');
 ?>
 <header class="page__header <?php echo $additional_header_classes; ?>" data-bg-color="<?php echo $page_bg_color; ?>" data-type="<?php echo $page_header_type; ?>" data-scroll>
     <div class="content">
@@ -100,7 +102,7 @@
             <svg width="20" height="20" class="ico"><use xlink:href="#ico-circle-chevron" /></svg>
         </a>
         <?php if (is_front_page()) : ?>
-            <canvas class="header-circles"></canvas> <!--  /.header-circles -->
+            <canvas class="header-circles hide-item"></canvas> <!--  /.header-circles -->
         <?php endif; ?>
     <?php endif; ?>
 </header>

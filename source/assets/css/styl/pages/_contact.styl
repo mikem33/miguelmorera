@@ -79,6 +79,14 @@
     100%
         transform: rotate(360deg)
 
+.no-touch
+    .contact__section .content
+        a
+            transition color $basetransition
+            &:hover
+                color $mmBlue
+                transition color $pseudotransition
+
 /* ---------------------------- *\
 
     $Media $Queries

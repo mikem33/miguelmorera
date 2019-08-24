@@ -73,6 +73,27 @@
         text-transform uppercase
         background-color $darkGrey
 
+.no-touch
+    .footer
+        .logo--footer
+            svg
+                transition fill $basetransition
+            &:hover svg
+                fill white
+                transition fill $pseudotransition
+        &__nav, &__social-networks
+            a
+                transition color $basetransition
+                &:hover
+                    color white
+                    transition color $pseudotransition
+        &__social-networks
+            svg
+                transition fill $basetransition
+            a:hover svg
+                fill white
+                transition fill $pseudotransition
+
 /* ---------------------------- *\
 
     $Media $Queries

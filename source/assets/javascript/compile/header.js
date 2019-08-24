@@ -21,6 +21,13 @@ jQuery(document).ready(function($) {
         currentText = $('.toggle-nav .text').html();
         $('.toggle-nav .text').html(altText);
         $('.toggle-nav').attr('data-alt-text', currentText);
+
+        var i = 2;
+        $('.nav__items a').each(function(){
+            $(this).toggleClass('animated fadeInUp delay-' + i + '00-ms');
+            i++;
+        });
+        $('.nav__colophon').toggleClass('animated fadeInUp delay-' + (i++) + '00-ms')
     });
 
 });

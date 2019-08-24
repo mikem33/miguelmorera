@@ -1,0 +1,31 @@
+{
+  "fading_entrances": {
+    "fadeIn": true,
+    "fadeInDown": true,
+    "fadeInLeft": true,
+    "fadeInRight": true,
+    "fadeInUp": true
+  },
+
+  "fading_exits": {
+    "fadeOut": true,
+    "fadeOutDown": true,
+    "fadeOutLeft": true,
+    "fadeOutRight": true,
+    "fadeOutUp": true
+  },
+
+  "sliding_entrances": {
+    "slideInDown": true,
+    "slideInLeft": true,
+    "slideInRight": true,
+    "slideInUp": true
+  },
+
+  "sliding_exits": {
+    "slideOutDown": true,
+    "slideOutLeft": true,
+    "slideOutRight": true,
+    "slideOutUp": true
+  }
+}

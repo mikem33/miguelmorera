@@ -28,7 +28,9 @@
             position absolute
         span::before, span::after
             content ''
+            will-change transform
             background-color inherit
+            backface-visibility hidden
         span, span::before
             transition transform 100ms linear
         span
@@ -48,7 +50,7 @@
                 transform rotate(90deg)
             span::after
                 opacity 0
-                transition opacity 100ms ease-in-ou
+                transition opacity 100ms ease-in-out
 
 .nav
     top 0
@@ -80,10 +82,53 @@
         a
             color $mmPurple
             font-weight 500
+            position relative
+            margin-bottom 10px
             display inline-block
+            will-change transform
+            animation-duration 500ms
     &__colophon
         margin-top auto
         margin-bottom 0
+
+.no-touch
+    .nav__items a
+        transition all $basetransition
+        &::before
+            width 0
+            opacity .5  
+            content ''
+            z-index -1
+            left -10px
+            height 15px
+            background-color white
+            centerObject(false, true)
+            transition width 400ms linear
+        &:hover
+            color $mmRed
+            transition all $pseudotransition
+            &::before
+                width calc(100% + 20px)
+                transition width 400ms ease-in-out
+    .header .toggle-nav
+        transition color $basetransition
+        &:not(.active)
+            .toggle-nav__hamburger
+                transition background-color $basetransition, transform $basetransition
+                span
+                    transition transform 100ms linear, background-color $basetransition
+                &:hover
+                    transform scale(.9)
+                    transition transform $pseudotransition
+    /.menu--opened
+        .toggle-nav
+            &__hamburger
+                transition background-color $basetransition
+            &:hover
+                color $mmRed
+                .toggle-nav__hamburger
+                    background-color $mmRed
+                    transition background-color $pseudotransition
 
 /* ---------------------------- *\
 
@@ -118,7 +163,7 @@
     .nav
         padding-top 150px
         &__items a
-            fontSize(60)
+            fontSizeLine(60)
 
 +between(768, 1199)
     /* $min-width: $768px // $max-width: $1199px */
@@ -148,7 +193,7 @@
         padding-top 90px
         &__items
             a
-                fontSize(45)
+                fontSizeLine(45)
 
 +above(768)
     /* $min-width: $768px */
@@ -185,6 +230,6 @@
         padding-top 55px
         &__items
             a
-                fontSize(25)
+                fontSizeLine(25)
         &__colophon
             fontSize(14)

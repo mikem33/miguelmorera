@@ -37,10 +37,9 @@
     </div> <!--  /.items__container -->
 
     <?php 
-        // if (function_exists(mm_pagination)) :
-        //     echo mm_pagination(false,'',$paged);
-        // endif;
-        mm_navigation();
+        if (function_exists(mm_pagination)) :
+            mm_navigation();
+        endif;
     ?>
 
 </section> <!--  /.thoughts__list -->

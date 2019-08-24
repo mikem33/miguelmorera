@@ -1,3 +1,7 @@
+jQuery(document).ready(function() {
+    $('canvas').removeClass('hide-item').addClass('animated fadeIn delay-100-ms');
+});
+
 var canvas = document.querySelector( 'canvas' );
 
 function canvasResize() {

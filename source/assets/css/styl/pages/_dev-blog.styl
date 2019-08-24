@@ -24,13 +24,38 @@
 
 .dev-post.item
     border-bottom-color $darkGrey
-    figure
+    figure a
         &::before
             mix-blend-mode multiply
             background-color rgba(#d2d2d2, .7)
+        &::after
+            mix-blend-mode multiply
+            background-color rgba($lightGrey, .7)
     .beta
         &, & a
             color $darkGrey
+
+.no-touch
+    .dev-post.item
+        figure a
+            &::before, &::after
+                transition opacity $basetransition
+            &:hover::before, &:hover::after
+                transition opacity $pseudotransition
+            &:hover::before
+                opacity 0
+            &:hover::after
+                opacity 1
+        .title a
+            &:hover
+                color $lightGrey
+            &[data-lang]:hover::after
+                color white
+                background-color $lightGrey
+        .item__link:hover
+            color $darkGrey
+            .ico
+                fill @color
 
 /* ---------------------------- *\
 

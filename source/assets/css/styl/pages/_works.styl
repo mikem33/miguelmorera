@@ -30,6 +30,9 @@
                 margin-bottom 12px
                 a
                     color $darkGrey
+    &__intro
+        z-index 1
+        position relative
     &__intro, &__outro
         background-color #fff2f2
 
@@ -46,15 +49,42 @@
             color #99bdfa
     figure
         margin-bottom 0
-        a
-            display block
-        &::before
+        a::before
             mix-blend-mode screen
             background-color $mmBlue
+        a::after
+            mix-blend-mode lighten
+            background-color $mmBlue
     .item__link
-        color #99bdfa
+        color darken($mmBlue, 50%)
         .ico
-            fill #99bdfa
+            fill @color
+
+.no-touch
+    .work.item
+        figure a
+            &::before, &::after
+                transition opacity $basetransition
+            &:hover::before, &:hover::after
+                transition opacity $pseudotransition
+            &:hover::before
+                opacity 0
+            &:hover::after
+                opacity 1
+        header
+            .title, p
+                transition color $basetransition
+            a:hover
+                .title, p
+                    transition color $pseudotransition
+                .title
+                    color darken($mmBlue, 50%)
+                p
+                    color darken(#99bdfa, 50%)
+        .item__link:hover
+            color white
+            .ico
+                fill @color
 
 /* ---------------------------- *\
 
