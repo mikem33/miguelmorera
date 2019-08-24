@@ -4,6 +4,8 @@
         // Set false if you want to load on the <head>.
         if (!is_admin()) {
             wp_enqueue_style( 'miguelmorera-style', get_stylesheet_uri(), array(), '1.00', 'all' );
+            wp_deregister_script('jquery');
+            wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.4.1.slim.min.js', array(), $release, true );
             if (is_page_template('page-templates/template-home.php')) {
                 wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/assets/javascript/home.min.js', array('jquery'), $release, true );
             }
