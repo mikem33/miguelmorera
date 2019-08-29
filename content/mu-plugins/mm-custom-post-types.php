@@ -124,6 +124,7 @@ if ( !post_type_exists('mm_comic') ) {
                 'label'             => __( 'Comic Categories', 'miguelmorera' ),
                 'show_admin_column' => true,
                 'show_in_rest'      => true,
+                'hierarchical'      => true,
                 'rewrite'           => array(
                     'slug' => 'comics-category',
                     'with_front' => false
@@ -194,6 +195,7 @@ if ( !post_type_exists('mm_dev_post') ) {
                 'label'             => __( 'Dev Posts Category', 'miguelmorera' ),
                 'show_admin_column' => true,
                 'show_in_rest'      => true,
+                'hierarchical'      => true,
                 'rewrite'           => array(
                     'slug' => 'dev-post-category',
                     'with_front' => false
