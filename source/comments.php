@@ -74,9 +74,9 @@
         <?php if ( have_comments() ) : ?>
             <header class="commentslist__header">
                 <svg width="50" height="39" class="ico"><use xlink:href="#ico-comment-bubbles" /></svg>
-                <h3 class="title beta"><?php comments_number('', __('One comment','prometheus'), __('% comments','prometheus') ); ?></h3>
+                <h3 class="title beta"><?php comments_number(__('There are no comments','prometheus'), __('One comment','prometheus'), __('% comments','prometheus') ); ?></h3>
             </header>
-            <?php wp_list_comments('type=comment&callback=mm_comments'); ?>
+            <?php wp_list_comments('type=comment&callback=pr_comments'); ?>
             <nav class="post__comments-navigation">
                 <div class="comments--older"><?php previous_comments_link() ?></div>
                 <div class="comments--newer"><?php next_comments_link() ?></div>

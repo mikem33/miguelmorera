@@ -22,7 +22,7 @@
         <article id="post-<?php the_ID(); ?>" class="dev-post item">
             <figure>
                 <a href="<?php the_permalink(); ?>">
-                    <?php mm_post_thumbnail(get_the_ID()); ?>
+                    <?php pr_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
             <?php 
