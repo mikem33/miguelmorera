@@ -13,7 +13,11 @@
             $page_template_slug = str_replace(array('page-templates/', '.php'), '', get_page_template_slug($page_id));
             $arr[] = 'page__'. $page_template_slug .' page__' . $page_slug;
         }  
-      
+        
+        if (is_home()) {
+            $arr[] = 'page__thoughts';
+        }
+
         if (is_single()) {  
             $post_id = $wp_query->get_queried_object_id();
             $arr[] = 'single post-id-' . $post_id;
