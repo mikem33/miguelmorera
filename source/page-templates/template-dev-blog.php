@@ -48,11 +48,6 @@
         </article><!-- .dev-post dev-post--item item -->
     <?php endwhile; ?>
     </div> <!--  /.items__container -->
-
-    <nav class="navigation">
-        <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'prometheus')) ?></div>
-        <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'prometheus')) ?></div>
-    </nav>
 </section> <!--  /.dev-posts__list -->
 
 <?php get_footer(); ?>

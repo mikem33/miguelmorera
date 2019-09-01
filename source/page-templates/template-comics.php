@@ -57,10 +57,6 @@
             </article> <!--  /.comic comic--item item -->
         <?php endwhile; ?>
     </div> <!--  /.content -->
-    <a href="<?php echo get_permalink(); ?>" class="button button--dark-grey-brown button--filled button--icon">
-        <span><?php _e('Load more works', 'prometheus'); ?></span>
-        <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
-    </a>
 </section> <!--  /.comics__list -->
 
 <?php get_footer(); ?>
