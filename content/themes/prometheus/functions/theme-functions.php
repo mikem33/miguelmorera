@@ -30,7 +30,7 @@
      * @param  string   $echo       It is for echo or returned the image value.
      * @return string
      */
-    function mm_post_thumbnail($post_id, $size = 'item-thumbnail', $class = '', $echo = true) {
+    function pr_post_thumbnail($post_id, $size = 'item-thumbnail', $class = '', $echo = true) {
         $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size )[0];
         $thumbnail_medium = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size . '-medium' )[0];
         $thumbnail_little = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size . '-little' )[0];
@@ -117,92 +117,26 @@
     add_filter('previous_posts_link_attributes', 'previous_posts_link_attributes');
 
     /**
-     * Custom Navigation
-     * Based on Bill Erirckson custom pagination.
-     * @author Bill Erickson
-     * @see https://www.billerickson.net/custom-pagination-links/
-     *
-     */
-    function mm_navigation() {
-        $post_type = get_post_type();
-        $nav_classes = 'nav--pagination';
-        switch ($post_type) {
-            case 'post':
-                $nav_classes = $nav_classes.' pagination--white-red';
-                break;
-            default:
-                $nav_classes = $nav_classes.' pagination--dark-grey';
-                break;
-        }
-        $settings = array(
-            'count' => 6,
-            'prev_text' => '<svg width="10" height="17" class="ico"><use xlink:href="#ico-chevron" /></svg>',
-            'next_text' => '<svg width="10" height="17" class="ico"><use xlink:href="#ico-chevron" /></svg>'
-        );
-        global $wp_query;
-        $current = max( 1, get_query_var( 'paged' ) );
-        $total = $wp_query->max_num_pages;
-        $links = array();
-        // Offset for next link
-        if( $current < $total ) { $settings['count']--; }
-        // Previous
-        if( $current > 1 ) {
-            $settings['count']--;
-            $links[] = mm_navigation_link( $current - 1, ' nav__link--prev '.$nav_button_color_class, $settings['prev_text'] );
-        }
-        // Current
-        $links[] = mm_navigation_link( $current, 'current' );
-        // Next Pages
-        for( $i = 1; $i < $settings['count']; $i++ ) {
-            $page = $current + $i;
-            if( $page <= $total ) {
-                $links[] = mm_navigation_link( $page );
-            }
-        }
-        // Next
-        if( $current < $total ) {
-            $links[] = mm_navigation_link( $current + 1, ' nav__link--next'.$nav_button_color_class, $settings['next_text'] );
-        }
-        echo '<nav class="'.$nav_classes.'" role="navigation">';
-            echo join( '', $links );
-        echo '</nav>';
-    }
-
-    /**
-     * Navigation Link
-     * Based on Bill Erickson pagination.
-     * @author Bill Erickson
-     * @see https://www.billerickson.net/custom-pagination-links/
-     *
-     * @param int $page
-     * @param string $class
-     * @param string $label
-     * @return string $link
-     */
-    function mm_navigation_link( $page = false, $class = '', $label = '' ) {
-        if( !$page ) { return; }
-        $classes = array( 'nav__link' );
-        if( !empty( $class ) ) { 
-            $classes[] = $class;
-        }
-        $classes = array_map( 'esc_attr', $classes );
-        $label = $label ? $label : $page;
-        $link = esc_url_raw( get_pagenum_link( $page ) );
-        return '<a class="' . join ( ' ', $classes ) . '" href="' . $link . '">' . $label . '</a>';
-    }
-
-    /**
      * Adds a responsive embed wrapper around oEmbed content
      * Filters the oEmbed process to run the responsive_embed() function
-     * @param  string $html The oEmbed markup
-     * @param  string $url  The URL being embedded
-     * @param  array  $attr An array of attributes
-     * @return string       Updated embed markup
      */
-    function responsive_embed($html, $url, $attr) {
-        return $html!=='' ? '<div class="embed-container">'.$html.'</div>' : '';
+    if(!function_exists('video_content_filter')) {
+        function video_content_filter($content) {
+
+            // Search for an iframe.
+            $pattern = '/<iframe.*?src=".*?(vimeo|youtu\.?be).*?".*?<\/iframe>/';
+            preg_match_all($pattern, $content, $matches);
+
+            foreach ($matches[0] as $match) {
+                $wrappedframe = '<div class="responsive-video"><div class="content">' . $match . '</div></div>';
+                $content = str_replace($match, $wrappedframe, $content);
+            }
+            return $content;
+        }
+        // Filter posts 'the_content'.
+        add_filter( 'the_content', 'video_content_filter' );
+
     }
-    add_filter('embed_oembed_html', 'responsive_embed', 10, 3);
 
     /**
      * Loads Google Fonts asynchronously
@@ -236,69 +170,6 @@
 
         return $totalreadingtime;
     }
-
-    /**
-     * Change the order of the textarea field in comment forms.
-     */
-    function mm_move_comment_field_to_bottom( $fields ) {
-        $comment_field = $fields['comment'];
-        unset( $fields['comment'] );
-        $fields['comment'] = $comment_field;
-        return $fields;
-    }
-     
-    add_filter( 'comment_form_fields', 'mm_move_comment_field_to_bottom' );
-
-    function mm_comments($comment, $args, $depth) {
-        $GLOBALS['comment'] = $comment;
-        $output = '<article class="'.implode(' ', get_comment_class()).'" id="comment-'.get_comment_ID().'">';
-        $output .= '<header class="comment__header">';
-        $output .= '<div class="avatar">';
-        $avatar_size = 64;
-        if ('0' != $comment->comment_parent) {
-            $avatar_size = 44;
-        }
-        $output .= get_avatar($comment, $avatar_size);
-        $output .= '</div><!-- /.avatar -->';
-        $output .= '<div class="comment__meta">';
-        $output .= '<h4 class="title beta">'.get_comment_author_link().'</h4>';
-        $comment_timestamp = sprintf( __( '%1$s at %2$s', 'prometheus' ), get_comment_date( '', $comment ), get_comment_time() );
-        $output .= '<a href="'.esc_url( get_comment_link( $comment, $args ) ).'">';
-        $output .= '<time datetime="'.get_comment_time('c').'" title="'.$comment_timestamp.'">';
-        $output .= $comment_timestamp;
-        $output .= '</time>';
-        $output .= '</a>';
-        $output .= '</div><!-- /.comment__meta -->';
-        $output .= '</header><!-- /.comment__header -->';
-        add_filter('get_comment_text','wpautop');
-        $output .= '<div class="comment__content">';
-        $output .= get_comment_text();
-        $output .= '</div><!-- /.comment__content -->';
-        remove_filter('get_comment_text','wpautop');
-        if ($comment->comment_approved == '0') {
-            $output .= '<p class="moderation">'.__('Your comment is awaiting moderation.','prometheus').'</p>';
-        }
-        $output .= '<div class="comment__reply">';
-        $output .= get_comment_reply_link(
-                        array_merge( $args, 
-                            array(
-                                'depth' => $depth, 
-                                'max_depth' => $args['max_depth']
-                            )
-                        )
-                    );
-        $output .= '</div>';
-        $output .= '</article>';
-
-        echo $output;
-    }
-
-    function mm_custom_class_comment_reply_link($content) {
-        $extra_classes = 'button button--dark-grey button--filled';
-        return preg_replace( '/comment-reply-link/', 'comment-reply-link ' . $extra_classes, $content);
-    }
-
-    add_filter('comment_reply_link', 'mm_custom_class_comment_reply_link', 99);
 
     /**
      * Get Page ID by Slug.

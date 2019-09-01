@@ -56,7 +56,7 @@
         <?php elseif (is_404()) : ?>
             <h1 class="title alpha"><?php _e('Page not found','prometheus'); ?></h1> <!--  /.title alpha -->
         <?php
-            elseif ($page_header_stuff['page_header_title']) :                
+            elseif ($page_header_stuff['page_header_title']) :
         ?>
             <h1 class="title alpha<?php echo (is_front_page() ? ' hide-item':''); ?>"><?php echo $page_header_stuff['page_header_title']; ?></h1> <!--  /.title alpha -->
         <?php else : ?>

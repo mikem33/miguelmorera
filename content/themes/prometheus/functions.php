@@ -8,4 +8,6 @@
     include_once(STYLESHEETPATH.'/functions/body-classes.php');
     include_once(STYLESHEETPATH.'/functions/acf-stuff.php');
     include_once(STYLESHEETPATH.'/functions/meta-graph.php');
+    include_once(STYLESHEETPATH.'/functions/navigation.php');
+    include_once(STYLESHEETPATH.'/functions/comments.php');
 ?>

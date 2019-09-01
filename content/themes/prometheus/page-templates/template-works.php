@@ -38,10 +38,6 @@
             </article> <!--  /.work .work--item -->
         <?php endwhile; ?>
     </div> <!--  /.items__container -->
-    <a href="<?php echo get_permalink(); ?>" class="button button--white-blue button--filled button--icon">
-        <span><?php _e( 'Load more works', 'prometheus' ); ?></span>
-        <svg width="15" height="15" class="ico"><use xlink:href="#ico-circle-arrow" /></svg>
-    </a>
 </section> <!--  /.works__list -->
 
 <?php get_footer(); ?>

@@ -10,7 +10,7 @@
         <article id="post-<?php the_ID(); ?>" class="thought item">
             <figure>
                 <a href="<?php the_permalink(); ?>">
-                    <?php mm_post_thumbnail(get_the_ID()); ?>
+                    <?php pr_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
             <?php 
@@ -36,11 +36,7 @@
     <?php endwhile; ?>
     </div> <!--  /.items__container -->
 
-    <?php 
-        if (function_exists(mm_pagination)) :
-            mm_navigation();
-        endif;
-    ?>
+    <?php pr_navigation(); ?>
 
 </section> <!--  /.thoughts__list -->
 

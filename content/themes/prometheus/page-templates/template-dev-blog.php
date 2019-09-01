@@ -22,7 +22,7 @@
         <article id="post-<?php the_ID(); ?>" class="dev-post item">
             <figure>
                 <a href="<?php the_permalink(); ?>">
-                    <?php mm_post_thumbnail(get_the_ID()); ?>
+                    <?php pr_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
             <?php 
@@ -48,11 +48,6 @@
         </article><!-- .dev-post dev-post--item item -->
     <?php endwhile; ?>
     </div> <!--  /.items__container -->
-
-    <nav class="navigation">
-        <div class="next-posts"><?php next_posts_link(__('Página Siguiente &raquo;', 'prometheus')) ?></div>
-        <div class="prev-posts"><?php previous_posts_link(__('&laquo; Página Anterior', 'prometheus')) ?></div>
-    </nav>
 </section> <!--  /.dev-posts__list -->
 
 <?php get_footer(); ?>
