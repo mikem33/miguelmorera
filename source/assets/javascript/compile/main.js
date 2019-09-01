@@ -6,6 +6,15 @@ jQuery(document).ready(function($) {
     
     var stickyOffset = $('.header').offset();
     var contentDivs = $('[data-scroll]');
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('html').addClass('document--scrolled');
+        } else {
+            $('html').removeClass('document--scrolled');
+        }
+    });
+
     $(document).scroll(function() {
         contentDivs.each(function() {
             var htmlElem = document.querySelector('html');

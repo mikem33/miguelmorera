@@ -49,6 +49,11 @@
                 span
                     background-color $mmTurquoise
 
+.document--scrolled:not(.menu--opened)
+    .header
+        opacity .5
+        transition opacity $basetransition
+
 .no-touch
     .logo
         transition opacity $basetransition, transform $basetransition
@@ -63,6 +68,10 @@
             svg
                 fill $mmRed
                 transition fill $pseudotransition
+    /.document--scrolled:not(.menu--opened)
+        .header:hover
+            opacity 1
+            transition opacity $pseudotransition
 
 /* ---------------------------- *\
 

@@ -21,17 +21,29 @@ body
     position relative
     align-items center
     justify-content center
+    background-attachment fixed
     .content
         margin auto
     .content, .meta
         z-index 1
         position relative
+    .title
+        position relative
+        &::after
+            bottom 0
+            content ''
+            height 2px
+            centerObject(true,false)
     p
         margin-bottom 0
     &[data-type="light"]
         color $darkGrey
+        .title::after
+            background-color $darkGrey
     &[data-type="dark"]
         color white
+        .title::after
+            background-color white
     .meta
         .content
             fontSize(14)
@@ -46,6 +58,8 @@ body
         flex-flow column
         padding-bottom 55px
         padding-top calc((var(--header-height) + var(--login-bar-height)) * 1px)
+        figure img
+            width 100%
         .meta
             margin-top auto
             align-items center
@@ -309,6 +323,7 @@ body
 .block-column
     margin-bottom 0
     position relative
+    
     &--image
         img
             width 100%
@@ -317,6 +332,9 @@ body
     &--text
         display flex
         align-items center
+        .content
+            margin 0 auto
+            max-width 680px
     &--video
         .content
             width 100%
@@ -577,6 +595,10 @@ code
     .page__header
         padding-bottom 60px
         padding-top calc(((var(--header-height) + var(--login-bar-height)) * 1px) + 65px)
+        .title
+            padding-bottom 20px
+            &::after
+                width 150px
         
     .content-anchor
         height 30px
@@ -625,7 +647,10 @@ code
             max-width 350px
         .title
             margin-bottom 10px
+            padding-bottom 10px
             fontSizeLine(33, 35)
+            &::after
+                width 100px
 
     .button
         padding 10px 18px
