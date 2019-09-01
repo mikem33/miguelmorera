@@ -12,6 +12,7 @@ const
     concat          = require('gulp-concat'),
     uglify          = require('gulp-uglify'),
     rename          = require('gulp-rename'),
+    merge           = require('merge-stream'),
     svgSprites      = require('gulp-svg-sprite'),
     sourcemaps      = require('gulp-sourcemaps'),
     realFavicon     = require('gulp-real-favicon'),
@@ -27,8 +28,10 @@ const files = {
 var build = theme;
 
 const acfFields = 'source/includes/acf-json/*.json';
+const screenshot = 'source/screenshot.png';
+const favicons = 'source/assets/images/favicons/*.*'
 
-// copy PHP files
+// copy PHP files.
 gulp.task('php', function() {
     return gulp.src(files.source)
         .pipe(newer(build))
@@ -36,11 +39,17 @@ gulp.task('php', function() {
         .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
+// copy Assets not included in the other tasks.
+gulp.task('copy-assets', function() {
+    var copyScreenshot = gulp.src(screenshot).pipe(newer(build)).pipe(gulp.dest(build));
+    var copyFavicons = gulp.src([favicons, '!source/assets/images/favicons/master-picture.png']).pipe(newer(build + 'assets/images/favicons')).pipe(gulp.dest(build + 'assets/images/favicons'));
+    return merge(copyScreenshot, copyFavicons);
+});
+
 gulp.task('acf-json', function() {
     return gulp.src(acfFields)
         .pipe(newer(build + 'includes/acf-json'))
         .pipe(gulp.dest(build + 'includes/acf-json'))
-        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
 });
 
 gulp.task('styles', function(){
@@ -98,12 +107,6 @@ gulp.task('copy-images', function() {
 gulp.task('copy-muplugins', function() {
     return gulp.src('content/mu-plugins/*')
         .pipe(gulp.dest('dist/content/mu-plugins/'));
-});
-
-gulp.task('copy-screenshot', function() {
-    return gulp.src('source/*.png')
-        .pipe(newer(build))
-        .pipe(gulp.dest(build));
 });
 
 config = {
@@ -173,8 +176,8 @@ gulp.task('generate-favicon', function(done) {
     var FAVICON_DATA_FILE = 'source/assets/images/favicons/faviconData.json';
     realFavicon.generateFavicon({
         masterPicture: 'source/assets/images/favicons/master-picture.png',
-        dest: build + 'assets/images/favicons',
-        iconsPath: build + '/assets/images/favicons/',
+        dest: 'source/assets/images/favicons',
+        iconsPath: 'source/assets/images/favicons/',
         design: {
             ios: {
                 pictureAspect: 'noChange',
@@ -238,11 +241,11 @@ gulp.task('env-prod', function() {
 });
 
 gulp.task('release', ['env-prod'], function(){
-    console.log(build);
     gulp.start('styles');
     gulp.start('js-templates');
     gulp.start('js-compiled');
     gulp.start('copy-images');
+    gulp.start('copy-assets');
     gulp.start('svgsprites');
     gulp.start('php');
     gulp.start('acf-json');
