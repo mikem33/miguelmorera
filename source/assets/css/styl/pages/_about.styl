@@ -10,6 +10,9 @@
     .block-columns
         color white
         background-color $mmPurple
+        a
+            text-decoration underline
+            color darken($mmTurquoise, 15%)
 
 .about__image, .about__video
     position relative
@@ -24,6 +27,14 @@
         pointer-events none
         mix-blend-mode lighten
         background-color rgba($mmPurple,.56)
+
+.no-touch
+    &.page__about
+        .block-columns a
+            transition color $basetransition
+            &:hover
+                color rgba(white, .8)
+                transition color $pseudotransition
 
 /* ---------------------------- *\
 
