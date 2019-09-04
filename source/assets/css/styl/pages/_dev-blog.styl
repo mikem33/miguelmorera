@@ -30,11 +30,9 @@
     border-bottom-color $darkGrey
     figure a
         &::before
-            mix-blend-mode multiply
-            background-color rgba(#d2d2d2, .7)
-        &::after
-            mix-blend-mode multiply
-            background-color rgba($lightGrey, .7)
+            opacity .7
+            mix-blend-mode hue
+            background-color $lightGrey
     .beta
         &, & a
             color $darkGrey
@@ -42,14 +40,11 @@
 .no-touch
     .dev-post.item
         figure a
-            &::before, &::after
+            &::before
                 transition opacity $basetransition
-            &:hover::before, &:hover::after
-                transition opacity $pseudotransition
             &:hover::before
-                opacity 0
-            &:hover::after
                 opacity 1
+                transition opacity $pseudotransition
         .title a
             &:hover
                 color $lightGrey
@@ -60,6 +55,9 @@
             color $darkGrey
             .ico
                 fill @color
+
+.syntaxhighlighter
+    padding 1em .5em
 
 /* ---------------------------- *\
 
