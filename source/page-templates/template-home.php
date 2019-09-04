@@ -59,7 +59,7 @@
 
 <section class="home__comics home__section items section space" data-scroll data-type="light" data-bg-color="#ffe42b">
     <header class="section__header wrapper">
-        <h3 class="title"><?php _e('...or draw some comics','prometheus'); ?></h3> <!--  /.title -->
+        <h3 class="title"><?php _e('...or draw some comics.','prometheus'); ?></h3> <!--  /.title -->
     </header> <!--  /.section__header -->
     <div class="items__container wrapper">
         <?php
