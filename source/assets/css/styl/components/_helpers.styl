@@ -224,35 +224,24 @@ for num in (1..20)
 
 \* ---------------------------- */
 
-+above(1200)
-    /* $min-width: $1200px */
-    
-    .section
-        padding-top 4rem
-        padding-bottom 4rem
-        
-    .space
-        padding-left 3rem
-        padding-right 3rem
+:root
+    +above(1200)
+        /* $min-width: $1200px */
+        --section 4rem
+        --space 4rem
+    +between(768,1199)
+        /* $min-width: $768px / $max-width: $1199px */
+        --section 2.85rem
+        --space 1.85rem
+    +below(767)
+        /* $max-width: $767px */
+        --section 2rem
+        --space 1rem
 
-+between(768,1199)
-    /* $min-width: $768px / $max-width: $1199px */
-    
-    .section
-        padding-top 2.85rem
-        padding-bottom 2.85rem
+.section
+    padding-top var(--section)
+    padding-bottom var(--section)
 
-    .space
-        padding-left 1.85rem
-        padding-right 1.85rem
-
-+below(767)
-    /* $max-width: $767px */
-    
-    .section
-        padding-top 2rem
-        padding-bottom 2rem
-
-    .space
-        padding-left 1rem
-        padding-right 1rem
+.space
+    padding-left var(--space)
+    padding-right var(--space)
