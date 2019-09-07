@@ -1,0 +1,32 @@
+/* ---------------------------- *\
+
+    $Diaries
+
+\*----------------------------- */
+
+.page__template-diaries
+    min-height 100vh
+    &, .main
+        display flex
+        flex-direction column
+    .main, .diaries__list
+        flex 1
+
+.page__template-diaries .diaries__list .wrapper, 
+.diary--single .wrapper
+    max-width 800px
+
+.diary--single
+    a
+        color #a08989
+        text-decoration underline
+
+.diaries__list
+    background-color #f1f1f1
+
+.no-touch
+    .diary--single a
+        transition color $basetransition
+        &:hover
+            color #a08989
+            transition color $pseudotransition
