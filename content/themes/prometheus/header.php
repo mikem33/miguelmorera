@@ -17,6 +17,10 @@
         $page_parent_id = get_page_id_by_slug('development-blog');
         $page_bg_color = get_field('main_page_color', $page_parent_id);
         $page_header_type = get_field('main_header_type', $page_parent_id);
+    } elseif (get_post_type() == 'mm_diary') {
+        $page_parent_id = get_page_id_by_slug('diary');
+        $page_bg_color = get_field('main_page_color', $page_parent_id);
+        $page_header_type = get_field('main_header_type', $page_parent_id);
     } else {
         $page_bg_color = get_field('main_page_color', $page_id);
         $page_header_type = get_field('main_header_type', $page_id);

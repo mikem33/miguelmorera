@@ -29,6 +29,8 @@
                 $arr[] = 'single--comic';
             } elseif (get_post_type() == 'mm_dev_post') {
                 $arr[] = 'single--dev-post';
+            } elseif (get_post_type() == 'mm_diary') {
+                $arr[] = 'single--diary';
             }
         }
 

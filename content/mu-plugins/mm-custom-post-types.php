@@ -74,7 +74,7 @@ if ( !post_type_exists('mm_comic') ) {
             array(
                 'label'           => $label_plural,
                 'description'     => '',
-                'menu_icon'       => 'dashicons-format-image',
+                'menu_icon'       => 'dashicons-format-status',
                 'menu_position'   => 5,
                 'public'          => true,
                 'show_ui'         => true,
@@ -204,4 +204,58 @@ if ( !post_type_exists('mm_dev_post') ) {
         );
     }
     add_action('init', 'register_mm_dev_post_type');
+}
+
+if ( !post_type_exists('mm_diary') ) {
+    function register_mm_diary_type() {
+        $label_singular = __( 'Diary', 'miguelmorera' );
+        $label_plural   = __( 'Diaries', 'miguelmorera' );
+        register_post_type(
+            'mm_diary',
+            array(
+                'label'           => $label_plural,
+                'description'     => '',
+                'menu_icon'       => 'dashicons-format-aside',
+                'menu_position'   => 5,
+                'public'          => true,
+                'show_ui'         => true,
+                'show_in_menu'    => true,
+                'capability_type' => 'post',
+                'hierarchical'    => false,
+                'query_var'       => true,
+                'has_archive'     => false,
+                'show_in_rest'    => true,
+                'rewrite' => array(
+                    'slug'       => 'diary',
+                    'with_front' => false,
+                ),
+                'supports' => array(
+                    'title',
+                    'author',
+                    'editor',
+                    'comments',
+                    'revisions',
+                    'custom-fields',
+                ),
+                'labels' => array (
+                    'name'               => $label_plural,
+                    'singular_name'      => $label_singular,
+                    'menu_name'          => $label_plural,
+                    'all_items'          => __( 'All ', 'miguelmorera' ) . $label_plural,
+                    'add_new'            => __( 'Add New', 'miguelmorera' ),
+                    'add_new_item'       => __( 'Add New ', 'miguelmorera' ) . $label_singular,
+                    'edit'               => __( 'Edit', 'miguelmorera' ),
+                    'edit_item'          => __( 'Edit ', 'miguelmorera' ) . $label_singular,
+                    'new_item'           => __( 'New ', 'miguelmorera' ). $label_singular,
+                    'view'               => __( 'View ', 'miguelmorera' ) . $label_singular,
+                    'view_item'          => __( 'View ', 'miguelmorera' ) . $label_singular,
+                    'search_items'       => __( 'Search ', 'miguelmorera' ) . $label_plural,
+                    'not_found'          => __( 'No ', 'miguelmorera' ) . $label_plural . ' Found',
+                    'not_found_in_trash' => __( 'No ', 'miguelmorera' ) . $label_plural . ' Found in Trash',
+                    'parent'             => __( 'Parent ', 'miguelmorera' ) . $label_singular,
+                )
+            )
+        );
+    }
+    add_action('init', 'register_mm_diary_type');
 }

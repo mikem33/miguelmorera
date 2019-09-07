@@ -50,6 +50,13 @@
                 "operator": "==",
                 "value": "mm_dev_post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "mm_diary"
+            }
         ]
     ],
     "menu_order": 0,
@@ -60,5 +67,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565797536
+    "modified": 1567850812
 }
