@@ -226,7 +226,7 @@ if ( !post_type_exists('mm_diary') ) {
                 'has_archive'     => false,
                 'show_in_rest'    => true,
                 'rewrite' => array(
-                    'slug'       => 'works',
+                    'slug'       => 'diaries',
                     'with_front' => false,
                 ),
                 'supports' => array(
