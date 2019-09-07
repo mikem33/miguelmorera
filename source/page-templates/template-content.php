@@ -52,7 +52,7 @@
                             <?php elseif ($block_data['acf_fc_layout'] == 'video') : ?>
                                 <div class="content" style="background-image: url('<?php echo $block_data['fallback_image']; ?>');">
                                     <?php if ( !$detect->isMobile() || !$detect->isTablet() ) : ?>
-                                        <video autoplay loop poster="<?php echo $block_data['fallback_image']; ?>">
+                                        <video autoplay loop poster="<?php echo $block_data['fallback_image']; ?>" playsinline muted>
                                             <source src="<?php echo $block_data['video']; ?>" type="video/mp4">
                                         </video>
                                     <?php endif; ?>
