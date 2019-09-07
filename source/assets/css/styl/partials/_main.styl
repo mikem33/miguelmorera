@@ -263,6 +263,10 @@ body
             .mm__form
                 text-align right
 
+.comment__meta
+    .title a
+        color $darkGrey
+
 .comment__reply-header 
     margin-bottom 1em
     align-items center
@@ -434,6 +438,12 @@ code
                 background-color $color[4]
                 .ico
                     fill $color[3]
+    .comment__meta
+        .title a
+            transition color $basetransition
+            &:hover
+                color $lightGrey
+                transition color $pseudotransition
 
 /* ---------------------------- *\
 
