@@ -7,12 +7,13 @@
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
         <article id="content" class="diary diary--single post">
-            <section class="diary__content section space" data-bg-color="#ffffff" data-type="light" data-scroll>
+            <section class="diary__content section space" data-bg-color="#f1f1f1" data-type="light" data-scroll>
                 <div class="wrapper">
                     <?php the_content(); ?>
                 </div> <!--  /.wrapper -->
             </section> <!--  /.container -->
         </article><!-- .post -->
+        <?php comments_template('', true); ?>
     <?php endwhile; ?>
 <?php endif; ?>
 
