@@ -226,12 +226,14 @@ if ( !post_type_exists('mm_diary') ) {
                 'has_archive'     => false,
                 'show_in_rest'    => true,
                 'rewrite' => array(
-                    'slug'       => 'diaries',
+                    'slug'       => 'diary',
                     'with_front' => false,
                 ),
                 'supports' => array(
                     'title',
+                    'author',
                     'editor',
+                    'comments',
                     'revisions',
                     'custom-fields',
                 ),
