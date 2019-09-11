@@ -1,11 +1,11 @@
 <?php get_header(); ?>
     
-    <div class="wrapper">        
+    <div class="wrapper">
         <header>
-            <h1 class="page-title"><?php _e('Página No Encontrada','prometheus'); ?></h1>            
+            <h1 class="page-title"><?php _e('Page not found','prometheus'); ?></h1>
         </header><!-- .head-title -->
         <article class="content">
-            <p><?php _e('Lo sentimos pero la página que estaba buscando no se encuentra o no está disponible en estos momentos.','prometheus'); ?></p>
+            <p><?php _e('We are sorry but the page that you are looking for is not found or is not available at this moment.','prometheus'); ?></p>
             <?php get_search_form(); ?>
         </article>
     </div>
