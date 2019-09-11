@@ -1,33 +1,9 @@
 <?php
-    if (is_home()) {
-        $page_id = get_option('page_for_posts', true);
-    } else {
-        $page_id = $post->ID;
-    }
     if ($page_header_style == 'hero') {
         $additional_header_classes = 'page__header--hero '.$additional_header_classes;
     }
 
-    if (get_post_type() == 'mm_work') {
-        $page_parent_id = get_page_id_by_slug('works');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } elseif (get_post_type() == 'mm_comic') {
-        $page_parent_id = get_page_id_by_slug('comics');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } elseif (get_post_type() == 'mm_dev_post') {
-        $page_parent_id = get_page_id_by_slug('development-blog');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } elseif (get_post_type() == 'mm_diary') {
-        $page_parent_id = get_page_id_by_slug('diary');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } else {
-        $page_bg_color = get_field('main_page_color', $page_id);
-        $page_header_type = get_field('main_header_type', $page_id);
-    }
+    include('page-data.php');
     $page_header_stuff =  get_field('page_header_stuff', $page_id);
     $post_lang = get_field('post_language', $page_id);
     $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':'');

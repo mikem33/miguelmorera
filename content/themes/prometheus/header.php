@@ -1,31 +1,5 @@
 <!DOCTYPE html>
-<?php
-    if (is_home()) {
-        $page_id = get_option('page_for_posts', true); 
-    } else {
-        $page_id = get_the_ID();
-    }
-    if (get_post_type() == 'mm_work') {
-        $page_parent_id = get_page_id_by_slug('works');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } elseif (get_post_type() == 'mm_comic') {
-        $page_parent_id = get_page_id_by_slug('comics');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } elseif (get_post_type() == 'mm_dev_post') {
-        $page_parent_id = get_page_id_by_slug('development-blog');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } elseif (get_post_type() == 'mm_diary') {
-        $page_parent_id = get_page_id_by_slug('diary');
-        $page_bg_color = get_field('main_page_color', $page_parent_id);
-        $page_header_type = get_field('main_header_type', $page_parent_id);
-    } else {
-        $page_bg_color = get_field('main_page_color', $page_id);
-        $page_header_type = get_field('main_header_type', $page_id);
-    }
-?>
+<?php include('includes/page-data.php'); ?>
 <html <?php echo get_language_attributes(); ?> style="--main-page-color: <?php echo $page_bg_color; ?>;" data-main-color="<?php echo $page_bg_color; ?>">
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>">
@@ -67,7 +41,7 @@
         <main class="main" role="main">
             <div class="nav section space">
                 <?php $menuParameters = array(
-                    'menu'            => 'header-menu',
+                    'menu'            => 6,
                     'container'       => 'nav',
                     'container_class' => 'nav__items',
                     'echo'            => false,

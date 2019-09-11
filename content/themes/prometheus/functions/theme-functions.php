@@ -15,6 +15,14 @@
     }
 
     /**
+     * Tell to Wordpress to look for custom theme language file.
+     */
+    function prometheus_lang(){
+        load_theme_textdomain( 'prometheus', get_stylesheet_directory() . '/languages' );
+    }
+    add_action('after_setup_theme', 'prometheus_lang');
+
+    /**
      * Function for enable thumbnails generation and custom sizes.
      */
     add_theme_support('post-thumbnails');
@@ -166,7 +174,7 @@
         $word_count = str_word_count( strip_tags( $content ) );
         $readingtime = ceil($word_count / 200);
 
-        $totalreadingtime = $readingtime . ' min. read';
+        $totalreadingtime = $readingtime . __(' min. read', 'prometheus');
 
         return $totalreadingtime;
     }

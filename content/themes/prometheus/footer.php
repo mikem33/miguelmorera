@@ -2,13 +2,13 @@
         <footer class="footer space">
             <div class="wrapper">
                 <div class="footer__logo">
-                    <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Go to Home','prometheus' ); ?>" aria-label="<?php _e('Go to home','prometheus'); ?>">
+                    <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Go to Home','prometheus' ); ?>" aria-label="<?php _e('Go to Home','prometheus'); ?>">
                         <svg><use xlink:href="#logo" /></svg>
                     </a>
                 </div> <!--  /.footer__logo -->
                 <?php 
                     $args = array(
-                        'menu'            => 'footer-menu',
+                        'menu'            => 2,
                         'container'       => 'nav',
                         'container_class' => 'footer__nav',
                         'echo'            => false,
