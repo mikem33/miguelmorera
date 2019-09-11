@@ -1,0 +1,258 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-09-10 23:33+0200\n"
+"PO-Revision-Date: 2019-09-10 23:35+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:5 ../includes/page-header.php:61
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: ../404.php:8
+msgid ""
+"We are sorry but the page that you are looking for is not found or is not "
+"available at this moment."
+msgstr ""
+"Lo sentimos pero la página que estaba buscando no se encuentra o no está "
+"disponible en estos momentos."
+
+#: ../archive.php:16 ../index.php:20 ../page-templates/template-dev-blog.php:32
+#: ../page-templates/template-home.php:36
+msgid "Permanent link to"
+msgstr "Enlace permanente a"
+
+#: ../archive.php:29 ../index.php:33 ../page-templates/template-dev-blog.php:46
+#: ../page-templates/template-home.php:49
+msgid "Continue reading"
+msgstr "Continuar leyendo"
+
+#: ../archive.php:41
+msgid "Not found."
+msgstr "No encontrado."
+
+#: ../archive.php:42
+msgid "We are sorry, but we haven&apos;t found what are you looking for."
+msgstr "Lo sentimos, pero no hemos encontrado lo que estaba buscando."
+
+#: ../comments.php:7
+msgid ""
+"This posts is protected with password. Enter the password to see the "
+"comments."
+msgstr ""
+"Este post está protegido por contraseña. Introduzca la contraseña para ver "
+"los comentarios."
+
+#: ../comments.php:16
+msgid "Maybe you would like to leave a comment"
+msgstr "Tal vez te apetezca dejar un comentario"
+
+#: ../comments.php:17
+msgid "The fields marked with an asterisk (*) are required."
+msgstr "Los campos marcados con un asterisco (*) son obligatorios."
+
+#: ../comments.php:23 ../comments.php:24
+msgid "Name*"
+msgstr "Nombre*"
+
+#: ../comments.php:28 ../comments.php:29
+msgid "E-mail*"
+msgstr "E-mail*"
+
+#: ../comments.php:33 ../comments.php:34 ../single-mm_work.php:32
+msgid "Website"
+msgstr "Página web"
+
+#: ../comments.php:38 ../comments.php:39
+msgid "Comment*"
+msgstr "Comentario*"
+
+#: ../comments.php:44
+msgid "Send comment"
+msgstr "Enviar comentario"
+
+#: ../comments.php:77 ../comments.php:91
+msgid "There are no comments"
+msgstr "No hay comentarios"
+
+#: ../comments.php:77
+msgid "One comment"
+msgstr "Un comentario"
+
+#: ../comments.php:77
+#, php-format
+msgid "% comments"
+msgstr "% comentarios"
+
+#: ../comments.php:97
+msgid "Comments are closed"
+msgstr "Los comentarios están cerrados"
+
+#: ../footer.php:5
+msgid "Go to Home"
+msgstr "Ir a la página de inicio"
+
+#: ../footer.php:33
+msgid "Alpha"
+msgstr "Alpha"
+
+#: ../functions/comments.php:31
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s en %2$s"
+
+#: ../functions/comments.php:45
+msgid "Your comment is awaiting moderation."
+msgstr "Tu comentario está a la espera de ser aprobado."
+
+#: ../functions/theme-functions.php:7
+msgid "Sidebar Widgets"
+msgstr "Widgets de la Sidebar"
+
+#: ../functions/theme-functions.php:9
+msgid "These are widgets for the sidebar."
+msgstr "Estos son widgets para la sidebar."
+
+#: ../functions/theme-functions.php:77
+msgid "Header Menu"
+msgstr "Menú de la Cabecera"
+
+#: ../functions/theme-functions.php:78
+msgid "Footer Menu"
+msgstr "Menú del pie de página"
+
+#: ../functions/theme-functions.php:91
+msgid "Read more &raquo;"
+msgstr "Leer más &raquo;"
+
+#: ../functions/theme-functions.php:177
+msgid " min. read"
+msgstr " min. tiempo de lectura"
+
+#: ../header.php:60
+msgid "Close"
+msgstr "Cerrar"
+
+#: ../header.php:61
+msgid "Menu"
+msgstr "Menú"
+
+#: ../includes/page-header.php:43
+msgid "Archive Category of"
+msgstr "Categoría de archivo de"
+
+#: ../includes/page-header.php:45
+msgid "Posts tagged with"
+msgstr "Entradas etiquetadas con"
+
+#: ../includes/page-header.php:47
+msgid "Archive with date"
+msgstr "Archivo de fecha"
+
+#: ../includes/page-header.php:49
+msgid "Archive of"
+msgstr "Archivo de"
+
+#: ../includes/page-header.php:51
+msgid "Archive from year"
+msgstr "Archivo del año"
+
+#: ../includes/page-header.php:53
+msgid "Author Archive"
+msgstr "Archivo del Autor"
+
+#: ../includes/page-header.php:55
+msgid "Blog Archive"
+msgstr "Archivo del Blog"
+
+#: ../includes/page-header.php:58
+msgid "There are no results."
+msgstr "No hay resultados."
+
+#: ../includes/page-header.php:76
+msgid "See my works"
+msgstr "Ver mis trabajos"
+
+#: ../includes/page-header.php:91
+msgid "By"
+msgstr "Por"
+
+#: ../page-templates/template-comics.php:3
+msgid "Comics"
+msgstr "Cómics"
+
+#: ../page-templates/template-comics.php:55
+#: ../page-templates/template-home.php:109
+msgid "Read comic"
+msgstr "Leer cómic"
+
+#: ../page-templates/template-contact.php:3
+msgid "Contact"
+msgstr "Contacto"
+
+#: ../page-templates/template-content.php:3
+msgid "Flexible Content"
+msgstr "Contenido Flexible"
+
+#: ../page-templates/template-content.php:51
+msgid "Image"
+msgstr "Imagen"
+
+#: ../page-templates/template-dev-blog.php:3
+msgid "Development Blog"
+msgstr "Blog de Desarrollo"
+
+#: ../page-templates/template-diaries.php:3
+msgid "Diaries"
+msgstr "Diarios"
+
+#: ../page-templates/template-home.php:3
+msgid "Home"
+msgstr "Inicio"
+
+#: ../page-templates/template-home.php:12
+msgid "Eventually I like to write down some thoughts..."
+msgstr "De vez en cuando me gusta escribir reflexiones…"
+
+#: ../page-templates/template-home.php:55
+msgid "See more posts"
+msgstr "Ver más posts"
+
+#: ../page-templates/template-home.php:62
+msgid "...or draw some comics."
+msgstr "…o dibujar cómics."
+
+#: ../page-templates/template-home.php:115
+msgid "See more comics"
+msgstr "Ver más cómics"
+
+#: ../page-templates/template-works.php:3
+msgid "Works"
+msgstr "Trabajos"
+
+#: ../page-templates/template-works.php:36
+msgid "See work"
+msgstr "Ver trabajo"
+
+#: ../searchform.php:2
+msgid "Search"
+msgstr "Buscar"
+
+#: ../single-mm_work.php:16
+msgid "Year"
+msgstr "Año"
+
+#: ../single-mm_work.php:22
+msgid "Client"
+msgstr "Cliente"
