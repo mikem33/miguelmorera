@@ -26,8 +26,12 @@
                 </a>
             </figure>
             <?php 
-                $post_lang = get_field('post_language', get_the_ID());
-                $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':''); 
+                if (get_current_blog_id() == 1) {
+                    $post_lang = get_field('post_language', get_the_ID());
+                } else {
+                    $post_lang = 'both';
+                }
+                $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':'');
             ?>
             <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','prometheus'); ?> <?php the_title_attribute(); ?>"<?php echo $lang; ?>><?php the_title(); ?></a></h2>
             <div class="meta">

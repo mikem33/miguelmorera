@@ -197,4 +197,42 @@
     add_filter( 'wpcf7_load_js', '__return_false' );
     add_filter( 'wpcf7_load_css', '__return_false' );
 
+    /**
+     * @param string $url
+     * @param lloc\Msls\MslsLink $link
+     * @param bool current
+     * @return string
+     */
+    function my_msls_output_get( $url, $link, $current ) {
+        return sprintf(
+            '<a href="%s" title="%s"%s><svg class="ico"><use xlink:href="#ico-grid-world" /></svg><span>%s</span></a>',
+            $url,
+            $link->txt,
+            ( $current ? ' class="lang-switcher current"' : ' class="lang-switcher"' ),
+            $link
+        );
+    }
+    add_filter( 'msls_output_get', 'my_msls_output_get', 10, 3 );
+
+    /**
+     * @param string $postlink
+     * @param string $language
+     * @return string
+     */
+    function my_msls_options_get_permalink( $url, $language ) {
+        if ( 'es_ES' == $language ) {
+            $url = str_replace( '/works/', '/trabajos/', $url );
+            $url = str_replace( '/development-blog/', '/blog-desarrollo/', $url );
+            $url = str_replace( '/thoughts/', '/reflexiones/', $url );
+            $url = str_replace( '/diary/', '/diario/', $url );
+        } else {
+            $url = str_replace( '/trabajos/', '/works/', $url );
+            $url = str_replace( '/blog-desarrollo/', '/development-blog/', $url );
+            $url = str_replace( '/reflexiones/', '/thoughts/', $url );
+            $url = str_replace( '/diario/', '/diary/', $url );
+        }
+        return $url;
+    }
+    add_filter( 'msls_options_get_permalink', 'my_msls_options_get_permalink', 10, 2 );
+
 ?>
