@@ -137,7 +137,6 @@ function cssHeaderPadding(header) {
     var header = document.querySelector('.header');
     var headerPadding = window.getComputedStyle(header, null).getPropertyValue('padding-left');
     document.documentElement.style.setProperty('--header-padding', headerPadding);
-    console.log(headerPadding);
 }
 
 // Assign this variable when the page loads.
