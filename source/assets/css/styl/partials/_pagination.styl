@@ -12,7 +12,6 @@
         margin-right 10px
         display inline-block
         .ico
-            top 1px
             position relative
         &--prev
             .ico
@@ -65,5 +64,30 @@
         .nav__link
             width 50px
             height 50px
-            fontSize(20)
-            line-height 50px
+            fontSizeLine(20, 50)
+            .ico
+                top 1px
+
++between(768, 1199)
+    /* $min-width: $768px // $max-width: $1199px */
+
+    .nav--pagination
+        .nav__link
+            width 40px
+            height 40px
+            fontSizeLine(18, 40)
+            .ico
+                top 3px
+
++below(767)
+    /* $max-width: $767px */
+    
+    .nav--pagination
+        .nav__link
+            width 30px
+            height 30px
+            fontSizeLine(16, 30)
+            .ico
+                top 1px
+                width 7px
+                height 12px
