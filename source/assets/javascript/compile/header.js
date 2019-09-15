@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
         $('.toggle-nav').attr('data-alt-text', currentText);
 
         var i = 2;
-        $('.nav__items a').each(function(){
+        $('.nav a').each(function(){
             $(this).toggleClass('animated fadeInUp delay-' + i + '00-ms');
             i++;
         });

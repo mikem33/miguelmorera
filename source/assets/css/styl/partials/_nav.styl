@@ -77,8 +77,10 @@
         transform none
         pointer-events auto
         transition opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), transform 0.5s cubic-bezier(0.19, 1, 0.22, 1)
-    &__items
+    .content
         margin auto 0
+    &__items
+        margin-bottom 1em
         white-space pre-line
         a
             color $mmPurple
@@ -91,6 +93,17 @@
     &__colophon
         margin-top auto
         margin-bottom 0
+
+.lang-switcher
+    color $mmPurple
+    position relative
+    display inline-block
+    will-change transform
+    animation-duration 800ms
+    .ico
+        left 0
+        fill $mmPurple
+        centerObject(false, true)
 
 .no-touch
     .nav__items a
@@ -111,6 +124,16 @@
             &::before
                 width calc(100% + 20px)
                 transition width 400ms ease-in-out
+    .lang-switcher
+        transition all $basetransition
+        .ico
+            transition fill $basetransition
+        &:hover
+            color $mmRed
+            transition all $pseudotransition
+            .ico
+                fill $mmRed
+                transition fill $pseudotransition
     .header .toggle-nav
         transition color $basetransition
         &:not(.active)
@@ -165,6 +188,13 @@
         padding-top 150px
         &__items a
             fontSizeLine(60)
+    
+    .lang-switcher
+        fontSize(28)
+        padding-left 40px
+        .ico
+            width 30px
+            height 30px
 
 +between(768, 1199)
     /* $min-width: $768px // $max-width: $1199px */
@@ -195,6 +225,13 @@
         &__items
             a
                 fontSizeLine(45)
+
+    .lang-switcher
+        fontSize(25)
+        padding-left 35px
+        .ico
+            width 25px
+            height 25px
 
 +above(768)
     /* $min-width: $768px */
@@ -234,3 +271,9 @@
                 fontSizeLine(25)
         &__colophon
             fontSize(14)
+    
+    .lang-switcher
+        padding-left 30px
+        .ico
+            width 20px
+            height 20px
