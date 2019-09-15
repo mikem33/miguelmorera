@@ -40,14 +40,17 @@
         </header> <!--  /.header -->
         <main class="main" role="main">
             <div class="nav section space">
-                <?php $menuParameters = array(
-                    'menu'            => 6,
-                    'container'       => 'nav',
-                    'container_class' => 'nav__items',
-                    'echo'            => false,
-                    'items_wrap'      => '%3$s',
-                    'depth'           => 0,
-                ); ?>
-                <?php echo strip_tags(wp_nav_menu( $menuParameters ), '<nav>,<a>' ); ?>
+                <div class="content">
+                    <?php $menuParameters = array(
+                        'menu'            => 6,
+                        'container'       => 'nav',
+                        'container_class' => 'nav__items',
+                        'echo'            => false,
+                        'items_wrap'      => '%3$s',
+                        'depth'           => 0,
+                    ); ?>
+                    <?php echo strip_tags(wp_nav_menu( $menuParameters ), '<nav>,<a>' ); ?>
+                    <?php if ( function_exists( 'the_msls' ) ) the_msls(); ?>
+                </div> <!--  /.content -->
                 <p class="nav__colophon">&copy; 2010 - <?php echo date('Y'); ?> Miguel Morera</p>
-            </div> <!--  /.nav -->
+            </div> <!--  /.nav .section .space -->
