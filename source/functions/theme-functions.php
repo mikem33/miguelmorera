@@ -193,7 +193,7 @@
         </script>
     <?php }
   
-    add_action( 'wp_head', 'ns_google_analytics', 10 );
+    add_action( 'wp_head', 'pr_google_analytics', 10 );
 
     /**
      * Get Page ID by Slug.
