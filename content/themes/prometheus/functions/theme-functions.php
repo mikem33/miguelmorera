@@ -180,6 +180,22 @@
     }
 
     /**
+     * Google Analytics.
+     */
+    function pr_google_analytics() { ?>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3486100-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-3486100-2');
+        </script>
+    <?php }
+  
+    add_action( 'wp_head', 'ns_google_analytics', 10 );
+
+    /**
      * Get Page ID by Slug.
      */
     function get_page_id_by_slug($page_slug) {
