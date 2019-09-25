@@ -63,15 +63,15 @@
     /**
      * Function to enable wide images support on Gutenberg.
      */
-    function wide_images_setup() {
+    function pr_wide_images_setup() {
         add_theme_support( 'align-wide' );
     }
-    add_action( 'after_setup_theme', 'wide_images_setup' );
+    add_action( 'after_setup_theme', 'pr_wide_images_setup' );
 
     /**
      * Create default menu spaces.
      */
-    function register_my_menus() {
+    function pr_register_my_menus() {
         register_nav_menus(
             array(
               'header-menu' => __('Header Menu', 'prometheus'),
@@ -79,7 +79,7 @@
             )
         );
     }
-    add_action( 'init', 'register_my_menus' );
+    add_action( 'init', 'pr_register_my_menus' );
 
     /**
      * Determine the text of the 'Read more'
@@ -87,19 +87,40 @@
      * @param  string   $more_link_text     The original text of the link to the full post.
      * @return string
      */
-    function my_more_link($more_link, $more_link_text) {
+    function pr_more_link($more_link, $more_link_text) {
         return str_replace($more_link_text, __('Read more &raquo;', 'prometheus'), $more_link);
     }
-    add_filter('the_content_more_link', 'my_more_link', 10, 2);
+    add_filter('the_content_more_link', 'pr_more_link', 10, 2);
 
     /**
      * Meta description text for the head tag.
      */
-    function meta_description() {
-        $current_post = get_post();
-        $post_content = shortenParagraph($current_post->post_content, 300);
-        echo strip_tags($post_content);
+    function pr_meta_description() {
+        global $post;
+        if ( is_singular() ) {
+            $page_id = $post->ID;
+            $page_header_text = get_field('page_header_stuff', $page_id)['page_header_text'];
+            if ($page_header_text){
+                $post_content = $page_header_text;
+            } else {
+                $post_content = $post->post_content;
+            }
+            $post_content = strip_tags($post_content);
+            $post_content = strip_shortcodes($post_content);
+            $post_content = str_replace(array("\n", "\r", "\t"), ' ', $post_content);
+            $post_content = mb_substr($post_content, 0, 300, 'utf8');
+            $post_content = trim($post_content, ' ');
+            return $post_content;
+        }
+        if ( is_home() ) {
+            return get_bloginfo('description');
+        }
+        if ( is_category() ) {
+            $cat_content = strip_tags(category_description());
+            return $cat_content;
+        }
     }
+    add_action( 'wp_head', 'pr_meta_description');
 
     /**
      * Shorten paragraph function.
