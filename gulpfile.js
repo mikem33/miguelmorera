@@ -30,6 +30,7 @@ var build = theme;
 const acfFields = 'source/includes/acf-json/*.json';
 const screenshot = 'source/screenshot.png';
 const languageFiles = 'source/languages/*.*'
+const readme = 'README.md'
 const favicons = 'source/assets/images/favicons/*.*'
 
 // copy PHP files.
@@ -43,6 +44,7 @@ gulp.task('php', function(done) {
 
 // copy Assets not included in the other tasks.
 gulp.task('copy-assets', function(done) {
+    var copyReadme = gulp.src(readme).pipe(newer(files.dist)).pipe(gulp.dest(files.dist));
     var copyLanguageFiles = gulp.src(languageFiles).pipe(newer(build + 'languages')).pipe(gulp.dest(build + 'languages'));
     var copyScreenshot = gulp.src(screenshot).pipe(newer(build)).pipe(gulp.dest(build));
     var copyFavicons = gulp.src([favicons, '!source/assets/images/favicons/master-picture.png']).pipe(newer(build + 'assets/images/favicons')).pipe(gulp.dest(build + 'assets/images/favicons'));
