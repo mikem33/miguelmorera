@@ -97,7 +97,7 @@
      */
     function pr_meta_description() {
         global $post;
-        if ( is_singular() ) {
+        if (is_singular()) {
             $page_id = $post->ID;
             $page_header_text = get_field('page_header_stuff', $page_id)['page_header_text'];
             if ($page_header_text){
@@ -108,14 +108,18 @@
             $post_content = strip_tags($post_content);
             $post_content = strip_shortcodes($post_content);
             $post_content = str_replace(array("\n", "\r", "\t"), ' ', $post_content);
+            $post_content = str_replace(array('"'), '', $post_content);
+            if (strlen($post_content) > 300) { $excerpt = '...'; }
             $post_content = mb_substr($post_content, 0, 300, 'utf8');
+            $post_content = preg_replace('/\s+/', ' ', $post_content);
             $post_content = trim($post_content, ' ');
+            $post_content = $post_content.$excerpt;
             return $post_content;
         }
-        if ( is_home() ) {
+        if (is_home()) {
             return get_bloginfo('description');
         }
-        if ( is_category() ) {
+        if (is_category()) {
             $cat_content = strip_tags(category_description());
             return $cat_content;
         }
