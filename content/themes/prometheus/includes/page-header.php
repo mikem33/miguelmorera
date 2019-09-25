@@ -4,7 +4,7 @@
     }
 
     include('page-data.php');
-    $page_header_stuff =  get_field('page_header_stuff', $page_id);
+    $page_header_stuff = get_field('page_header_stuff', $page_id);
     $post_lang = get_field('post_language', $page_id);
     $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':'');
 ?>

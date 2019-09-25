@@ -5,14 +5,12 @@
         <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>">
         <?php if ( is_front_page() ) : ?>
             <title><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?></title>
-            <meta name="description" content="<?php bloginfo( 'description' ); ?>">
         <?php elseif ( is_single() ) : ?>
             <title><?php wp_title('-',true,'right'); ?><?php bloginfo('name'); ?></title>
-            <meta name="description" content="<?php meta_description(); ?>">
         <?php else : ?>
             <title><?php wp_title('-',true,'right'); ?><?php bloginfo('name'); ?></title>
-            <meta name="description" content="<?php bloginfo( 'description' ); ?>">
         <?php endif; ?>
+        <meta name="description" content="<?php echo pr_meta_description(); ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
             
