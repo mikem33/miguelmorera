@@ -183,12 +183,12 @@
                 left 3px
                 width 22px
                 margin-top 9px
-    
+
     .nav
         padding-top 150px
         &__items a
             fontSizeLine(60)
-    
+
     .lang-switcher
         fontSize(28)
         padding-left 40px
@@ -226,6 +226,13 @@
             a
                 fontSizeLine(45)
 
++above(768)
+    /* $min-width: $768px */
+    
+    .nav
+        &__colophon
+            fontSize(20)
+    
     .lang-switcher
         fontSize(25)
         padding-left 35px
@@ -233,12 +240,22 @@
             width 25px
             height 25px
 
-+above(768)
-    /* $min-width: $768px */
++below(700, false)
+    /* $max-width: $700 */
     
     .nav
+        &__items
+            a
+                fontSizeLine(25)
         &__colophon
-            fontSize(20)
+            fontSize(14)
+    
+    .lang-switcher
+        fontSizeLine(16)
+        padding-left 30px
+        .ico
+            width 20px
+            height 20px
 
 +below(767)
     /* $max-width: $767px */
