@@ -377,18 +377,31 @@ code
         padding-top 5px
         margin-bottom 8px
         position relative
-        label
-            top 0
-            right 0
-            fontSize(14)
-            display none
-            position absolute
-            text-transform uppercase
-        &.active
+        &:not(.fieldset--quiz)
             label
-                display block
-        &--textarea
+                top 0
+                right 0
+                fontSize(14)
+                display none
+                position absolute
+                text-transform uppercase
+            &.active
+                label
+                    display block
+        &--quiz
             margin-bottom 2em
+            label
+                fontSize(20)
+                display block
+            .quiz-numeric label
+                position relative
+                span, input[type=text]
+                    display inline-block
+                    vertical-align middle
+                span
+                    margin-right 20px
+            input[type=text]
+                max-width 100px
 
 .no-touch
     .item 
