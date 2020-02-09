@@ -20,7 +20,7 @@
                 $thumbnail_object = get_post($thumbnail_id);
                 $image = $thumbnail_object->guid;
             } else {    
-                $image = ''; 
+                $image = get_stylesheet_directory_uri().'/assets/images/default-thumbnail.jpg'; 
             }
             
         /*If not a Single Page*/
