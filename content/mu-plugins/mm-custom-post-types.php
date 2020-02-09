@@ -240,6 +240,7 @@ if ( !post_type_exists('mm_diary') ) {
                     'author',
                     'editor',
                     'comments',
+                    'thumbnail',
                     'revisions',
                     'custom-fields',
                 ),
