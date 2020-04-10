@@ -176,7 +176,7 @@
      * @return string  Script tag with the necessary javascript.
      */
     function load_google_fonts() { ?>
-        <?php $fonts = "'Rubik:400,400i,500,500i&display=swap'"; ?>
+        <?php $fonts = "'DM+Serif+Display','Muli:ital,wght@0,400;0,700;1,400;1,700&display=swap'"; ?>
         <?php if ($fonts) : ?>
             <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
             <script>
