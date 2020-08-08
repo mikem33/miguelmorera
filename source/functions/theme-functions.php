@@ -189,7 +189,7 @@
         <?php endif; ?>
     <?php }
     
-    add_action('wp_footer', 'load_google_fonts');
+    // add_action('wp_footer', 'load_google_fonts');
 
     /**
      * Add reading time for posts.
