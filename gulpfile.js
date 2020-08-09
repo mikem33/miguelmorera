@@ -115,6 +115,14 @@ gulp.task('copy-images', function(done) {
         done();
 });
 
+gulp.task('copy-fonts', function(done) {
+    return gulp.src(['source/assets/fonts/*'])
+        .pipe(newer(build + 'assets/fonts'))
+        .pipe(gulp.dest(build + 'assets/fonts'))
+        .pipe(browserSync ? browserSync.reload({ stream: true }) : gutil.noop());
+        done();
+});
+
 gulp.task('copy-muplugins', function(done) {
     return gulp.src('content/mu-plugins/*')
         .pipe(gulp.dest('dist/content/mu-plugins/'));
@@ -147,6 +155,7 @@ gulp.task('watch', function() {
     gulp.watch('source/assets/javascript/source/*.js', gulp.series('js-templates'));
     gulp.watch('source/assets/javascript/compile/*.js', gulp.series('js-compiled'));
     gulp.watch('source/assets/images/*.*', gulp.series('copy-images'));
+    gulp.watch('source/assets/fonts/*.*', gulp.series('copy-fonts'));
     gulp.watch('source/**/*.php', gulp.series('php'));
     gulp.watch(acfFields, gulp.series('acf-json'));
 });
