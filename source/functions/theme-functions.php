@@ -42,17 +42,23 @@
         $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size )[0];
         $thumbnail_medium = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size . '-medium' )[0];
         $thumbnail_little = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size . '-little' )[0];
+        
+        if ($thumbnail) {
+            $image  = '<img src="' . $thumbnail . '"';
+            $image .= ( $thumbnail_medium && $thumbnail_little ?  ' srcset="' : '' ); // open srcset
+            $image .= ( $thumbnail_little ? $thumbnail_little . ' 480w' : '' );
+            $image .= ( $thumbnail_medium && $thumbnail_little ? ', ' : '' );
+            $image .= ( $thumbnail_medium ? $thumbnail_medium . ' 640w' : '' );
+            $image .= ( $thumbnail_medium && $thumbnail_little ? ', ' : '' );
+            $image .= ( $thumbnail ? $thumbnail . ' 960w' : '' );
+            $image .= ( $thumbnail_medium && $thumbnail_little ?  '"' : '' ); // close srcset
+            $image .= ( $class ? ' class="' . esc_attr($class) . '"' : '' );
+            $image .= ' sizes="auto" alt="' . get_the_title($post_id) . '" />';
+        } else {
+            $thumbnail = get_stylesheet_directory_uri().'/assets/images/default-thumbnail.jpg';
+            $image = '<img src="' . $thumbnail . '" alt="' . get_the_title($post_id) . '" />';
+        }
 
-        $image  = '<img src="' . $thumbnail . '"';
-        $image .= ( $thumbnail_medium && $thumbnail_little ?  ' srcset="' : '' ); // open srcset
-        $image .= ( $thumbnail_little ? $thumbnail_little . ' 480w' : '' );
-        $image .= ( $thumbnail_medium && $thumbnail_little ? ', ' : '' );
-        $image .= ( $thumbnail_medium ? $thumbnail_medium . ' 640w' : '' );
-        $image .= ( $thumbnail_medium && $thumbnail_little ? ', ' : '' );
-        $image .= ( $thumbnail ? $thumbnail . ' 960w' : '' );
-        $image .= ( $thumbnail_medium && $thumbnail_little ?  '"' : '' ); // close srcset
-        $image .= ( $class ? ' class="' . esc_attr($class) . '"' : '' );
-        $image .= ' sizes="auto" alt="' . get_the_title($post_id) . '">';
         if ($echo == true) {
             echo $image;
         } else {
