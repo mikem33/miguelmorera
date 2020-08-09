@@ -12,7 +12,20 @@ fontSize($fontValue = $fontSize, $baseFontValue = $fontSize)
 fontSizeLine($fontValue = $fontSize, $lineHeight = $fontValue)
     fontSize($fontValue)
     line-height $lineHeight px
-    
+
+// Fonts mixin
+font-url(file)
+    return 'assets/fonts/' + file
+
+webfont(family, file, weight = normal, style = normal)
+    @font-face
+        font-family family
+        src url(font-url(file + '.woff2')) format('woff2'),
+            url(font-url(file + '.woff')) format('woff')
+        font-display swap
+        font-weight weight
+        font-style style
+
 // $Center Object function.
 centerObject($horizontal = true, $vertical = true)
     if $horizontal and $vertical
