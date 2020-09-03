@@ -211,7 +211,7 @@ body
         max-width 960px
     a
         text-decoration underline
-    blockquote
+    .wp-block-quote
         width 90%
         margin 0 auto 2em
         position relative
@@ -230,6 +230,32 @@ body
             position absolute
             background-size 73px 68px
             background-image url('assets/images/ico-quotes.svg')
+    .wp-block-pullquote
+        padding 0
+        width 100%
+        position relative
+        margin-bottom 10px
+        blockquote
+            z-index 1
+            border none
+            margin 0 auto
+            text-align center
+            padding-left 10px
+            position relative
+            padding-right 10px
+            display inline-block
+            background-color white
+            p
+                fontSize(32)
+                margin-bottom 0
+                font-weight 700
+        &::before
+            z-index 0
+            content ''
+            width 100%
+            height 1px
+            background-color #c1c1c1
+            centerObject(true,true)
     &__main-image
         text-align center
 
@@ -531,7 +557,7 @@ code
             fontSizeLine(20, 35)
         .wp-block-image figcaption
             fontSizeLine(18, 22)
-        blockquote
+        .wp-block-quote
             padding 1.5em 2em 1.5em 50px
             p, li
                 fontSizeLine(22, 35)
@@ -617,7 +643,7 @@ code
             fontSizeLine(18, 28)
         .wp-block-image figcaption
             fontSizeLine(16, 20)
-        blockquote
+        .wp-block-quote
             padding 1em 1em 1em 40px
             p, li
                 fontSizeLine(20, 30)
@@ -711,7 +737,7 @@ code
             line-height 26px
         .wp-block-image figcaption
             fontSizeLine(16, 20)
-        blockquote
+        .wp-block-quote
             margin-top 2em
             padding 2em 1em 1em
             p, li
@@ -719,6 +745,8 @@ code
             &::before
                 top -45px
                 left -10px
+        .wp-block-pullquote
+            
         &__main-image
             margin-bottom 1.5rem
 
