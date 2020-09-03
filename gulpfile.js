@@ -30,9 +30,11 @@ var build = theme;
 const acfFields = 'source/includes/acf-json/*.json';
 const screenshot = 'source/screenshot.png';
 const languageFiles = 'source/languages/*.*';
+const wpLanguageFiles = 'content/languages/*.*';
 const fonts = 'source/assets/fonts/*.*';
 const readme = 'README.md';
 const favicons = 'source/assets/images/favicons/*.*';
+const htaccess = '.htaccess';
 
 // copy PHP files.
 gulp.task('php', function(done) {
@@ -45,12 +47,18 @@ gulp.task('php', function(done) {
 
 // copy Assets not included in the other tasks.
 gulp.task('copy-assets', function(done) {
-    var copyReadme = gulp.src(readme).pipe(newer(files.dist)).pipe(gulp.dest(files.dist));
-    var copyLanguageFiles = gulp.src(languageFiles).pipe(newer(build + 'languages')).pipe(gulp.dest(build + 'languages'));
     var copyFonts = gulp.src(fonts).pipe(newer(build + 'assets/fonts')).pipe(gulp.dest(build + 'assets/fonts'));
+    var copyLanguageFiles = gulp.src(languageFiles).pipe(gulp.dest(build + 'languages'));
     var copyScreenshot = gulp.src(screenshot).pipe(newer(build)).pipe(gulp.dest(build));
     var copyFavicons = gulp.src([favicons, '!source/assets/images/favicons/master-picture.png']).pipe(newer(build + 'assets/images/favicons')).pipe(gulp.dest(build + 'assets/images/favicons'));
     return merge(copyScreenshot, copyFavicons);
+    done();
+});
+
+gulp.task('copy-config-files', function(done) {
+    var copyReadme = gulp.src(readme).pipe(newer(files.dist)).pipe(gulp.dest(files.dist));
+    var copyHtaccess = gulp.src(htaccess).pipe(gulp.dest(files.dist));
+    var copyWpLanguageFiles = gulp.src(wpLanguageFiles).pipe(gulp.dest(files.dist + 'content/languages'));
     done();
 });
 
@@ -262,18 +270,6 @@ gulp.task('env-prod', function(done) {
     done();
 });
 
-// gulp.task('release', gulp.series('env-prod', function(done){
-//     gulp.series('styles');
-//     gulp.series('js-templates');
-//     gulp.series('js-compiled');
-//     gulp.series('copy-images');
-//     gulp.series('copy-assets');
-//     gulp.series('svgsprites');
-//     gulp.series('php');
-//     gulp.series('acf-json');
-//     gulp.series('copy-muplugins');
-// }));
-
 gulp.task('release', gulp.series('env-prod', 
     gulp.parallel(
         'styles',
@@ -281,6 +277,7 @@ gulp.task('release', gulp.series('env-prod',
         'js-compiled',
         'copy-images',
         'copy-assets',
+        'copy-config-files',
         'svgsprites',
         'php',
         'acf-json',
