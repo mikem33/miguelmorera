@@ -48,7 +48,6 @@
                         'depth'           => 0,
                     ); ?>
                     <?php echo strip_tags(wp_nav_menu( $menuParameters ), '<nav>,<a>' ); ?>
-                    <?php if ( function_exists( 'the_msls' ) ) the_msls(); ?>
                 </div> <!--  /.content -->
                 <p class="nav__colophon">&copy; 2010 - <?php echo date('Y'); ?> Miguel Morera</p>
             </div> <!--  /.nav .section .space -->
