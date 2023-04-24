@@ -5,8 +5,6 @@
 
     include('page-data.php');
     $page_header_stuff = get_field('page_header_stuff', $page_id);
-    $post_lang = get_field('post_language', $page_id);
-    $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':'');
 ?>
 <header class="page__header <?php echo $additional_header_classes; ?>" data-bg-color="<?php echo $page_bg_color; ?>" data-type="<?php echo $page_header_type; ?>" data-scroll>
     <div class="content">

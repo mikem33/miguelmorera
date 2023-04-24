@@ -25,15 +25,7 @@
                     <?php pr_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
-            <?php 
-                if (get_current_blog_id() == 1) {
-                    $post_lang = get_field('post_language', get_the_ID());
-                } else {
-                    $post_lang = 'both';
-                }
-                $lang = ($post_lang != 'both' ? ' data-lang="'.$post_lang.'"':'');
-            ?>
-            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','prometheus'); ?> <?php the_title_attribute(); ?>"<?php echo $lang; ?>><?php the_title(); ?></a></h2>
+            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','prometheus'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             <div class="meta">
                 <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
                 <span class="reading-time"><?php echo reading_time(); ?></span>
