@@ -8,7 +8,7 @@
                 </div> <!--  /.footer__logo -->
                 <?php 
                     $args = array(
-                        'menu'            => 2,
+                        'menu'            => 15,
                         'container'       => 'nav',
                         'container_class' => 'footer__nav',
                         'echo'            => false,
@@ -22,8 +22,8 @@
                         <?php while( has_sub_field( 'network', 'option' ) ) : ?>
                             <a href="<?php the_sub_field( 'network_url' ); ?>" title="<?php the_sub_field( 'network_slug' ); ?>" class="<?php the_sub_field( 'network_slug' ); ?>" target="_blank" rel="noopener"><svg><use xlink:href="#ico-<?php the_sub_field( 'network_slug' ); ?>" /></svg></a>
                         <?php endwhile; ?>
-                    <?php endif; ?>
-                </div> <!--  /.footer__social-networks -->
+                    </div> <!--  /.footer__social-networks -->
+                <?php endif; ?>
                 <div class="colophon">
                     <p>&copy; 2010 - <?php echo date('Y'); ?> Miguel Morera</p>
                 </div> <!--  /.colophon -->
