@@ -8,7 +8,7 @@
                 </div> <!--  /.footer__logo -->
                 <?php 
                     $args = array(
-                        'menu'            => 2,
+                        'menu'            => 15,
                         'container'       => 'nav',
                         'container_class' => 'footer__nav',
                         'echo'            => false,
