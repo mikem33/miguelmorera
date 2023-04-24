@@ -2,18 +2,18 @@
     $post_type = get_post_type();
     switch ($post_type) {
         case 'mm_work':
-            $slug = get_current_blog_id() == 1 ? 'works':'trabajos';
+            $slug = 'trabajos';
             $page_parent_id = get_page_id_by_slug($slug);
             break;
         case 'mm_comic':
             $page_parent_id = get_page_id_by_slug('comics');
             break;
         case 'mm_dev_post':
-            $slug = get_current_blog_id() == 1 ? 'development-blog':'blog-desarrollo';
+            $slug = 'blog-desarrollo';
             $page_parent_id = get_page_id_by_slug($slug);
             break;
         case 'mm_diary':
-            $slug = get_current_blog_id() == 1 ? 'diary':'diario';
+            $slug = 'diario';
             $page_parent_id = get_page_id_by_slug($slug);
             break;
         default:
