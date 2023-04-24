@@ -15,8 +15,7 @@ Author URI: https://www.miguelmorera.com/
 
 if ( !post_type_exists('mm_work') ) {
     function register_mm_work_type() {
-        $current_site = get_current_blog_id();
-        $slug = $current_site == 1 ? 'works':'trabajos';
+        $slug = 'trabajos';
         $label_singular = __( 'Work', 'miguelmorera' );
         $label_plural   = __( 'Works', 'miguelmorera' );
         register_post_type(
@@ -139,8 +138,7 @@ if ( !post_type_exists('mm_comic') ) {
 
 if ( !post_type_exists('mm_dev_post') ) {
     function register_mm_dev_post_type() {
-        $current_site = get_current_blog_id();
-        $slug = $current_site == 1 ? 'development-blog':'blog-desarrollo';
+        $slug = 'blog-desarrollo';
         $label_singular = __( 'Dev Post', 'miguelmorera' );
         $label_plural   = __( 'Dev Posts', 'miguelmorera' );
         register_post_type(
@@ -201,7 +199,7 @@ if ( !post_type_exists('mm_dev_post') ) {
                 'show_in_rest'      => true,
                 'hierarchical'      => true,
                 'rewrite'           => array(
-                    'slug' => 'dev-post-category',
+                    'slug' => 'categoria-posts-desarrollo',
                     'with_front' => false
                 ),
             )
@@ -212,8 +210,7 @@ if ( !post_type_exists('mm_dev_post') ) {
 
 if ( !post_type_exists('mm_diary') ) {
     function register_mm_diary_type() {
-        $current_site = get_current_blog_id();
-        $slug = $current_site == 1 ? 'diary':'diario';
+        $slug = 'diario';
         $label_singular = __( 'Diary', 'miguelmorera' );
         $label_plural   = __( 'Diaries', 'miguelmorera' );
         register_post_type(
