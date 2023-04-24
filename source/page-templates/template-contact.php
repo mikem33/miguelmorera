@@ -13,7 +13,6 @@
         <div class="content">
             <div class="wrapper">
                 <?php the_content(); ?>
-                <?php echo do_shortcode('[contact-form-7 id="286" title="Contact form" html_class="mm__form"]'); ?>
             </div> <!--  /.wrapper -->
         </div> <!--  /.content -->
     </section> <!--  /.works__list -->
