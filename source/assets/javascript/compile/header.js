@@ -27,7 +27,7 @@ jQuery(document).ready(function($) {
             $(this).toggleClass('animated fadeInUp delay-' + i + '00-ms');
             i++;
         });
-        $('.nav__colophon').toggleClass('animated fadeInUp delay-' + (i++) + '00-ms')
+        $('.nav__colophon').toggleClass('animated fadeInUp delay-' + (i++) + '00-ms');
     });
 
 });
