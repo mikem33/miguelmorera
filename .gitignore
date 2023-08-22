@@ -3,6 +3,7 @@
 /content/plugins
 /content/debug.log
 /node_modules
+/projects
 /private
 /shared
 /dist
