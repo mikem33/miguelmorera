@@ -211,21 +211,31 @@
     }
 
     /**
-     * Google Analytics.
+     * Head GTM // Google Analytics.
      */
-    function pr_google_analytics() { ?>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMHB9H4R0C"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    add_action( 'wp_head', 'pr_google_analytics_head', 10 );
+    
+    function pr_google_analytics_head() { ?>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P8T9PTJ3');</script>
+        <!-- End Google Tag Manager -->
+    <?php }  
 
-        gtag('config', 'G-HMHB9H4R0C');
-        </script>
+    /**
+     * Body GTM // Google Analytics.
+     */
+    add_action( 'wp_body_open', 'pr_google_analytics_body' );
+    
+    function pr_google_analytics_body() { ?>
+       <!-- Google Tag Manager (noscript) -->
+       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8T9PTJ3"
+       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+       <!-- End Google Tag Manager (noscript) -->
     <?php }
-  
-    add_action( 'wp_head', 'pr_google_analytics', 10 );
 
     /**
      * Get Page ID by Slug.

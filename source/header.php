@@ -24,6 +24,11 @@
         <?php endif; ?>
     </head>
     <body <?php body_class(); ?>>
+        <?php
+            if ( function_exists( 'wp_body_open' ) ) {
+                wp_body_open();
+            }
+        ?>
         <header class="header flex" data-header-type="<?php echo $page_header_type; ?>">
             <?php $hide_item = (is_front_page() ? ' hide-item':''); ?>
             <a href="<?php echo home_url(); ?>" class="logo<?php echo $hide_item; ?>" title="Miguel Morera" aria-label="Miguel Morera">
