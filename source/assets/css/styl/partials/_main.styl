@@ -211,6 +211,8 @@ body
         max-width 960px
     a
         text-decoration underline
+    p + .wp-block-heading
+        margin-top clamp(2.2rem, 3vh, var(--section))
     .wp-block-quote
         width 90%
         margin 0 auto 2em
@@ -553,7 +555,6 @@ code
             .commentslist__header .title
                 fontSize(40)
         .beta, h2
-            margin-top 1.5em
             fontSizeLine(35, 40)
         .gamma, h3
             fontSizeLine(28, 32)
@@ -597,10 +598,6 @@ code
     .page__header--hero
         .meta
             margin-bottom 30px
-    
-    .post
-        .beta, h2
-            margin-top 1em
 
     .item
         margin-bottom 2em
@@ -748,9 +745,7 @@ code
                 fontSizeLine(18, 26)
             &::before
                 top -45px
-                left -10px
-        .wp-block-pullquote
-            
+                left -10px            
         &__main-image
             margin-bottom 1.5rem
 

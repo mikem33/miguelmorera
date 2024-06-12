@@ -10,5 +10,6 @@
 /wp
 /*.sql
 /.nova
+package-lock.json
 .htaccess
 .DS_Store

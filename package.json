@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/core": "^7.4.5",
     "gulp-babel": "^8.0.0",
-    "gulp-modernizr": "^3.1.0",
+    "gulp-modernizr": "^5.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-sourcemaps": "^2.6.4",
     "jquery": "^3.0.0",
@@ -26,16 +26,16 @@
     "@babel/preset-env": "^7.6.0",
     "animate.css": "^3.7.2",
     "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-checktextdomain": "^2.1.1",
     "gulp-concat": "^2.6.1",
-    "gulp-notify": "^3.2.0",
+    "gulp-notify": "^0.4.1",
     "gulp-real-favicon": "^0.3.2",
     "gulp-rename": "^1.4.0",
     "gulp-stylus": "^2.5.0",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
+    "gulp-util": "^1.0.0",
     "merge-stream": "^2.0.0",
     "nib": "^1.1.2"
   }
