@@ -53,7 +53,7 @@
             $image .= ( $thumbnail ? $thumbnail . ' 960w' : '' );
             $image .= ( $thumbnail_medium && $thumbnail_little ?  '"' : '' ); // close srcset
             $image .= ( $class ? ' class="' . esc_attr($class) . '"' : '' );
-            $image .= ' sizes="auto" alt="' . get_the_title($post_id) . '" />';
+            $image .= ' sizes="500px" alt="' . get_the_title($post_id) . '" />';
         } else {
             $thumbnail = get_stylesheet_directory_uri().'/assets/images/default-thumbnail.jpg';
             $image = '<img src="' . $thumbnail . '" alt="' . get_the_title($post_id) . '" />';
