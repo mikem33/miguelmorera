@@ -2,7 +2,7 @@
         <footer class="footer space">
             <div class="wrapper">
                 <div class="footer__logo">
-                    <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Go to Home','prometheus' ); ?>" aria-label="<?php _e('Go to Home','prometheus'); ?>">
+                    <a href="<?php echo home_url(); ?>" class="logo--footer" title="<?php _e( 'Ir a la página inicial','prometheus' ); ?>" aria-label="<?php _e('Ir a la página inicial','prometheus'); ?>">
                         <svg><use xlink:href="#logo" /></svg>
                     </a>
                 </div> <!--  /.footer__logo -->

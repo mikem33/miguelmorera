@@ -25,7 +25,7 @@
                     <?php pr_post_thumbnail(get_the_ID()); ?>
                 </a>
             </figure>
-            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent link to','prometheus'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <h2 class="title beta"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Enlace permanente a','prometheus'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             <div class="meta">
                 <time datetime="<?php echo date(DATE_W3C); ?>" pubdate><?php the_time('j M, Y') ?></time>
                 <span class="reading-time"><?php echo reading_time(); ?></span>
@@ -39,7 +39,7 @@
             </div><!-- .post-content -->
             <a href="<?php the_permalink(); ?>" class="item__link">
                 <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                <span><?php _e( 'Continue reading', 'prometheus' ); ?></span>
+                <span><?php _e( 'Continuar leyendo', 'prometheus' ); ?></span>
             </a>
         </article><!-- .dev-post dev-post--item item -->
     <?php endwhile; ?>

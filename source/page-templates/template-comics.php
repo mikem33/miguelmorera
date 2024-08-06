@@ -52,7 +52,7 @@
                 </div> <!--  /.content -->
                 <a href="<?php the_permalink(); ?>" class="item__link">
                     <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                    <span><?php _e('Read comic', 'prometheus'); ?></span>
+                    <span><?php _e('Leer cómic', 'prometheus'); ?></span>
                 </a>
             </article> <!--  /.comic comic--item item -->
         <?php endwhile; ?>

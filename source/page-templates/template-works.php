@@ -33,7 +33,7 @@
                 </figure>
                 <a href="<?php the_permalink(); ?>" class="item__link">
                     <svg width="7" height="12" class="ico"><use xlink:href="#ico-chevron" /></svg>
-                    <span><?php _e( 'See work', 'prometheus' ); ?></span>
+                    <span><?php _e( 'Ver trabajo', 'prometheus' ); ?></span>
                 </a>
             </article> <!--  /.work .work--item -->
         <?php endwhile; ?>

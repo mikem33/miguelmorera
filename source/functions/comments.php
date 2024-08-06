@@ -28,7 +28,7 @@
         $output .= '</div><!-- /.avatar -->';
         $output .= '<div class="comment__meta">';
         $output .= '<h4 class="title beta">'.get_comment_author_link().'</h4>';
-        $comment_timestamp = sprintf( __( '%1$s at %2$s', 'prometheus' ), get_comment_date( '', $comment ), get_comment_time() );
+        $comment_timestamp = sprintf( __( '%1$s a las %2$s', 'prometheus' ), get_comment_date( '', $comment ), get_comment_time() );
         $output .= '<a href="'.esc_url( get_comment_link( $comment, $args ) ).'">';
         $output .= '<time datetime="'.get_comment_time('c').'" title="'.$comment_timestamp.'">';
         $output .= $comment_timestamp;
@@ -42,7 +42,7 @@
         $output .= '</div><!-- /.comment__content -->';
         remove_filter('get_comment_text','wpautop');
         if ($comment->comment_approved == '0') {
-            $output .= '<p class="moderation">'.__('Your comment is awaiting moderation.','prometheus').'</p>';
+            $output .= '<p class="moderation">'.__('Tu comentario está a la espera de moderación.','prometheus').'</p>';
         }
         $output .= '<div class="comment__reply">';
         $output .= get_comment_reply_link(
