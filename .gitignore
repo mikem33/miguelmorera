@@ -1,5 +1,7 @@
 /content/upgrade/
 /content/plugins/
+/content/languages
+/content/themes/twenty*
 /content/debug.log
 /projects
 /private
