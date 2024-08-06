@@ -1,6 +1,8 @@
-/content/upgrade/
+/content/upgrade
 /content/themes
 /content/plugins
+/content/languages
+/content/themes/twenty*
 /content/debug.log
 /node_modules
 /projects
