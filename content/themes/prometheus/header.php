@@ -34,8 +34,8 @@
             <a href="<?php echo home_url(); ?>" class="logo<?php echo $hide_item; ?>" title="Miguel Morera" aria-label="Miguel Morera">
                 <svg><use xlink:href="#logo" /></svg>
             </a>
-            <button class="toggle-nav<?php echo $hide_item; ?>" data-alt-text="<?php _e('Close','prometheus'); ?>">
-                <span class="text"><?php _e('Menu','prometheus'); ?></span>
+            <button class="toggle-nav<?php echo $hide_item; ?>" data-alt-text="<?php _e('Cerrar','prometheus'); ?>">
+                <span class="text"><?php _e('Menú','prometheus'); ?></span>
                 <span class="toggle-nav__hamburger">
                     <span></span>
                 </span>
