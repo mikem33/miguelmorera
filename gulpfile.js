@@ -50,7 +50,7 @@ gulp.task('copy-assets', function(done) {
     var copyFonts = gulp.src(fonts).pipe(newer(build + 'assets/fonts')).pipe(gulp.dest(build + 'assets/fonts'));
     var copyLanguageFiles = gulp.src(languageFiles).pipe(gulp.dest(build + 'languages'));
     var copyScreenshot = gulp.src(screenshot).pipe(newer(build)).pipe(gulp.dest(build));
-    var copyFavicons = gulp.src([favicons, '!source/assets/images/favicons/master-picture.png']).pipe(newer(build + 'assets/images/favicons')).pipe(gulp.dest(build + 'assets/images/favicons'));
+    var copyFavicons = gulp.src(favicons, { encoding: false }).pipe(newer(build + 'assets/images/favicons')).pipe(gulp.dest(build + 'assets/images/favicons'));
     return merge(copyScreenshot, copyFavicons);
     done();
 });
@@ -198,71 +198,6 @@ gulp.task('checktextdomain', function() {
         force: true,
         correct_domain: true
     }));
-});
-
-gulp.task('generate-favicon', function(done) {
-    // File where the favicon markups are stored (unnecessary but I don't know how to avoid its generation).
-    var FAVICON_DATA_FILE = 'source/assets/images/favicons/faviconData.json';
-    realFavicon.generateFavicon({
-        masterPicture: 'source/assets/images/favicons/master-picture.png',
-        dest: 'source/assets/images/favicons',
-        iconsPath: 'source/assets/images/favicons/',
-        design: {
-            ios: {
-                pictureAspect: 'noChange',
-                assets: {
-                    ios6AndPriorIcons: false,
-                    ios7AndLaterIcons: false,
-                    precomposedIcons: false,
-                    declareOnlyDefaultIcon: true
-                }
-            },
-            desktopBrowser: {},
-            windows: {
-                pictureAspect: 'noChange',
-                backgroundColor: '#2b5797',
-                onConflict: 'override',
-                assets: {
-                    windows80Ie10Tile: false,
-                    windows10Ie11EdgeTiles: {
-                        small: false,
-                        medium: true,
-                        big: false,
-                        rectangle: false
-                    }
-                }
-            },
-            androidChrome: {
-                pictureAspect: 'noChange',
-                themeColor: '#ffffff',
-                manifest: {
-                    display: 'standalone',
-                    orientation: 'notSet',
-                    onConflict: 'override',
-                    declared: true
-                },
-                assets: {
-                    legacyIcon: false,
-                    lowResolutionIcons: false
-                }
-            },
-            safariPinnedTab: {
-                pictureAspect: 'blackAndWhite',
-                threshold: 50,
-                themeColor: '#5bbad5'
-            }
-        },
-        settings: {
-            scalingAlgorithm: 'Mitchell',
-            errorOnImageTooSmall: false,
-            readmeFile: false,
-            htmlCodeFile: false,
-            usePathAsIs: false
-        },
-        markupFile: FAVICON_DATA_FILE
-    }, function() {
-        done();
-    });
 });
 
 gulp.task('env-prod', function(done) {
